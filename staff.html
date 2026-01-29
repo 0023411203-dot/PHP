@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T-HEX Dashboard</title>
+    <link rel="stylesheet" href="staff.css">
+</head>
+<body>
+    
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <!-- Logo -->
+            <div class="logo-section">
+                <div class="logo-image">
+                    <img src="./anh/logo.png" alt="T-HEX Logo">
+                </div>
+                <div class="logo-text">
+                    <p class="company-name">T-HEX</p>
+                    <p class="company-subtitle">PC-WORLD</p>
+                </div>
+            </div>
+
+            <!-- Menu -->
+            <nav class="menu">
+                <button class="menu-item active">
+                    <img src="./anh/home.jpg" alt="">
+                    <span>Tổng quan</span>
+                </button>
+
+                <button class="menu-item">
+                    <img src="./anh/store.png" alt="">
+                    <span>Quản lý sản phẩm</span>
+                </button>
+
+                <button class="menu-item">
+                    <img src="./anh/delivery.png" alt="">
+                    <span>Quản lý đơn hàng</span>
+                </button>
+
+                <button class="menu-item">
+                    <img src="./anh/customer.png" alt="">
+                    <span>Quản lý khách hàng</span>
+                </button>
+
+                <button class="menu-item">
+                    <img src="./anh/analytics.png" alt="">
+                    <span>Quản lý hóa đơn</span>
+                </button>
+
+                <button class="menu-item">
+                    <img src="./anh/transaction.png" alt="">
+                    <span>Thông tin</span>
+                </button>
+            </nav>
+
+            <!-- Logout -->
+            <div class="logout-section">
+                <button class="menu-item">
+                    <img src="./anh/logout.png" alt="">
+                    <span>ĐĂNG XUẤT</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="search-container">
+                    <img src="./anh/find.jpg" alt="" class="search-icon">
+                    <input type="text" placeholder="Tìm kiếm" class="search-input">
+                </div>
+
+                <div class="user-profile">
+                    <div class="notification-icon">
+                        <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                        </svg>
+                        <span class="notification-badge"></span>
+                    </div>
+
+                    <div class="user-info">
+                        <div class="user-details">
+                            <p class="user-name">Xuân Phát</p>
+                            <p class="user-role">Staff</p>
+                        </div>
+                        <img src="./anh/avatar.jpg" alt="User Avatar" class="user-avatar">
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content Area -->
+            <div class="content-area">
+                <!-- Page Title -->
+                <div class="page-title">
+                    <h1>Tổng quan</h1>
+                    <p>Chào mừng bạn quay lại! Dưới đây là những thông tin cập nhật về của hàng của bạn hôm nay.</p>
+                </div>
+
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <div class="stat-info">
+                                <p class="stat-label">Tổng số sản phẩm</p>
+                                <p class="stat-value">4</p>
+                            </div>
+                            <img src="./anh/products.png" alt="" class="stat-icon">
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <div class="stat-info">
+                                <p class="stat-label">Tổng số đặt hàng</p>
+                                <p class="stat-value">1,429</p>
+                            </div>
+                            <img src="./anh/orders.png" alt="" class="stat-icon">
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <div class="stat-info">
+                                <p class="stat-label">Doanh thu</p>
+                                <p class="stat-value revenue">$94,567</p>
+                            </div>
+                            <img src="./anh/analytics.png" alt="" class="stat-icon">
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <div class="stat-info">
+                                <p class="stat-label">Khách hàng</p>
+                                <p class="stat-value">3,842</p>
+                            </div>
+                            <img src="./anh/customer.png" alt="" class="stat-icon">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts and Products Section -->
+                <div class="main-grid">
+                    <!-- Chart Section -->
+                    <div class="chart-section">
+                        <div class="section-header">
+                            <h3>Doanh thu & Đơn hàng</h3>
+                            <p>Thống kê theo tháng trong năm</p>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="revenueChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Top Products -->
+                    <div class="top-products">
+                        <div class="section-header">
+                            <h3>Sản phẩm bán chạy</h3>
+                            <p>Top 5 sản phẩm có doanh số cao nhất</p>
+                        </div>
+                        <div class="products-list">
+                            <div class="product-item">
+                                <div class="product-number">1</div>
+                                <div class="product-info">
+                                    <p class="product-name">iPhone 15 Pro</p>
+                                    <p class="product-sold">98 đơn hàng</p>
+                                </div>
+                                <div class="product-stats">
+                                    <p class="product-price">5.18 VNĐ</p>
+                                    <p class="product-change positive">+12%</p>
+                                </div>
+                            </div>
+
+                            <div class="product-item">
+                                <div class="product-number">2</div>
+                                <div class="product-info">
+                                    <p class="product-name">Samsung Gal...</p>
+                                    <p class="product-sold">87 đơn hàng</p>
+                                </div>
+                                <div class="product-stats">
+                                    <p class="product-price">4.88 VNĐ</p>
+                                    <p class="product-change negative">-8%</p>
+                                </div>
+                            </div>
+
+                            <div class="product-item">
+                                <div class="product-number">3</div>
+                                <div class="product-info">
+                                    <p class="product-name">Macbook Air</p>
+                                    <p class="product-sold">78 đơn hàng</p>
+                                </div>
+                                <div class="product-stats">
+                                    <p class="product-price">2.88 VNĐ</p>
+                                    <p class="product-change positive">+15%</p>
+                                </div>
+                            </div>
+
+                            <div class="product-item">
+                                <div class="product-number">4</div>
+                                <div class="product-info">
+                                    <p class="product-name">iPad Pro 11</p>
+                                    <p class="product-sold">67 đơn hàng</p>
+                                </div>
+                                <div class="product-stats">
+                                    <p class="product-price">1.78 VNĐ</p>
+                                    <p class="product-change negative">-9%</p>
+                                </div>
+                            </div>
+
+                            <div class="product-item">
+                                <div class="product-number">5</div>
+                                <div class="product-info">
+                                    <p class="product-name">AirPods Pro G...</p>
+                                    <p class="product-sold">56 đơn hàng</p>
+                                </div>
+                                <div class="product-stats">
+                                    <p class="product-price">1.48 VNĐ</p>
+                                    <p class="product-change positive">+20%</p>
+                                </div>
+                            </div>
+
+                            <button class="view-all-btn">Xem tất cả sản phẩm →</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Orders Table -->
+                <div class="orders-section">
+                    <div class="section-header">
+                        <h3>Đơn hàng gần đây</h3>
+                        <p>Danh sách 5 đơn hàng mới nhất</p>
+                    </div>
+                    <div class="table-container">
+                        <table class="orders-table">
+                            <thead>
+                                <tr>
+                                    <th>Mã đơn</th>
+                                    <th>Khách hàng</th>
+                                    <th>Sản phẩm</th>
+                                    <th>Giá trị</th>
+                                    <th>Trạng thái</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#DH001</td>
+                                    <td>Nguyễn Văn A</td>
+                                    <td>Laptop Dell XPS 13</td>
+                                    <td class="price">28,000,000 VNĐ</td>
+                                    <td><span class="status status-shipping">Đang giao</span></td>
+                                </tr>
+                                <tr>
+                                    <td>#DH002</td>
+                                    <td>Trần Thị B</td>
+                                    <td>iPhone 15 Pro Max</td>
+                                    <td class="price">32,990,000 VNĐ</td>
+                                    <td><span class="status status-completed">Hoàn thành</span></td>
+                                </tr>
+                                <tr>
+                                    <td>#DH003</td>
+                                    <td>Lê Văn C</td>
+                                    <td>Samsung Galaxy S24</td>
+                                    <td class="price">22,490,000 VNĐ</td>
+                                    <td><span class="status status-pending">Chờ xử lý</span></td>
+                                </tr>
+                                <tr>
+                                    <td>#DH004</td>
+                                    <td>Phạm Thị D</td>
+                                    <td>MacBook Air M3</td>
+                                    <td class="price">28,990,000 VNĐ</td>
+                                    <td><span class="status status-shipping">Đang giao</span></td>
+                                </tr>
+                                <tr>
+                                    <td>#DH005</td>
+                                    <td>Hoàng Văn E</td>
+                                    <td>iPad Pro 11 inch</td>
+                                    <td class="price">20,490,000 VNĐ</td>
+                                    <td><span class="status status-completed">Hoàn thành</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <button class="view-all-btn">Xem tất cả đơn hàng →</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
