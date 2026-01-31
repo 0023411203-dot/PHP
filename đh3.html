@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý đặt hàng - T-HEX</title>
+    <link rel="stylesheet" href="đh3.css"> 
+</head>
+<body>
+    
+    <div class="dashboard">
+        <aside class="sidebar">
+            <div class="logo-section">
+                <div class="logo-image">
+                    <img src="./image/logodn.png" alt="T-HEX Logo">
+                </div>
+                <div class="logo-text">
+                    <p class="company-name">T-HEX</p>
+                    <p class="company-subtitle">PC-WORLD</p>
+                </div>
+            </div>
+
+            <nav class="menu">
+                <button class="menu-item">
+                    <img src="./image/home.png" alt="">
+                    <span>Tổng quan</span>
+                </button>
+                <button class="menu-item">
+                    <img src="./image/store.png" alt="">
+                    <span>Quản lý sản phẩm</span>
+                </button>
+                <button class="menu-item active">
+                    <img src="./image/dathang.png" alt="">
+                    <span>Quản lý đặt hàng</span>
+                </button>
+                <button class="menu-item">
+                    <img src="./image/customer.png" alt="">
+                    <span>Quản lý khách hàng</span>
+                </button>
+                <button class="menu-item">
+                    <img src="./image/nhanvien.png" alt="">
+                    <span>Quản lý nhân viên</span>
+                </button>
+                <button class="menu-item">
+                    <img src="./image/transaction.png" alt="">
+                    <span>Thống kê</span>
+                </button>
+            </nav>
+
+            <div class="logout-section">
+                <button class="menu-item">
+                    <img src="./image/logout.png" alt="">
+                    <span>ĐĂNG XUẤT</span>
+                </button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="header">
+                <div class="search-container">
+                    <img src="./image/find.jpg" alt="Tìm kiếm" class="search-icon" width="20" height="20">
+                    <input type="text" placeholder="Tìm kiếm đơn hàng..." class="search-input">
+                </div>
+
+                <div class="user-profile">
+                    <div class="notification-icon">
+                        <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                        </svg>
+                        <span class="notification-badge"></span>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-details">
+                            <p class="user-name">Xuân Phát</p>
+                            <p class="user-role">Admin</p>
+                        </div>
+                        <img src="./image/avatar.jpg" alt="User Avatar" class="user-avatar">
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-area">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div style="background: #fff7ed; padding: 12px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
+                            <img src="./image/chuaxl.png" alt="Chưa giải quyết" width="32" height="32">
+                        </div>
+                        <p class="stat-label">Chưa giải quyết</p>
+                        <p class="stat-value" style="color: #d97706;">8</p> 
+                    </div>
+                    <div class="stat-card">
+                        <div style="background: #fefce8; padding: 12px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
+                            <img src="./image/hoatdong.png" alt="Xử lý" width="32" height="32">
+                        </div>
+                        <p class="stat-label">Xử lý</p>
+                        <p class="stat-value" style="color: #eab308;">4</p>
+                    </div>
+                    <div class="stat-card">
+                        <div style="background: #f0fdf4; padding: 12px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
+                            <img src="./image/hoanthanh.png" alt="Hoàn Thành" width="32" height="32">
+                        </div>
+                        <p class="stat-label">Hoàn Thành</p>
+                        <p class="stat-value text-green">2</p>
+                    </div>
+                    <div class="stat-card">
+                        <div style="background: #fef2f2; padding: 12px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
+                            <img src="./image/huy.png" alt="Đã hủy" width="32" height="32">
+                        </div>
+                        <p class="stat-label">Đã hủy</p>
+                        <p class="stat-value" style="color: #dc2626;">1</p>
+                    </div>
+                </div>
+
+                <div class="order-actions">
+                    <button class="btn-order-action btn-edit-order" id="openEditOrderBtn">
+                        <img src="./image/butsua.png" alt="Sửa" class="action-icon-btn">
+                        Sửa
+                    </button>
+                    <button class="btn-order-action btn-delete-order" id="openDeleteOrderBtn">
+                        <img src="./image/thungrac.png" alt="Xóa" class="action-icon-btn">
+                        Xóa
+                    </button>
+                </div>
+
+                <div class="product-table-container">
+                    <div class="order-header-blue">
+                        Đơn đặt hàng gần đây
+                    </div>
+                    <table class="product-table">
+                        <thead>
+                            <tr>
+                                <th>ID đơn hàng</th>
+                                <th>Khách hàng</th>
+                                <th>Đơn hàng</th>
+                                <th>Giá bán</th>
+                                <th>Số lượng</th>
+                                <th>Ngày mua</th>
+                                <th>Tinh trạng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="order-id-text">#ORD-1001</td>
+                                <td>Xuân Phát</td>
+                                <td>Wireless Gaming Mouse</td>
+                                <td>500.000đ</td>
+                                <td>1</td>
+                                <td>1/10/2024</td>
+                                <td><span class="badge-stock">Hoàn thành</span></td>
+                            </tr>
+
+                            <tr>
+                                <td class="order-id-text">#ORD-1002</td>
+                                <td>Thanh Hoài</td>
+                                <td>Mechanical Keyboard RGB</td>
+                                <td>5.500.000đ</td>
+                                <td>1</td>
+                                <td>21/11/2025</td>
+                                <td><span class="badge-pending">Xử lý</span></td>
+                            </tr>
+
+                            <tr>
+                                <td class="order-id-text">#ORD-1003</td>
+                                <td>Trung Hậu</td>
+                                <td>PC Gaming GVN Supernova</td>
+                                <td>72.500.000đ</td>
+                                <td>1</td>
+                                <td>05/09/2025</td>
+                                <td><span class="badge-pending">Xử lý</span></td>
+                            </tr>
+
+                            <tr>
+                                <td class="order-id-text">#ORD-1004</td>
+                                <td>Trung Kiên</td>
+                                <td>PC Gaming GVN Titan 14</td>
+                                <td>55.600.000đ</td>
+                                <td>1</td>
+                                <td>02/05/2025</td>
+                                <td><span class="badge-stock">Hoàn thành</span></td>
+                            </tr>
+
+                            <tr>
+                                <td class="order-id-text">#ORD-1004</td>
+                                <td>Đại Hải</td>
+                                <td>PC Gaming Supernova</td>
+                                <td>36.600.000đ</td>
+                                <td>2</td>
+                                <td>02/05/2025</td>
+                                <td><span class="badge-cancelled">Đã hủy</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="deleteOrderModal" class="modal-overlay" style="display: flex;">
+        <div class="modal-container" style="max-width: 400px; border-radius: 16px;"> 
+            <div class="modal-body" style="padding: 30px 24px; text-align: center;">
+                
+                <div class="delete-icon-box">
+                    <img src="./image/thungrac.png" alt="Cảnh báo xóa" style="width: 24px; height: 24px;">
+                </div>
+                
+                <h3 class="delete-title">Xác nhận xóa đơn hàng</h3>
+                
+                <p class="delete-text">
+                    Bạn có chắc chắn muốn xóa đơn hàng <span class="highlight-id">#ORD-1001</span>?<br>
+                    Hành động này không thể hoàn tác.
+                </p>
+
+                <div class="modal-footer center" style="border: none; padding: 0; margin-top: 24px;">
+                    <button class="btn-cancel close-delete-btn" style="flex: 1;">Hủy</button>
+                    <button class="btn-delete-confirm" style="flex: 1;">Xóa</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // --- XỬ LÝ JS CHO MODAL XÓA ---
+            const deleteModal = document.getElementById("deleteOrderModal");
+            const btnOpenDelete = document.getElementById("openDeleteOrderBtn");
+            const btnCloseDelete = document.querySelectorAll(".close-delete-btn");
+
+            // Khi click nút Xóa trên bảng
+            if (btnOpenDelete) {
+                btnOpenDelete.onclick = function() {
+                    deleteModal.style.display = "flex";
+                }
+            }
+            
+            // Khi click nút Hủy
+            btnCloseDelete.forEach(function(btn) {
+                btn.onclick = function() {
+                    deleteModal.style.display = "none";
+                }
+            });
+
+            // Khi click ra ngoài vùng trắng
+            window.onclick = function(event) {
+                if (event.target == deleteModal) {
+                    deleteModal.style.display = "none";
+                }
+            }
+        });
+    </script>
+</body>
+</html>

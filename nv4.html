@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý nhân viên - T-HEX</title>
+    <link rel="stylesheet" href="nv4.css"> 
+</head>
+<body>
+    
+    <div class="dashboard">
+        <aside class="sidebar">
+            <div class="logo-section">
+                <div class="logo-image">
+                    <img src="./image/logodn.png" alt="T-HEX Logo">
+                </div>
+                <div class="logo-text">
+                    <p class="company-name">T-HEX</p>
+                    <p class="company-subtitle">PC-WORLD</p>
+                </div>
+            </div>
+
+            <nav class="menu">
+                <button class="menu-item">
+                    <img src="./image/home.png" alt="">
+                    <span>Tổng quan</span>
+                </button>
+                <button class="menu-item">
+                    <img src="./image/store.png" alt="">
+                    <span>Quản lý sản phẩm</span>
+                </button>
+                <button class="menu-item">
+                    <img src="./image/dathang.png" alt="">
+                    <span>Quản lý đặt hàng</span>
+                </button>
+                <button class="menu-item">
+                    <img src="./image/customer.png" alt="">
+                    <span>Quản lý khách hàng</span>
+                </button>
+                
+                <button class="menu-item active">
+                    <img src="./image/nhanvien.png" alt="">
+                    <span>Quản lý nhân viên</span>
+                </button>
+
+                <button class="menu-item">
+                    <img src="./image/transaction.png" alt="">
+                    <span>Thống kê</span>
+                </button>
+            </nav>
+
+            <div class="logout-section">
+                <button class="menu-item">
+                    <img src="./image/logout.png" alt="">
+                    <span>ĐĂNG XUẤT</span>
+                </button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="header">
+                <div class="search-container">
+                    <img src="./image/find.jpg" alt="Tìm kiếm" class="search-icon" width="20" height="20">
+                    <input type="text" placeholder="Tìm kiếm nhân viên..." class="search-input">
+                </div>
+
+                <div class="user-profile">
+                    <div class="notification-icon">
+                        <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                        </svg>
+                        <span class="notification-badge"></span>
+                    </div>
+
+                    <div class="user-info">
+                        <div class="user-details">
+                            <p class="user-name">Xuân Phát</p>
+                            <p class="user-role">Admin</p>
+                        </div>
+                        <img src="./image/avatar.jpg" alt="User Avatar" class="user-avatar">
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-area">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon-wrapper">
+                            <img src="./image/tongnv.png" alt="" class="stat-icon-img"> 
+                        </div>
+                        <p class="stat-label">Tổng nhân viên</p>
+                        <p style="font-size: 11px; color: #666; margin-bottom: 4px;">+3 so với tháng trước</p>
+                        <p class="stat-value text-blue">15</p> 
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon-wrapper">
+                            <img src="./image/hoatdong.png" alt="" class="stat-icon-img">
+                        </div>
+                        <p class="stat-label">Đang hoạt động</p>
+                        <p class="stat-value text-green">13</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon-wrapper">
+                            <img src="./image/nhanvien.png" alt="" class="stat-icon-img">
+                        </div>
+                        <p class="stat-label">Nhân viên mới</p>
+                        <p style="font-size: 11px; color: #666; margin-bottom: 4px;">Trong 30 ngày</p>
+                        <p class="stat-value text-green">4</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon-wrapper">
+                            <img src="./image/tamnghi.png" alt="" class="stat-icon-img">
+                        </div>
+                        <p class="stat-label">Tạm nghỉ</p>
+                        <p style="font-size: 11px; color: #666; margin-bottom: 4px;">Cần kiểm tra</p>
+                        <p class="stat-value text-red">2</p>
+                    </div>
+                </div>
+
+                <div class="action-bar" style="gap: 15px;">
+                    <button class="btn-action btn-add">
+                        <img src="./image/nutthem.png" alt="Thêm" class="action-icon">
+                        Thêm
+                    </button>
+
+                    <button class="btn-action btn-edit">
+                        <img src="./image/butsua.png" alt="Sửa" class="action-icon">
+                        Sửa
+                    </button>
+                    
+                    <button class="btn-action btn-delete" id="openDeleteEmployeeBtn">
+                        <img src="./image/thungrac.png" alt="Xóa" class="action-icon">
+                        Xóa
+                    </button>
+                </div>
+
+                <div class="table-container">
+                    <div class="table-header-customer" style="background-color: #93C5FD;">
+                        Nhân viên
+                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID Nhân viên</th>
+                                <th>Tên nhân viên</th>
+                                <th>email</th>
+                                <th>Số điện thoại</th>
+                                <th>Giới tính</th>
+                                <th>Ngày lập</th>
+                                <th>Tình trạng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="col-id" style="color: #22C55E;">#NV01</td>
+                                <td class="font-bold">Xuân Phát</td>
+                                <td>Xuanphat123@gmail.com</td>
+                                <td class="font-bold">033863521</td>
+                                <td class="font-bold">Nam</td>
+                                <td>1/10/2024</td>
+                                <td><span class="badge badge-active">Hoạt động</span></td>
+                            </tr>
+                            <tr>
+                                <td class="col-id" style="color: #22C55E;">#NV02</td>
+                                <td class="font-bold">Thanh Hoài</td>
+                                <td>Thanhhoai123@gmail.com</td>
+                                <td class="font-bold">065973865</td>
+                                <td class="font-bold">Nữ</td>
+                                <td>21/11/2025</td>
+                                <td><span class="badge badge-new">Mới</span></td>
+                            </tr>
+                            <tr>
+                                <td class="col-id" style="color: #22C55E;">#NV03</td>
+                                <td class="font-bold">Trung Hậu</td>
+                                <td>Trunghau123@gmail.com</td>
+                                <td class="font-bold">032254995</td>
+                                <td class="font-bold">Nam</td>
+                                <td>05/09/2025</td>
+                                <td><span class="badge badge-new">Mới</span></td>
+                            </tr>
+                            <tr>
+                                <td class="col-id" style="color: #22C55E;">#NV04</td>
+                                <td class="font-bold">Trung Kiên</td>
+                                <td>TrungKien123@gmail.com</td>
+                                <td class="font-bold">069785655</td>
+                                <td class="font-bold">Nam</td>
+                                <td>02/05/2025</td>
+                                <td><span class="badge badge-active">Hoạt động</span></td>
+                            </tr>
+                            <tr>
+                                <td class="col-id" style="color: #22C55E;">#NV05</td>
+                                <td class="font-bold">Đại Hải</td>
+                                <td>Daihai123@gamil.com</td>
+                                <td class="font-bold">096464575</td>
+                                <td class="font-bold">Nam</td>
+                                <td>02/05/2025</td>
+                                <td><span class="badge badge-active">Hoạt động</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="deleteEmployeeModal" class="modal-overlay" style="display: flex;">
+        <div class="modal-container delete-modal-size"> 
+            <div class="modal-body delete-modal-body">
+                <div class="delete-icon-box">
+                    <img src="./image/thungrac.png" alt="Cảnh báo xóa" width="60" height="60">
+                </div>
+                
+                <h3 class="delete-title">Xác nhận xóa nhân viên</h3>
+                <p class="delete-text">
+                    Bạn có chắc chắn muốn xóa nhân viên <span class="highlight-id">#NV01</span>?<br>
+                    Hành động này không thể hoàn tác.
+                </p>
+
+                <div class="modal-footer center-footer">
+                    <button class="btn-cancel close-delete-btn">Hủy</button>
+                    <button class="btn-delete-confirm">Xóa nhân viên</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // --- XỬ LÝ MODAL XÓA ---
+            const deleteModal = document.getElementById("deleteEmployeeModal");
+            const btnOpenDelete = document.getElementById("openDeleteEmployeeBtn");
+            const btnCloseDelete = document.querySelectorAll(".close-delete-btn");
+
+            // Mở modal
+            if (btnOpenDelete) {
+                btnOpenDelete.onclick = () => deleteModal.style.display = "flex";
+            }
+            
+            // Đóng modal
+            btnCloseDelete.forEach(btn => {
+                btn.onclick = () => deleteModal.style.display = "none";
+            });
+
+            window.onclick = function(event) {
+                if (event.target == deleteModal) deleteModal.style.display = "none";
+            }
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

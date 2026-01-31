@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T-HEX Dashboard</title>
+    <link rel="stylesheet" href="tqadmin.css"> 
+</head>
+<body>
+    
+    <div class="dashboard">
+        <aside class="sidebar">
+            <div class="logo-section">
+                <div class="logo-image">
+                    <img src="./image/logodn.png" alt="T-HEX Logo">
+                </div>
+                <div class="logo-text">
+                    <p class="company-name">T-HEX</p>
+                    <p class="company-subtitle">PC-WORLD</p>
+                </div>
+            </div>
+
+            <nav class="menu">
+                <button class="menu-item active">
+                    <img src="./image/home.png" alt="">
+                    <span>Tổng quan</span>
+                </button>
+                <button class="menu-item">
+                    <img src="./image/store.png" alt="">
+                    <span>Quản lý sản phẩm</span>
+                </button>
+                <button class="menu-item">
+                    <img src="./image/dathang.png" alt="">
+                    <span>Quản lý đặt hàng</span>
+                </button>
+                <button class="menu-item">
+                    <img src="./image/customer.png" alt="">
+                    <span>Quản lý khách hàng</span>
+                </button>
+                <button class="menu-item">
+                    <img src="./image/nhanvien.png" alt="">
+                    <span>Quản lý nhân viên</span>
+                </button>
+                <button class="menu-item">
+                    <img src="./image/transaction.png" alt="">
+                    <span>Thống kê</span>
+                </button>
+            </nav>
+
+            <div class="logout-section">
+                <button class="menu-item">
+                    <img src="./image/logout.png" alt="">
+                    <span>ĐĂNG XUẤT</span>
+                </button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="header">
+                <div class="search-container">
+                    <img src="./image/find.jpg" alt="" class="search-icon">
+                    <input type="text" placeholder="Tìm kiếm" class="search-input">
+                </div>
+
+                <div class="user-profile">
+                    <div class="notification-icon">
+                        <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                        </svg>
+                        <span class="notification-badge"></span>
+                    </div>
+
+                    <div class="user-info">
+                        <div class="user-details">
+                            <p class="user-name">Xuân Phát</p>
+                            <p class="user-role">Admin</p>
+                        </div>
+                        <img src="./image/avatar.jpg" alt="User Avatar" class="user-avatar">
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-area">
+                <div class="page-title">
+                    <h1>Tổng quan</h1>
+                    <p>Chào mừng bạn quay lại! Dưới đây là những thông tin cập nhật về cửa hàng của bạn hôm nay.</p>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <img src="./image/store.png" alt="" class="stat-icon-img">
+                        <p class="stat-label">Tổng số sản phẩm</p>
+                        <p class="stat-value text-orange">4</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <img src="./image/dathang.png" alt="" class="stat-icon-img">
+                        <p class="stat-label">Tổng số đặt hàng</p>
+                        <p class="stat-value">1,429</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <img src="./image/doanhthu.png" alt="" class="stat-icon-img">
+                        <p class="stat-label">Doanh thu</p>
+                        <p class="stat-value text-green">$94,567</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <img src="./image/customer.png" alt="" class="stat-icon-img">
+                        <p class="stat-label">Khách hàng</p>
+                        <p class="stat-value text-green">3,842</p>
+                    </div>
+                </div>
+
+                <div class="dashboard-split">
+                    
+                    <div class="left-column">
+                        <div class="section-header-blue">
+                            Đơn đặt hàng gần đây
+                        </div>
+                        <div class="table-container">
+                            <table class="orders-table">
+                                <thead>
+                                    <tr>
+                                        <th>ID đơn hàng</th>
+                                        <th>Khách hàng</th>
+                                        <th>Đơn hàng</th>
+                                        <th>Giá bán</th>
+                                        <th>Tình trạng</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="order-id-text">#ORD-1001</td>
+                                        <td>Xuân Phát</td>
+                                        <td>Wireless Gaming Mouse</td>
+                                        <td>500.000đ</td>
+                                        <td><span class="badge bg-success">Hoàn thành</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="order-id-text">#ORD-1002</td>
+                                        <td>Thanh Hoài</td>
+                                        <td>Mechanical Keyboard RGB</td>
+                                        <td>5.500.000đ</td>
+                                        <td><span class="badge bg-warning">Xử lý</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="order-id-text">#ORD-1003</td>
+                                        <td>Trung Hậu</td>
+                                        <td>PC Gaming GVN Supernova</td>
+                                        <td>72.500.000đ</td>
+                                        <td><span class="badge bg-warning">Xử lý</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="order-id-text">#ORD-1004</td>
+                                        <td>Trung Kiên</td>
+                                        <td>PC Gaming GVN Titan 14</td>
+                                        <td>55.600.000đ</td>
+                                        <td><span class="badge bg-success">Hoàn thành</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="right-column">
+                        <div class="cat-header">
+                            <h3>Danh mục bán chạy</h3>
+                        </div>
+                        <div class="cat-list">
+                            <div class="cat-item">
+                                <div class="cat-info">
+                                    <span>PC Gaming</span>
+                                    <span>59%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 59%;"></div>
+                                </div>
+                            </div>
+                            <div class="cat-item">
+                                <div class="cat-info">
+                                    <span>PC Văn phòng</span>
+                                    <span>73%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 73%;"></div>
+                                </div>
+                            </div>
+                            <div class="cat-item">
+                                <div class="cat-info">
+                                    <span>Linh kiện</span>
+                                    <span>46%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 46%;"></div>
+                                </div>
+                            </div>
+                            <div class="cat-item">
+                                <div class="cat-info">
+                                    <span>Phụ kiện</span>
+                                    <span>60%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 60%;"></div>
+                                </div>
+                            </div>
+                            <div class="cat-item">
+                                <div class="cat-info">
+                                    <span>Khác</span>
+                                    <span>26%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill gray" style="width: 26%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

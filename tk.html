@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thống kê - T-HEX</title>
+    <link rel="stylesheet" href="tk.css"> 
+</head>
+<body>
+    
+    <div class="dashboard">
+        <aside class="sidebar">
+            <div class="logo-section">
+                <div class="logo-image">
+                    <img src="./image/logodn.png" alt="T-HEX Logo">
+                </div>
+                <div class="logo-text">
+                    <p class="company-name">T-HEX</p>
+                    <p class="company-subtitle">PC-WORLD</p>
+                </div>
+            </div>
+
+            <nav class="menu">
+                <button class="menu-item">
+                    <img src="./image/home.png" alt="">
+                    <span>Tổng quan</span>
+                </button>
+                <button class="menu-item">
+                    <img src="./image/store.png" alt="">
+                    <span>Quản lý sản phẩm</span>
+                </button>
+                <button class="menu-item">
+                    <img src="./image/dathang.png" alt="">
+                    <span>Quản lý đặt hàng</span>
+                </button>
+                <button class="menu-item">
+                    <img src="./image/customer.png" alt="">
+                    <span>Quản lý khách hàng</span>
+                </button>
+                <button class="menu-item">
+                    <img src="./image/nhanvien.png" alt="">
+                    <span>Quản lý nhân viên</span>
+                </button>
+                
+                <button class="menu-item active">
+                    <img src="./image/transaction.png" alt="">
+                    <span>Thống kê</span>
+                </button>
+            </nav>
+
+            <div class="logout-section">
+                <button class="menu-item">
+                    <img src="./image/logout.png" alt="">
+                    <span>ĐĂNG XUẤT</span>
+                </button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="header">
+                <div class="search-container">
+                    <img src="./image/find.jpg" alt="Tìm kiếm" class="search-icon" width="20" height="20">
+                    <input type="text" placeholder="Tìm kiếm dữ liệu..." class="search-input">
+                </div>
+
+                <div class="user-profile">
+                    <div class="notification-icon">
+                        <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                        </svg>
+                        <span class="notification-badge"></span>
+                    </div>
+
+                    <div class="user-info">
+                        <div class="user-details">
+                            <p class="user-name">Xuân Phát</p>
+                            <p class="user-role">Admin</p>
+                        </div>
+                        <img src="./image/avatar.jpg" alt="User Avatar" class="user-avatar">
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-area">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon-wrapper">
+                            <img src="./image/doanhthu.png" alt="" class="stat-icon-img">
+                        </div>
+                        <p class="stat-label">Doanh thu tháng</p>
+                        <p class="stat-value">16.563.600đ</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon-wrapper">
+                            <img src="./image/tongdon.png" alt="" class="stat-icon-img">
+                        </div>
+                        <p class="stat-label">Tổng đơn hàng</p>
+                        <p class="stat-value">136</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon-wrapper">
+                            <img src="./image/sanpham.png" alt="" class="stat-icon-img">
+                        </div>
+                        <p class="stat-label">Sản phẩm bán chạy</p>
+                        <p style="font-size: 11px; color: #999; margin-bottom: 2px;">Trong 30 ngày</p>
+                        <p class="stat-value" style="font-size: 16px;">Wireless Gaming Mouse</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon-wrapper">
+                            <img src="./image/tangtruong.png" alt="" class="stat-icon-img">
+                        </div>
+                        <p class="stat-label">Tăng trưởng</p>
+                        <p class="stat-value text-green">20.5% ↗</p>
+                    </div>
+                </div>
+
+                <div class="white-section">
+                    <div class="section-header">
+                        <div class="section-title-group">
+                            <h3>Biểu đồ doanh thu</h3>
+                            <p class="subtitle">Biến động doanh thu theo tháng (VND)</p>
+                        </div>
+                        <div class="year-toggle">
+                            <span class="year active">2024</span>
+                            <span class="year">2023</span>
+                        </div>
+                    </div>
+                    <div class="chart-wrapper">
+                        <canvas id="revenueChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="white-section mt-24">
+                    <div class="section-header">
+                        <h3>Top sản phẩm bán chạy</h3>
+                        <a href="#" class="view-all">Xem tất cả →</a>
+                    </div>
+                    
+                    <div class="table-container">
+                        <table class="top-product-table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 40%;">SẢN PHẨM</th>
+                                    <th style="width: 15%;">SỐ LƯỢNG</th>
+                                    <th style="width: 30%;">HIỆU SUẤT BÁN HÀNG</th>
+                                    <th style="width: 15%; text-align: right;">DOANH THU</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="product-info">
+                                            <img src="./image/pc.jpg" alt="PC" class="prod-img">
+                                            <div>
+                                                <p class="prod-name">Ultra Gaming PC</p>
+                                                <span class="prod-tag">PC GAMING</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td style="font-weight: 600;">124</td>
+                                    <td>
+                                        <div class="progress-wrapper">
+                                            <div class="progress-bg">
+                                                <div class="progress-fill blue" style="width: 85%;"></div>
+                                            </div>
+                                            <span class="progress-text">85%</span>
+                                        </div>
+                                    </td>
+                                    <td class="text-right font-bold">4.2B</td>
+                                </tr>
+                                </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Vẽ biểu đồ doanh thu
+        const ctx = document.getElementById('revenueChart').getContext('2d');
+        
+        // Tạo gradient màu xanh cho nền biểu đồ
+        let gradient = ctx.createLinearGradient(0, 0, 0, 400);
+        gradient.addColorStop(0, 'rgba(59, 130, 246, 0.2)'); // Màu xanh nhạt trên cùng
+        gradient.addColorStop(1, 'rgba(59, 130, 246, 0)');   // Trong suốt ở dưới
+
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'T8', 'T9', 'T10', 'T11', 'T12'],
+                datasets: [{
+                    label: 'Doanh thu',
+                    data: [12, 18, 22, 20, 28, 45, 55, 58, 62, 65, 58, 70], // Dữ liệu giả lập (đơn vị triệu/tỷ)
+                    borderColor: '#3B82F6', // Màu đường kẻ xanh dương
+                    backgroundColor: gradient,
+                    borderWidth: 3,
+                    tension: 0.4, // Tạo đường cong mềm mại
+                    pointBackgroundColor: '#fff',
+                    pointBorderColor: '#3B82F6',
+                    pointRadius: 4,
+                    pointHoverRadius: 6,
+                    fill: true // Tô màu nền dưới đường
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }, // Ẩn chú thích
+                    tooltip: {
+                        backgroundColor: '#1E293B',
+                        padding: 10,
+                        titleFont: { size: 13 },
+                        bodyFont: { size: 13 },
+                        displayColors: false,
+                        callbacks: {
+                            label: function(context) {
+                                return context.parsed.y + ' Tỷ VNĐ';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: { borderDash: [5, 5], color: '#F1F5F9' },
+                        ticks: { display: false } // Ẩn số trục Y cho giống ảnh
+                    },
+                    x: {
+                        grid: { display: false },
+                        ticks: { color: '#94A3B8', font: { size: 11 } }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

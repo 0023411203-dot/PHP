@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý khách hàng - T-HEX</title>
+    <link rel="stylesheet" href="kh2.css"> 
+</head>
+<body>
+    
+    <div class="dashboard">
+        <aside class="sidebar">
+            <div class="logo-section">
+                <div class="logo-image">
+                    <img src="./image/logodn.png" alt="T-HEX Logo">
+                </div>
+                <div class="logo-text">
+                    <p class="company-name">T-HEX</p>
+                    <p class="company-subtitle">PC-WORLD</p>
+                </div>
+            </div>
+
+            <nav class="menu">
+                <button class="menu-item">
+                    <img src="./image/home.png" alt="">
+                    <span>Tổng quan</span>
+                </button>
+                <button class="menu-item">
+                    <img src="./image/store.png" alt="">
+                    <span>Quản lý sản phẩm</span>
+                </button>
+                <button class="menu-item">
+                    <img src="./image/dathang.png" alt="">
+                    <span>Quản lý đặt hàng</span>
+                </button>
+                
+                <button class="menu-item active">
+                    <img src="./image/customer.png" alt="">
+                    <span>Quản lý khách hàng</span>
+                </button>
+
+                <button class="menu-item">
+                    <img src="./image/nhanvien.png" alt="">
+                    <span>Quản lý nhân viên</span>
+                </button>
+                <button class="menu-item">
+                    <img src="./image/transaction.png" alt="">
+                    <span>Thống kê</span>
+                </button>
+            </nav>
+
+            <div class="logout-section">
+                <button class="menu-item">
+                    <img src="./image/logout.png" alt="">
+                    <span>ĐĂNG XUẤT</span>
+                </button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="header">
+                <div class="search-container">
+                    <img src="./image/find.jpg" alt="Tìm kiếm" class="search-icon" width="20" height="20">
+                    <input type="text" placeholder="Tìm kiếm khách hàng..." class="search-input">
+                </div>
+
+                <div class="user-profile">
+                    <div class="notification-icon">
+                        <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                        </svg>
+                        <span class="notification-badge"></span>
+                    </div>
+
+                    <div class="user-info">
+                        <div class="user-details">
+                            <p class="user-name">Xuân Phát</p>
+                            <p class="user-role">Admin</p>
+                        </div>
+                        <img src="./image/avatar.jpg" alt="User Avatar" class="user-avatar">
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-area">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon-wrapper">
+                            <img src="./image/taikhoan.png" alt="" class="stat-icon-img"> 
+                        </div>
+                        <p class="stat-label">Tổng tài khoản</p>
+                        <p class="stat-value text-blue">200</p> 
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon-wrapper">
+                            <img src="./image/taikhoanhd.png" alt="" class="stat-icon-img">
+                        </div>
+                        <p class="stat-label">Tài khoản hoạt động</p>
+                        <p class="stat-value text-green">22</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon-wrapper">
+                            <img src="./image/danhgia.png" alt="" class="stat-icon-img">
+                        </div>
+                        <p class="stat-label">Đánh giá từ khách hàng</p>
+                        <p class="stat-value text-green">4.8 ⭐</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon-wrapper">
+                            <img src="./image/sanpham.png" alt="" class="stat-icon-img">
+                        </div>
+                        <p class="stat-label">Đơn hàng trong ngày</p>
+                        <p class="stat-value text-red">8</p>
+                    </div>
+                </div>
+
+                <div class="action-bar">
+                    <button class="btn-action btn-edit" id="openEditCustomerBtn">
+                        <img src="./image/butsua.png" alt="Sửa" class="action-icon">
+                        Sửa
+                    </button>
+                    <button class="btn-action btn-delete">
+                        <img src="./image/thungrac.png" alt="Xóa" class="action-icon">
+                        Xóa
+                    </button>
+                </div>
+
+                <div class="table-container">
+                    <div class="table-header-customer">
+                        Khách hàng thân thiết
+                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID khách hàng</th>
+                                <th>Tên khách</th>
+                                <th>email</th>
+                                <th>Số điện thoại</th>
+                                <th>Giới tính</th>
+                                <th>Ngày lập</th>
+                                <th>Tình trạng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="col-id">#KH01</td>
+                                <td class="font-bold">Xuân Phát</td>
+                                <td>Xuanphat123@gmail.com</td>
+                                <td class="font-bold">033863521</td>
+                                <td class="font-bold">Nam</td>
+                                <td>1/10/2024</td>
+                                <td><span class="badge badge-active">Hoạt động</span></td>
+                            </tr>
+                            <tr>
+                                <td class="col-id">#KH02</td>
+                                <td class="font-bold">Thanh Hoài</td>
+                                <td>Thanhhoai123@gmail.com</td>
+                                <td class="font-bold">065973865</td>
+                                <td class="font-bold">Nữ</td>
+                                <td>21/11/2025</td>
+                                <td><span class="badge badge-new">Mới</span></td>
+                            </tr>
+                            <tr>
+                                <td class="col-id">#KH03</td>
+                                <td class="font-bold">Trung Hậu</td>
+                                <td>Trunghau123@gmail.com</td>
+                                <td class="font-bold">032254995</td>
+                                <td class="font-bold">Nam</td>
+                                <td>05/09/2025</td>
+                                <td><span class="badge badge-new">Mới</span></td>
+                            </tr>
+                            <tr>
+                                <td class="col-id">#KH04</td>
+                                <td class="font-bold">Trung Kiên</td>
+                                <td>TrungKien123@gmail.com</td>
+                                <td class="font-bold">069785655</td>
+                                <td class="font-bold">Nam</td>
+                                <td>02/05/2025</td>
+                                <td><span class="badge badge-active">Hoạt động</span></td>
+                            </tr>
+                            <tr>
+                                <td class="col-id">#KH05</td>
+                                <td class="font-bold">Đại Hải</td>
+                                <td>Daihai123@gamil.com</td>
+                                <td class="font-bold">096464575</td>
+                                <td class="font-bold">Nam</td>
+                                <td>02/05/2025</td>
+                                <td><span class="badge badge-active">Hoạt động</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="editCustomerModal" class="modal-overlay" style="display: flex;">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3>Chỉnh sửa khách hàng</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+
+            <div class="modal-body">
+                
+                <div class="form-section">
+                    <div class="section-title">
+                        <span class="yellow-bar"></span> 
+                        <h4>Thông tin khách hàng</h4>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label>Tên khách hàng <span class="required">*</span></label>
+                            <input type="text" class="form-input" value="Nguyễn Văn An">
+                        </div>
+                        <div class="form-group half">
+                            <label>Số điện thoại <span class="required">*</span></label>
+                            <input type="text" class="form-input" value="0901234567">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" class="form-input" value="nva@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Địa chỉ giao hàng <span class="required">*</span></label>
+                        <input type="text" class="form-input" value="Nhập địa chỉ giao hàng">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Ghi chú</label>
+                    <textarea class="form-input" rows="3" placeholder="Nhập ghi chú (nếu có)"></textarea>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn-cancel" id="btnCancel">Hủy</button>
+                <button class="btn-submit-blue">Cập nhật khách hàng</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // --- XỬ LÝ JS CHO MODAL CHỈNH SỬA KHÁCH HÀNG ---
+            const modal = document.getElementById("editCustomerModal");
+            const btnOpen = document.getElementById("openEditCustomerBtn");
+            const btnClose = document.querySelector(".close-modal");
+            const btnCancel = document.getElementById("btnCancel");
+
+            // Mở modal khi bấm nút Sửa
+            if (btnOpen) {
+                btnOpen.addEventListener("click", function() {
+                    modal.style.display = "flex";
+                });
+            }
+
+            // Hàm đóng modal
+            function closeModal() {
+                modal.style.display = "none";
+            }
+
+            if (btnClose) btnClose.addEventListener("click", closeModal);
+            if (btnCancel) btnCancel.addEventListener("click", closeModal);
+
+            // Đóng khi click ra ngoài
+            window.addEventListener("click", function(event) {
+                if (event.target == modal) {
+                    closeModal();
+                }
+            });
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
