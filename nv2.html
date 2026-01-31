@@ -60,7 +60,7 @@
         <main class="main-content">
             <header class="header">
                 <div class="search-container">
-                    <img src="./image/find.jpg" alt="Tìm kiếm" class="search-icon" width="20" height="20">
+                    <img src="./image/find.jpg" alt="Tìm kiếm" class="search-icon">
                     <input type="text" placeholder="Tìm kiếm nhân viên..." class="search-input">
                 </div>
 
@@ -89,7 +89,7 @@
                             <img src="./image/tongnv.png" alt="" class="stat-icon-img"> 
                         </div>
                         <p class="stat-label">Tổng nhân viên</p>
-                        <p style="font-size: 11px; color: #666; margin-bottom: 4px;">+3 so với tháng trước</p>
+                        <p class="stat-desc">+3 so với tháng trước</p>
                         <p class="stat-value text-blue">15</p> 
                     </div>
 
@@ -106,7 +106,7 @@
                             <img src="./image/nhanvien.png" alt="" class="stat-icon-img">
                         </div>
                         <p class="stat-label">Nhân viên mới</p>
-                        <p style="font-size: 11px; color: #666; margin-bottom: 4px;">Trong 30 ngày</p>
+                        <p class="stat-desc">Trong 30 ngày</p>
                         <p class="stat-value text-green">4</p>
                     </div>
 
@@ -115,12 +115,12 @@
                             <img src="./image/tamnghi.png" alt="" class="stat-icon-img">
                         </div>
                         <p class="stat-label">Tạm nghỉ</p>
-                        <p style="font-size: 11px; color: #666; margin-bottom: 4px;">Cần kiểm tra</p>
+                        <p class="stat-desc">Cần kiểm tra</p>
                         <p class="stat-value text-red">2</p>
                     </div>
                 </div>
 
-                <div class="action-bar" style="gap: 15px;">
+                <div class="action-bar">
                     <button class="btn-action btn-add" id="openAddEmployeeBtn">
                         <img src="./image/nutthem.png" alt="Thêm" class="action-icon">
                         Thêm
@@ -138,7 +138,7 @@
                 </div>
 
                 <div class="table-container">
-                    <div class="table-header-customer" style="background-color: #93C5FD;">
+                    <div class="table-header-customer">
                         Nhân viên
                     </div>
                     <table class="data-table">
@@ -146,7 +146,7 @@
                             <tr>
                                 <th>ID Nhân viên</th>
                                 <th>Tên nhân viên</th>
-                                <th>email</th>
+                                <th>Email</th>
                                 <th>Số điện thoại</th>
                                 <th>Giới tính</th>
                                 <th>Ngày lập</th>
@@ -155,7 +155,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td class="col-id" style="color: #22C55E;">#NV01</td>
+                                <td class="col-id">#NV01</td>
                                 <td class="font-bold">Xuân Phát</td>
                                 <td>Xuanphat123@gmail.com</td>
                                 <td class="font-bold">033863521</td>
@@ -164,7 +164,7 @@
                                 <td><span class="badge badge-active">Hoạt động</span></td>
                             </tr>
                             <tr>
-                                <td class="col-id" style="color: #22C55E;">#NV02</td>
+                                <td class="col-id">#NV02</td>
                                 <td class="font-bold">Thanh Hoài</td>
                                 <td>Thanhhoai123@gmail.com</td>
                                 <td class="font-bold">065973865</td>
@@ -173,7 +173,7 @@
                                 <td><span class="badge badge-new">Mới</span></td>
                             </tr>
                             <tr>
-                                <td class="col-id" style="color: #22C55E;">#NV03</td>
+                                <td class="col-id">#NV03</td>
                                 <td class="font-bold">Trung Hậu</td>
                                 <td>Trunghau123@gmail.com</td>
                                 <td class="font-bold">032254995</td>
@@ -182,7 +182,7 @@
                                 <td><span class="badge badge-new">Mới</span></td>
                             </tr>
                             <tr>
-                                <td class="col-id" style="color: #22C55E;">#NV04</td>
+                                <td class="col-id">#NV04</td>
                                 <td class="font-bold">Trung Kiên</td>
                                 <td>TrungKien123@gmail.com</td>
                                 <td class="font-bold">069785655</td>
@@ -191,7 +191,7 @@
                                 <td><span class="badge badge-active">Hoạt động</span></td>
                             </tr>
                             <tr>
-                                <td class="col-id" style="color: #22C55E;">#NV05</td>
+                                <td class="col-id">#NV05</td>
                                 <td class="font-bold">Đại Hải</td>
                                 <td>Daihai123@gamil.com</td>
                                 <td class="font-bold">096464575</td>
@@ -206,7 +206,7 @@
         </main>
     </div>
 
-    <div id="addEmployeeModal" class="modal-overlay" style="display: flex;">
+    <div id="addEmployeeModal" class="modal-overlay">
         <div class="modal-container">
             <div class="modal-header">
                 <h3>Thêm nhân viên</h3>
@@ -214,7 +214,6 @@
             </div>
 
             <div class="modal-body">
-                
                 <div class="form-section">
                     <div class="section-title">
                         <span class="yellow-bar"></span> 
@@ -264,21 +263,24 @@
             const btnCloseAdd = document.querySelector("#addEmployeeModal .close-modal");
             const btnCancelAdd = document.querySelector("#addEmployeeModal .close-add-btn");
 
-            // Mở khi click nút Thêm
+            // *** DÒNG CODE MỚI: TỰ ĐỘNG HIỆN MODAL KHI CHẠY ***
+            addModal.style.display = "flex";
+
+            // Vẫn giữ sự kiện mở khi click nút Thêm (để mở lại nếu lỡ tắt)
             if (btnOpenAdd) {
                 btnOpenAdd.onclick = () => addModal.style.display = "flex";
             }
-            // Đóng khi click X hoặc Hủy
+            
+            // Các nút đóng
             if (btnCloseAdd) btnCloseAdd.onclick = () => addModal.style.display = "none";
             if (btnCancelAdd) btnCancelAdd.onclick = () => addModal.style.display = "none";
 
-            // Đóng khi click ra ngoài
+            // Đóng khi click ra ngoài vùng modal
             window.onclick = function(event) {
                 if (event.target == addModal) addModal.style.display = "none";
             }
         });
     </script>
-
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
 </body>

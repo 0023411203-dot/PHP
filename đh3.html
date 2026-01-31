@@ -82,32 +82,32 @@
             <div class="content-area">
                 <div class="stats-grid">
                     <div class="stat-card">
-                        <div style="background: #fff7ed; padding: 12px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
+                        <div class="stat-icon-wrapper bg-orange-light">
                             <img src="./image/chuaxl.png" alt="Chưa giải quyết" width="32" height="32">
                         </div>
                         <p class="stat-label">Chưa giải quyết</p>
-                        <p class="stat-value" style="color: #d97706;">8</p> 
+                        <p class="stat-value text-orange">8</p> 
                     </div>
                     <div class="stat-card">
-                        <div style="background: #fefce8; padding: 12px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
+                        <div class="stat-icon-wrapper bg-yellow-light">
                             <img src="./image/hoatdong.png" alt="Xử lý" width="32" height="32">
                         </div>
                         <p class="stat-label">Xử lý</p>
-                        <p class="stat-value" style="color: #eab308;">4</p>
+                        <p class="stat-value text-yellow">4</p>
                     </div>
                     <div class="stat-card">
-                        <div style="background: #f0fdf4; padding: 12px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
+                        <div class="stat-icon-wrapper bg-green-light">
                             <img src="./image/hoanthanh.png" alt="Hoàn Thành" width="32" height="32">
                         </div>
                         <p class="stat-label">Hoàn Thành</p>
                         <p class="stat-value text-green">2</p>
                     </div>
                     <div class="stat-card">
-                        <div style="background: #fef2f2; padding: 12px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
+                        <div class="stat-icon-wrapper bg-red-light">
                             <img src="./image/huy.png" alt="Đã hủy" width="32" height="32">
                         </div>
                         <p class="stat-label">Đã hủy</p>
-                        <p class="stat-value" style="color: #dc2626;">1</p>
+                        <p class="stat-value text-red">1</p>
                     </div>
                 </div>
 
@@ -148,7 +148,6 @@
                                 <td>1/10/2024</td>
                                 <td><span class="badge-stock">Hoàn thành</span></td>
                             </tr>
-
                             <tr>
                                 <td class="order-id-text">#ORD-1002</td>
                                 <td>Thanh Hoài</td>
@@ -158,7 +157,6 @@
                                 <td>21/11/2025</td>
                                 <td><span class="badge-pending">Xử lý</span></td>
                             </tr>
-
                             <tr>
                                 <td class="order-id-text">#ORD-1003</td>
                                 <td>Trung Hậu</td>
@@ -168,7 +166,6 @@
                                 <td>05/09/2025</td>
                                 <td><span class="badge-pending">Xử lý</span></td>
                             </tr>
-
                             <tr>
                                 <td class="order-id-text">#ORD-1004</td>
                                 <td>Trung Kiên</td>
@@ -178,7 +175,6 @@
                                 <td>02/05/2025</td>
                                 <td><span class="badge-stock">Hoàn thành</span></td>
                             </tr>
-
                             <tr>
                                 <td class="order-id-text">#ORD-1004</td>
                                 <td>Đại Hải</td>
@@ -195,9 +191,9 @@
         </main>
     </div>
 
-    <div id="deleteOrderModal" class="modal-overlay" style="display: flex;">
-        <div class="modal-container" style="max-width: 400px; border-radius: 16px;"> 
-            <div class="modal-body" style="padding: 30px 24px; text-align: center;">
+    <div id="deleteOrderModal" class="modal-overlay">
+        <div class="modal-container small"> 
+            <div class="delete-modal-body">
                 
                 <div class="delete-icon-box">
                     <img src="./image/thungrac.png" alt="Cảnh báo xóa" style="width: 24px; height: 24px;">
@@ -210,9 +206,9 @@
                     Hành động này không thể hoàn tác.
                 </p>
 
-                <div class="modal-footer center" style="border: none; padding: 0; margin-top: 24px;">
-                    <button class="btn-cancel close-delete-btn" style="flex: 1;">Hủy</button>
-                    <button class="btn-delete-confirm" style="flex: 1;">Xóa</button>
+                <div class="modal-footer center">
+                    <button class="btn-cancel close-delete-btn btn-full-width">Hủy</button>
+                    <button class="btn-delete-confirm btn-full-width">Xóa</button>
                 </div>
             </div>
         </div>
@@ -224,6 +220,9 @@
             const deleteModal = document.getElementById("deleteOrderModal");
             const btnOpenDelete = document.getElementById("openDeleteOrderBtn");
             const btnCloseDelete = document.querySelectorAll(".close-delete-btn");
+
+            // Tự động mở Modal Xóa khi tải trang (Theo yêu cầu kiểm thử của bạn)
+            deleteModal.style.display = "flex"; 
 
             // Khi click nút Xóa trên bảng
             if (btnOpenDelete) {

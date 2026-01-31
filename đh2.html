@@ -81,32 +81,32 @@
             <div class="content-area">
                 <div class="stats-grid">
                     <div class="stat-card">
-                        <div style="background: #fff7ed; padding: 12px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
+                        <div class="stat-icon-wrapper bg-orange-light">
                             <img src="./image/chuaxl.png" alt="Chưa giải quyết" width="32" height="32">
                         </div>
                         <p class="stat-label">Chưa giải quyết</p>
-                        <p class="stat-value" style="color: #d97706;">8</p> 
+                        <p class="stat-value text-orange">8</p> 
                     </div>
                     <div class="stat-card">
-                        <div style="background: #fefce8; padding: 12px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
+                        <div class="stat-icon-wrapper bg-yellow-light">
                             <img src="./image/hoatdong.png" alt="Xử lý" width="32" height="32">
                         </div>
                         <p class="stat-label">Xử lý</p>
-                        <p class="stat-value" style="color: #eab308;">4</p>
+                        <p class="stat-value text-yellow">4</p>
                     </div>
                     <div class="stat-card">
-                        <div style="background: #f0fdf4; padding: 12px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
+                        <div class="stat-icon-wrapper bg-green-light">
                             <img src="./image/hoanthanh.png" alt="Hoàn Thành" width="32" height="32">
                         </div>
                         <p class="stat-label">Hoàn Thành</p>
                         <p class="stat-value text-green">2</p>
                     </div>
                     <div class="stat-card">
-                        <div style="background: #fef2f2; padding: 12px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
+                        <div class="stat-icon-wrapper bg-red-light">
                             <img src="./image/huy.png" alt="Đã hủy" width="32" height="32">
                         </div>
                         <p class="stat-label">Đã hủy</p>
-                        <p class="stat-value" style="color: #dc2626;">1</p>
+                        <p class="stat-value text-red">1</p>
                     </div>
                 </div>
 
@@ -190,7 +190,7 @@
         </main>
     </div>
 
-    <div id="editOrderModal" class="modal-overlay" style="display: flex;">
+    <div id="editOrderModal" class="modal-overlay">
         <div class="modal-container">
             <div class="modal-header">
                 <h3>Chỉnh sửa đơn hàng</h3>
@@ -225,12 +225,12 @@
                 </div>
 
                 <div class="form-section">
-                    <div class="section-title" style="justify-content: space-between;">
+                    <div class="section-title space-between">
                         <div style="display: flex; align-items: center; gap: 10px;">
                             <span class="yellow-bar"></span> 
                             <h4>Sản phẩm đặt hàng</h4>
                         </div>
-                        <span style="font-size: 12px; color: #ff8c00; cursor: pointer; font-weight: bold;">+ Thêm sản phẩm</span>
+                        <span class="add-product-btn-text">+ Thêm sản phẩm</span>
                     </div>
 
                     <div class="order-item-row">
@@ -317,7 +317,11 @@
             const btnClose = document.querySelector(".close-modal");
             const btnCancel = document.getElementById("btnCancel");
 
-            // Xử lý nút mở (nếu tắt đi rồi muốn mở lại)
+            // --- LỆNH NÀY GIÚP FORM TỰ HIỆN KHI CHẠY TRANG ---
+            modal.style.display = "flex"; 
+            // --------------------------------------------------
+
+            // Xử lý nút mở (nếu tắt đi muốn mở lại)
             if (btnOpen) {
                 btnOpen.addEventListener("click", function() {
                     modal.style.display = "flex";

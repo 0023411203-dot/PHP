@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quản lý nhân viên - T-HEX</title>
     <link rel="stylesheet" href="nv.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     
@@ -50,7 +51,7 @@
             </nav>
 
             <div class="logout-section">
-                <button class="menu-item">
+                <button class="menu-item logout-btn">
                     <img src="./image/logout.png" alt="">
                     <span>ĐĂNG XUẤT</span>
                 </button>
@@ -60,7 +61,7 @@
         <main class="main-content">
             <header class="header">
                 <div class="search-container">
-                    <img src="./image/find.jpg" alt="Tìm kiếm" class="search-icon" width="20" height="20">
+                    <img src="./image/find.jpg" alt="Tìm kiếm" class="search-icon">
                     <input type="text" placeholder="Tìm kiếm nhân viên..." class="search-input">
                 </div>
 
@@ -89,7 +90,7 @@
                             <img src="./image/tongnv.png" alt="" class="stat-icon-img"> 
                         </div>
                         <p class="stat-label">Tổng nhân viên</p>
-                        <p style="font-size: 11px; color: #666; margin-bottom: 4px;">+3 so với tháng trước</p>
+                        <p class="stat-desc">+3 so với tháng trước</p>
                         <p class="stat-value text-blue">15</p> 
                     </div>
 
@@ -106,7 +107,7 @@
                             <img src="./image/nhanvien.png" alt="" class="stat-icon-img">
                         </div>
                         <p class="stat-label">Nhân viên mới</p>
-                        <p style="font-size: 11px; color: #666; margin-bottom: 4px;">Trong 30 ngày</p>
+                        <p class="stat-desc">Trong 30 ngày</p>
                         <p class="stat-value text-green">4</p>
                     </div>
 
@@ -115,12 +116,12 @@
                             <img src="./image/tamnghi.png" alt="" class="stat-icon-img">
                         </div>
                         <p class="stat-label">Tạm nghỉ</p>
-                        <p style="font-size: 11px; color: #666; margin-bottom: 4px;">Cần kiểm tra</p>
+                        <p class="stat-desc">Cần kiểm tra</p>
                         <p class="stat-value text-red">2</p>
                     </div>
                 </div>
 
-                <div class="action-bar" style="gap: 15px;">
+                <div class="action-bar">
                     <button class="btn-action btn-add">
                         <img src="./image/nutthem.png" alt="Thêm" class="action-icon">
                         Thêm
@@ -146,7 +147,7 @@
                             <tr>
                                 <th>ID Nhân viên</th>
                                 <th>Tên nhân viên</th>
-                                <th>email</th>
+                                <th>Email</th>
                                 <th>Số điện thoại</th>
                                 <th>Giới tính</th>
                                 <th>Ngày lập</th>

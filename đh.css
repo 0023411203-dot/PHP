@@ -25,7 +25,7 @@ body {
 /* --- Sidebar --- */
 .sidebar {
     width: 270px;
-    background-color: #FFD83B;
+    background-color: #FFD83B; /* Màu vàng chủ đạo */
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
@@ -281,9 +281,6 @@ body {
     color: #333;
 }
 
-.text-orange { color: #ff9f43; }
-.text-green { color: #28a745; }
-
 /* =========================================
    5. DASHBOARD & TABLE STYLE
    ========================================= */
@@ -300,7 +297,7 @@ body {
 
 .orders-table th {
     background-color: #FAFAFA; 
-    color: #6B7280;            /* Tiêu đề cột màu xám nhạt */
+    color: #6B7280;
     font-weight: 700;
     padding: 16px 24px;
     text-align: left;
@@ -310,21 +307,18 @@ body {
     letter-spacing: 0.05em;
 }
 
-/* --- [CHỈNH SỬA] MÀU CHỮ NỘI DUNG --- */
 .orders-table td {
     padding: 16px 24px;
     border-bottom: 1px solid #F3F4F6;
     vertical-align: middle;
     font-size: 14px;
-    
-    /* Màu xám xanh chì #4B5563 (Giống ảnh Xuân Phát) */
-    color: #4B5563;  
-    font-weight: 600; /* Semi-bold */
+    color: #4B5563;
+    font-weight: 600;
 }
 
 /* Class riêng cho cột ID đơn hàng (#ORD) */
 .order-id-text {
-    color: #6B7280; /* Màu xám ghi, nhạt hơn nội dung chính */
+    color: #6B7280;
     font-weight: 700;
 }
 
@@ -385,9 +379,7 @@ body {
     border-collapse: collapse;
 }
 
-/* ----------------------------------------------------
-   BADGE STATUS (TRẠNG THÁI)
-   ---------------------------------------------------- */
+/* --- BADGE STATUS (TRẠNG THÁI) --- */
 .badge, .badge-stock, .badge-out, .badge-shipping, .badge-pending, .badge-cancelled {
     padding: 6px 16px;
     border-radius: 30px;
@@ -449,7 +441,7 @@ body {
     object-fit: contain;
 }
 
-/* Nút Sửa (Màu xám) */
+/* Nút Sửa */
 .btn-edit-order {
     background-color: white;
     border: 1px solid #d1d5db;
@@ -460,7 +452,7 @@ body {
     border-color: #9ca3af;
 }
 
-/* Nút Xóa (Màu đỏ) */
+/* Nút Xóa */
 .btn-delete-order {
     background-color: #fef2f2;
     border: 1px solid #fecaca;
@@ -570,3 +562,28 @@ body {
     .form-row { flex-direction: column; gap: 15px; }
     .form-group.half { width: 100%; }
 }
+
+/* =========================================
+   9. CÁC CLASS TIỆN ÍCH (Quan trọng)
+   (Thêm vào để tương thích với HTML đã tách)
+   ========================================= */
+.stat-icon-wrapper {
+    padding: 12px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+/* Màu nền icon */
+.bg-orange-light { background: #fff7ed; }
+.bg-yellow-light { background: #fefce8; }
+.bg-green-light { background: #f0fdf4; }
+.bg-red-light { background: #fef2f2; }
+
+/* Màu chữ thống kê */
+.text-orange { color: #d97706; }
+.text-yellow { color: #eab308; }
+.text-red { color: #dc2626; }
+.text-green { color: #10b981; }

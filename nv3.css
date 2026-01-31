@@ -95,6 +95,14 @@ body { font-family: 'Segoe UI', 'Arial', sans-serif; background-color: #F9FAFB; 
 .stat-icon-wrapper { margin-bottom: 12px; }
 .stat-icon-img { width: 42px; height: 42px; object-fit: contain; }
 .stat-label { color: #4B5563; font-size: 13px; font-weight: 600; margin-bottom: 4px; }
+
+/* [QUAN TRỌNG] Đã thêm class này để sửa lỗi hiển thị chữ nhỏ */
+.stat-desc {
+    font-size: 11px;
+    color: #666;
+    margin-bottom: 4px;
+}
+
 .stat-value { font-size: 26px; font-weight: 800; }
 
 .text-blue { color: #3B82F6; }
@@ -102,9 +110,10 @@ body { font-family: 'Segoe UI', 'Arial', sans-serif; background-color: #F9FAFB; 
 .text-red { color: #EF4444; }
 
 /* =========================================
-   4. ACTION BUTTONS (MÀU SẮC CHUẨN)
+   4. ACTION BUTTONS
    ========================================= */
-.action-bar { display: flex; justify-content: flex-end; gap: 12px; margin-bottom: 16px; }
+/* Đã chỉnh gap lên 15px cho thoáng */
+.action-bar { display: flex; justify-content: flex-end; gap: 15px; margin-bottom: 16px; }
 
 .btn-action {
     display: flex; align-items: center; gap: 8px; padding: 8px 24px;
