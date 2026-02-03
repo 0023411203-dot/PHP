@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ thống Quản trị T-HEX</title>
+    <link rel="stylesheet" href="Admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    
+    <div class="dashboard">
+        <aside class="sidebar">
+            <div class="logo-section">
+                <div class="logo-image"><img src="./image/logodn.png" alt="T-HEX Logo"></div>
+                <div class="logo-text"><p class="company-name">T-HEX</p><p class="company-subtitle">PC-WORLD</p></div>
+            </div>
+            <nav class="menu">
+                <button class="menu-item active" onclick="openTab(event, 'tab-overview')">
+                    <img src="./image/home.png" alt=""><span>Tổng quan</span>
+                </button>
+                <button class="menu-item" onclick="openTab(event, 'tab-products')">
+                    <img src="./image/store.png" alt=""><span>Quản lý sản phẩm</span>
+                </button>
+                <button class="menu-item" onclick="openTab(event, 'tab-orders')">
+                    <img src="./image/dathang.png" alt=""><span>Quản lý đặt hàng</span>
+                </button>
+                <button class="menu-item" onclick="openTab(event, 'tab-customers')">
+                    <img src="./image/customer.png" alt=""><span>Quản lý khách hàng</span>
+                </button>
+                <button class="menu-item" onclick="openTab(event, 'tab-employees')">
+                    <img src="./image/nhanvien.png" alt=""><span>Quản lý nhân viên</span>
+                </button>
+                <button class="menu-item" onclick="openTab(event, 'tab-stats')">
+                    <img src="./image/transaction.png" alt=""><span>Thống kê</span>
+                </button>
+            </nav>
+            <div class="logout-section">
+                <button class="menu-item"><img src="./image/logout.png" alt=""><span>ĐĂNG XUẤT</span></button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="header">
+                <div class="search-container">
+                    <img src="./image/find.jpg" alt="" class="search-icon">
+                    <input type="text" placeholder="Tìm kiếm..." class="search-input">
+                </div>
+                <div class="user-profile">
+                    <div class="notification-icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>
+                        <span class="notification-badge"></span>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-details"><p class="user-name">Xuân Phát</p><p class="user-role">Admin</p></div>
+                        <img src="./image/avatar.jpg" alt="User Avatar" class="user-avatar">
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-area">
+                
+                <div id="tab-overview" class="tab-content" style="display: block;">
+                    <div class="page-title"><h1>Tổng quan</h1><p>Chào mừng bạn quay lại! Dưới đây là những thông tin cập nhật về cửa hàng của bạn hôm nay.</p></div>
+                    <div class="stats-grid">
+                        <div class="stat-card"><img src="./image/store.png" class="stat-icon-img"><p class="stat-label">Tổng số sản phẩm</p><p class="stat-value text-orange">4</p></div>
+                        <div class="stat-card"><img src="./image/dathang.png" class="stat-icon-img"><p class="stat-label">Tổng số đặt hàng</p><p class="stat-value">1,429</p></div>
+                        <div class="stat-card"><img src="./image/doanhthu.png" class="stat-icon-img"><p class="stat-label">Doanh thu</p><p class="stat-value text-green">$94,567</p></div>
+                        <div class="stat-card"><img src="./image/customer.png" class="stat-icon-img"><p class="stat-label">Khách hàng</p><p class="stat-value text-green">3,842</p></div>
+                    </div>
+                    <div class="dashboard-split">
+                        <div class="left-column">
+                            <div class="section-header-blue">Đơn đặt hàng gần đây</div>
+                            <div class="table-container">
+                                <table class="orders-table">
+                                    <thead><tr><th>ID đơn hàng</th><th>Khách hàng</th><th>Đơn hàng</th><th>Giá bán</th><th>Tình trạng</th></tr></thead>
+                                    <tbody>
+                                        <tr><td class="order-id-text">#ORD-1001</td><td>Xuân Phát</td><td>Wireless Gaming Mouse</td><td>500.000đ</td><td><span class="badge bg-success">Hoàn thành</span></td></tr>
+                                        <tr><td class="order-id-text">#ORD-1002</td><td>Thanh Hoài</td><td>Mechanical Keyboard RGB</td><td>5.500.000đ</td><td><span class="badge bg-warning">Xử lý</span></td></tr>
+                                        <tr><td class="order-id-text">#ORD-1003</td><td>Trung Hậu</td><td>PC Gaming GVN Supernova</td><td>72.500.000đ</td><td><span class="badge bg-warning">Xử lý</span></td></tr>
+                                        <tr><td class="order-id-text">#ORD-1004</td><td>Trung Kiên</td><td>PC Gaming GVN Titan 14</td><td>55.600.000đ</td><td><span class="badge bg-success">Hoàn thành</span></td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="right-column">
+                            <div class="cat-header"><h3>Danh mục bán chạy</h3></div>
+                            <div class="cat-list">
+                                <div class="cat-item"><div class="cat-info"><span>PC Gaming</span><span>59%</span></div><div class="progress-bar"><div class="progress-fill" style="width: 59%;"></div></div></div>
+                                <div class="cat-item"><div class="cat-info"><span>PC Văn phòng</span><span>73%</span></div><div class="progress-bar"><div class="progress-fill" style="width: 73%;"></div></div></div>
+                                <div class="cat-item"><div class="cat-info"><span>Linh kiện</span><span>46%</span></div><div class="progress-bar"><div class="progress-fill" style="width: 46%;"></div></div></div>
+                                <div class="cat-item"><div class="cat-info"><span>Phụ kiện</span><span>60%</span></div><div class="progress-bar"><div class="progress-fill" style="width: 60%;"></div></div></div>
+                                <div class="cat-item"><div class="cat-info"><span>Khác</span><span>26%</span></div><div class="progress-bar"><div class="progress-fill gray" style="width: 26%;"></div></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab-products" class="tab-content" style="display: none;">
+                    <div class="product-page-header">
+                        <div class="page-title" style="margin-bottom: 0;"><h1 style="color: #ff8c00; margin-bottom: 5px;">Quản lý sản phẩm</h1><p style="color: #666;">Quản lý kho sản phẩm và thông tin chi tiết sản phẩm</p></div>
+                        <button class="btn-add-product"><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4" /></svg> Thêm sản phẩm</button>
+                    </div>
+                    <div class="product-search-bar">
+                        <div class="search-wrapper">
+                            <svg width="20" height="20" fill="none" stroke="#333" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                            <input type="text" placeholder="Tìm kiếm sản phẩm">
+                        </div>
+                        <button class="btn-search-dark">Tìm Kiếm</button>
+                    </div>
+                    <div class="product-table-container">
+                        <table class="product-table">
+                            <thead><tr><th>Hàng hóa</th><th>Phân loại</th><th>Số tiền</th><th>Số lượng</th><th>Trạng thái</th><th></th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td><div class="product-cell"><img src="./image/pc1.webp" class="product-thumb"><span class="product-name-text">Bộ PC Gaming i5-12400F, RAM 16GB, RTX 3060</span></div></td>
+                                    <td>PC gaming</td><td>82.680.000đ</td><td>153</td><td><span class="badge-stock">Còn hàng</span></td>
+                                    <td><div class="action-buttons"><img src="./image/butsua.png" class="action-icon"><img src="./image/thungrac.png" class="action-icon"></div></td>
+                                </tr>
+                                <tr>
+                                    <td><div class="product-cell"><img src="./image/pcvp.jpg" class="product-thumb"><span class="product-name-text">PC VĂN PHÒNG 02 (i5 10400/ H510/ 8G/ 2400 SSD)</span></div></td>
+                                    <td>PC Văn phòng</td><td>12.680.000đ</td><td>126</td><td><span class="badge-stock">Còn hàng</span></td>
+                                    <td><div class="action-buttons"><img src="./image/butsua.png" class="action-icon"><img src="./image/thungrac.png" class="action-icon"></div></td>
+                                </tr>
+                                <tr>
+                                    <td><div class="product-cell"><img src="./image/tannhiet.jpg" class="product-thumb"><span class="product-name-text">Tản Nhiệt CPU Jonsbo CR1400 White LED RGB</span></div></td>
+                                    <td>Linh kiện</td><td>1.680.000đ</td><td>5</td><td><span class="badge-stock">Còn hàng</span></td>
+                                    <td><div class="action-buttons"><img src="./image/butsua.png" class="action-icon"><img src="./image/thungrac.png" class="action-icon"></div></td>
+                                </tr>
+                                <tr>
+                                    <td><div class="product-cell"><img src="./image/banphim.jpg" class="product-thumb"><span class="product-name-text">Bàn phím cơ RAINBOW GEAR K104</span></div></td>
+                                    <td>Phụ kiện</td><td>1.785.000đ</td><td>125</td><td><span class="badge-stock">Còn hàng</span></td>
+                                    <td><div class="action-buttons"><img src="./image/butsua.png" class="action-icon"><img src="./image/thungrac.png" class="action-icon"></div></td>
+                                </tr>
+                                <tr>
+                                    <td><div class="product-cell"><img src="./image/keycap.jpg" class="product-thumb"><span class="product-name-text">Keycap xuyên led game console</span></div></td>
+                                    <td>Khác</td><td>85.000đ</td><td>0</td><td><span class="badge-out">Hết hàng</span></td>
+                                    <td><div class="action-buttons"><img src="./image/butsua.png" class="action-icon"><img src="./image/thungrac.png" class="action-icon"></div></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="tab-orders" class="tab-content" style="display: none;">
+                    <div class="stats-grid">
+                        <div class="stat-card"><div class="stat-icon-wrapper bg-orange-light"><img src="./image/chuaxl.png" width="32"></div><p class="stat-label">Chưa giải quyết</p><p class="stat-value text-orange">8</p></div>
+                        <div class="stat-card"><div class="stat-icon-wrapper bg-yellow-light"><img src="./image/hoatdong.png" width="32"></div><p class="stat-label">Xử lý</p><p class="stat-value text-yellow">4</p></div>
+                        <div class="stat-card"><div class="stat-icon-wrapper bg-green-light"><img src="./image/hoanthanh.png" width="32"></div><p class="stat-label">Hoàn Thành</p><p class="stat-value text-green">2</p></div>
+                        <div class="stat-card"><div class="stat-icon-wrapper bg-red-light"><img src="./image/huy.png" width="32"></div><p class="stat-label">Đã hủy</p><p class="stat-value text-red">1</p></div>
+                    </div>
+                    <div class="order-actions">
+                        <button class="btn-order-action btn-edit-order"><img src="./image/butsua.png" class="action-icon-btn">Sửa</button>
+                        <button class="btn-order-action btn-delete-order"><img src="./image/thungrac.png" class="action-icon-btn">Xóa</button>
+                    </div>
+                    <div class="product-table-container">
+                        <div class="order-header-blue">Đơn đặt hàng gần đây</div>
+                        <table class="orders-table">
+                            <thead><tr><th>ID đơn hàng</th><th>Khách hàng</th><th>Đơn hàng</th><th>Giá bán</th><th>Số lượng</th><th>Ngày mua</th><th>Tình trạng</th></tr></thead>
+                            <tbody>
+                                <tr><td class="order-id-text">#ORD-1001</td><td>Xuân Phát</td><td>Wireless Gaming Mouse</td><td>500.000đ</td><td>1</td><td>1/10/2024</td><td><span class="badge-stock">Hoàn thành</span></td></tr>
+                                <tr><td class="order-id-text">#ORD-1002</td><td>Thanh Hoài</td><td>Mechanical Keyboard RGB</td><td>5.500.000đ</td><td>1</td><td>21/11/2025</td><td><span class="badge-pending">Xử lý</span></td></tr>
+                                <tr><td class="order-id-text">#ORD-1003</td><td>Trung Hậu</td><td>PC Gaming GVN Supernova</td><td>72.500.000đ</td><td>1</td><td>05/09/2025</td><td><span class="badge-pending">Xử lý</span></td></tr>
+                                <tr><td class="order-id-text">#ORD-1004</td><td>Trung Kiên</td><td>PC Gaming GVN Titan 14</td><td>55.600.000đ</td><td>1</td><td>02/05/2025</td><td><span class="badge-stock">Hoàn thành</span></td></tr>
+                                <tr><td class="order-id-text">#ORD-1005</td><td>Đại Hải</td><td>PC Gaming Supernova</td><td>36.600.000đ</td><td>2</td><td>02/05/2025</td><td><span class="badge-cancelled">Đã hủy</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="tab-customers" class="tab-content" style="display: none;">
+                    <div class="stats-grid">
+                        <div class="stat-card"><div class="stat-icon-wrapper"><img src="./image/taikhoan.png" class="stat-icon-img"></div><p class="stat-label">Tổng tài khoản</p><p class="stat-value text-blue">200</p></div>
+                        <div class="stat-card"><div class="stat-icon-wrapper"><img src="./image/taikhoanhd.png" class="stat-icon-img"></div><p class="stat-label">Tài khoản hoạt động</p><p class="stat-value text-green">22</p></div>
+                        <div class="stat-card"><div class="stat-icon-wrapper"><img src="./image/danhgia.png" class="stat-icon-img"></div><p class="stat-label">Đánh giá</p><p class="stat-value text-green">4.8 ⭐</p></div>
+                        <div class="stat-card"><div class="stat-icon-wrapper"><img src="./image/sanpham.png" class="stat-icon-img"></div><p class="stat-label">Đơn hàng trong ngày</p><p class="stat-value text-red">8</p></div>
+                    </div>
+                    <div class="action-bar">
+                        <button class="btn-action btn-add-pastel"><img src="./image/nutthem.png" class="action-icon">Thêm</button>
+                        <button class="btn-action btn-edit-pastel"><img src="./image/butsua.png" class="action-icon">Sửa</button>
+                        <button class="btn-action btn-delete-pastel"><img src="./image/thungrac.png" class="action-icon">Xóa</button>
+                    </div>
+                    <div class="table-container">
+                        <div class="table-header-customer" style="background-color: #60A5FA;">Khách hàng thân thiết</div>
+                        <table class="data-table">
+                            <thead><tr><th>ID khách hàng</th><th>Tên khách</th><th>Email</th><th>Số điện thoại</th><th>Giới tính</th><th>Ngày lập</th><th>Tình trạng</th></tr></thead>
+                            <tbody>
+                                <tr><td class="col-id">#KH01</td><td class="font-bold">Xuân Phát</td><td>Xuanphat123@gmail.com</td><td>033863521</td><td>Nam</td><td>1/10/2024</td><td><span class="badge badge-active">Hoạt động</span></td></tr>
+                                <tr><td class="col-id">#KH02</td><td class="font-bold">Thanh Hoài</td><td>Thanhhoai123@gmail.com</td><td>065973865</td><td>Nữ</td><td>21/11/2025</td><td><span class="badge badge-new">Mới</span></td></tr>
+                                <tr><td class="col-id">#KH03</td><td class="font-bold">Trung Hậu</td><td>Trunghau123@gmail.com</td><td>032254995</td><td>Nam</td><td>05/09/2025</td><td><span class="badge badge-new">Mới</span></td></tr>
+                                <tr><td class="col-id">#KH04</td><td class="font-bold">Trung Kiên</td><td>TrungKien123@gmail.com</td><td>069785655</td><td>Nam</td><td>02/05/2025</td><td><span class="badge badge-active">Hoạt động</span></td></tr>
+                                <tr><td class="col-id">#KH05</td><td class="font-bold">Đại Hải</td><td>Daihai123@gamil.com</td><td>096464575</td><td>Nam</td><td>02/05/2025</td><td><span class="badge badge-active">Hoạt động</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="tab-employees" class="tab-content" style="display: none;">
+                    <div class="stats-grid">
+                        <div class="stat-card"><div class="stat-icon-wrapper"><img src="./image/tongnv.png" class="stat-icon-img"></div><p class="stat-label">Tổng nhân viên</p><p class="stat-desc">+3 so với tháng trước</p><p class="stat-value text-blue">15</p></div>
+                        <div class="stat-card"><div class="stat-icon-wrapper"><img src="./image/hoatdong.png" class="stat-icon-img"></div><p class="stat-label">Đang hoạt động</p><p class="stat-value text-green">13</p></div>
+                        <div class="stat-card"><div class="stat-icon-wrapper"><img src="./image/nhanvien.png" class="stat-icon-img"></div><p class="stat-label">Nhân viên mới</p><p class="stat-desc">Trong 30 ngày</p><p class="stat-value text-green">4</p></div>
+                        <div class="stat-card"><div class="stat-icon-wrapper"><img src="./image/tamnghi.png" class="stat-icon-img"></div><p class="stat-label">Tạm nghỉ</p><p class="stat-desc">Cần kiểm tra</p><p class="stat-value text-red">2</p></div>
+                    </div>
+                    <div class="action-bar">
+                        <button class="btn-action btn-add-pastel"><img src="./image/nutthem.png" class="action-icon">Thêm</button>
+                        <button class="btn-action btn-edit-pastel"><img src="./image/butsua.png" class="action-icon">Sửa</button>
+                        <button class="btn-action btn-delete-pastel"><img src="./image/thungrac.png" class="action-icon">Xóa</button>
+                    </div>
+                    <div class="table-container">
+                        <div class="table-header-customer" style="background-color: #93C5FD;">Nhân viên</div>
+                        <table class="data-table">
+                            <thead><tr><th>ID Nhân viên</th><th>Tên nhân viên</th><th>Email</th><th>Số điện thoại</th><th>Giới tính</th><th>Ngày lập</th><th>Tình trạng</th></tr></thead>
+                            <tbody>
+                                <tr><td class="col-id">#NV01</td><td class="font-bold">Xuân Phát</td><td>Xuanphat123@gmail.com</td><td>033863521</td><td>Nam</td><td>1/10/2024</td><td><span class="badge badge-active">Hoạt động</span></td></tr>
+                                <tr><td class="col-id">#NV02</td><td class="font-bold">Thanh Hoài</td><td>Thanhhoai123@gmail.com</td><td>065973865</td><td>Nữ</td><td>21/11/2025</td><td><span class="badge badge-new">Mới</span></td></tr>
+                                <tr><td class="col-id">#NV03</td><td class="font-bold">Trung Hậu</td><td>Trunghau123@gmail.com</td><td>032254995</td><td>Nam</td><td>05/09/2025</td><td><span class="badge badge-new">Mới</span></td></tr>
+                                <tr><td class="col-id">#NV04</td><td class="font-bold">Trung Kiên</td><td>TrungKien123@gmail.com</td><td>069785655</td><td>Nam</td><td>02/05/2025</td><td><span class="badge badge-active">Hoạt động</span></td></tr>
+                                <tr><td class="col-id">#NV05</td><td class="font-bold">Đại Hải</td><td>Daihai123@gamil.com</td><td>096464575</td><td>Nam</td><td>02/05/2025</td><td><span class="badge badge-active">Hoạt động</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="tab-stats" class="tab-content" style="display: none;">
+                    <div class="stats-grid">
+                        <div class="stat-card"><div class="stat-icon-wrapper"><img src="./image/doanhthu.png" class="stat-icon-img"></div><p class="stat-label">Doanh thu tháng</p><p class="stat-value">16.563.600đ</p></div>
+                        <div class="stat-card"><div class="stat-icon-wrapper"><img src="./image/tongdon.png" class="stat-icon-img"></div><p class="stat-label">Tổng đơn hàng</p><p class="stat-value">136</p></div>
+                        <div class="stat-card"><div class="stat-icon-wrapper"><img src="./image/sanpham.png" class="stat-icon-img"></div><p class="stat-label">Sản phẩm bán chạy</p><p style="font-size: 11px; color: #999; margin-bottom: 2px;">Trong 30 ngày</p><p class="stat-value" style="font-size: 16px;">Wireless Gaming Mouse</p></div>
+                        <div class="stat-card"><div class="stat-icon-wrapper"><img src="./image/tangtruong.png" class="stat-icon-img"></div><p class="stat-label">Tăng trưởng</p><p class="stat-value text-green">20.5% ↗</p></div>
+                    </div>
+                    <div class="white-section">
+                        <div class="section-header">
+                            <div class="section-title-group"><h3>Biểu đồ doanh thu</h3><p class="subtitle">Biến động doanh thu theo tháng (VND)</p></div>
+                            <div class="year-toggle"><span class="year active">2024</span><span class="year">2023</span></div>
+                        </div>
+                        <div class="chart-wrapper"><canvas id="revenueChart"></canvas></div>
+                    </div>
+                    <div class="white-section mt-24">
+                        <div class="section-header"><h3>Top sản phẩm bán chạy</h3><a href="#" class="view-all">Xem tất cả →</a></div>
+                        <div class="table-container">
+                            <table class="top-product-table">
+                                <thead><tr><th style="width: 40%;">SẢN PHẨM</th><th style="width: 15%;">SỐ LƯỢNG</th><th style="width: 30%;">HIỆU SUẤT BÁN HÀNG</th><th style="width: 15%; text-align: right;">DOANH THU</th></tr></thead>
+                                <tbody>
+                                    <tr>
+                                        <td><div class="product-info"><img src="./image/pc.jpg" class="prod-img"><div><p class="prod-name">Ultra Gaming PC</p><span class="prod-tag">PC GAMING</span></div></div></td>
+                                        <td style="font-weight: 600;">124</td>
+                                        <td><div class="progress-wrapper"><div class="progress-bg"><div class="progress-fill blue" style="width: 85%;"></div></div><span class="progress-text">85%</span></div></td>
+                                        <td class="text-right font-bold">4.2B</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // 1. Chuyển Tab
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) { tabcontent[i].style.display = "none"; }
+            tablinks = document.getElementsByClassName("menu-item");
+            for (i = 0; i < tablinks.length; i++) { tablinks[i].className = tablinks[i].className.replace(" active", ""); }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        // 3. Chart
+        document.addEventListener("DOMContentLoaded", function () {
+            const ctx = document.getElementById('revenueChart');
+            if (ctx) {
+                let gradient = ctx.getContext('2d').createLinearGradient(0, 0, 0, 400);
+                gradient.addColorStop(0, 'rgba(59, 130, 246, 0.2)'); gradient.addColorStop(1, 'rgba(59, 130, 246, 0)');
+                new Chart(ctx.getContext('2d'), {
+                    type: 'line',
+                    data: {
+                        labels: ['T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'T8', 'T9', 'T10', 'T11', 'T12'],
+                        datasets: [{ label: 'Doanh thu', data: [12, 18, 22, 20, 28, 45, 55, 58, 62, 65, 58, 70], borderColor: '#3B82F6', backgroundColor: gradient, borderWidth: 3, tension: 0.4, fill: true }]
+                    },
+                    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, grid: { borderDash: [5, 5] }, ticks: { display: false } }, x: { grid: { display: false } } } }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
