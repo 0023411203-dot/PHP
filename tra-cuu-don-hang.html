@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T-REX PC Gaming</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="mainuser.css">
+    <link rel="stylesheet" href="policy.css">
+</head>
+<body>
+
+    <header>
+    <div class="logo">
+        <a href="main.html" title="Về trang chủ">
+            <div class="logo-image">
+                <img src="./images/logo/logodn.png" alt="Logo Shop">
+                <span></span>
+            </div>
+        </a>
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="#">PC Gaming</a></li>
+        <li><a href="#">PC Văn Phòng</a></li>
+        <li><a href="#">PC Đồ Họa</a></li>
+        <li><a href="#">Build PC</a></li>
+        <li><a href="#">Khuyến mãi</a></li>
+        
+        <li><a href="yeu-cau-ho-tro.html">Hỗ trợ</a></li>
+    </ul>
+    
+    <div class="header-actions">
+        <div class="search-bar">
+            <input type="text" placeholder="Tìm kiếm sản phẩm...">
+            <button type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+
+        <div class="icons">
+            <a href="#" title="Giỏ hàng"><i class="fa-solid fa-bag-shopping"></i></a>
+            <a href="#" title="Tài khoản"><i class="fa-regular fa-user"></i></a>
+            <a href="#" title="Đăng xuất"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+        </div>
+    </div>
+</header>
+
+    <div class="policy-box">
+    <h1 class="policy-title">Kiểm tra đơn hàng</h1>
+
+    <p class="policy-intro">
+        Nhập mã đơn hàng và số điện thoại của bạn vào ô bên dưới để theo dõi
+        lộ trình vận chuyển chi tiết.
+    </p>
+
+    <div class="tracking-form-container">
+        <div class="form-group">
+            <label>Mã đơn hàng:</label>
+            <div class="input-with-icon">
+                <i class="fa-solid fa-hashtag"></i>
+                <input type="text" placeholder="VD: 10234" id="orderId">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Số điện thoại / Email:</label>
+            <div class="input-with-icon">
+                <i class="fa-solid fa-phone"></i>
+                <input type="text" placeholder="Nhập SĐT hoặc Email lúc đặt hàng" id="contactInfo">
+            </div>
+        </div>
+
+        <button class="btn-track-order" onclick="checkOrder()">
+            <i class="fa-solid fa-magnifying-glass"></i> TRA CỨU NGAY
+        </button>
+    </div>
+
+    <div class="policy-section" style="margin-top: 40px; border-top: 1px dashed #ddd; padding-top: 20px;">
+        <h3><i class="fa-solid fa-headset"></i> Hỗ trợ trực tiếp</h3>
+        <p>
+            Nếu bạn không nhớ mã đơn hàng hoặc gặp khó khăn khi tra cứu, vui lòng liên hệ bộ phận CSKH để được hỗ trợ nhanh nhất:
+        </p>
+        <div class="hotline-box">
+            <span>Hotline:</span>
+            <strong class="hotline-number">0988 999 999</strong>
+        </div>
+    </div>
+    
+</div>
+
+<script>
+    function checkOrder() {
+        alert("Hệ thống đang tìm kiếm đơn hàng...");
+    }
+</script>
+
+    <footer>
+    <div class="container">
+        <div class="footer-grid">
+            
+            <div class="footer-col">
+                <img src="./images/logo/logodn.png" alt="Logo Footer" class="footer-logo">
+                
+                <p class="company-desc">
+                    T-REX PC - Chuyên cung cấp PC Gaming, 
+                    <br>Đồ Họa, Văn Phòng chính hãng giá tốt nhất.
+                </p>
+                <div class="contact-info">
+                    <p><i class="fa-solid fa-location-dot"></i> 123 Đường ABC, Quận X, TP.HCM</p>
+                    <p><i class="fa-solid fa-phone"></i> 1900 1234</p>
+                    <p><i class="fa-solid fa-envelope"></i> contact@trexpc.com</p>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>Chính sách</h3>
+                <ul>
+                    <li><a href="chinh-sach-bao-hanh.html">Chính sách bảo hành</a></li>
+                    
+                    <li><a href="chinh-sach-doi-tra.html">Chính sách đổi trả</a></li>
+                    
+                    <li><a href="chinh-sach-bao-mat.html">Chính sách bảo mật</a></li>
+                    
+                    <li><a href="van-chuyen.html">Vận chuyển & Giao hàng</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Hỗ trợ khách hàng</h3>
+                <ul>
+                    <li><a href="huong-dan-mua-hang.html">Hướng dẫn mua hàng</a></li>
+                    
+                    <li><a href="tra-cuu-don-hang.html">Tra cứu đơn hàng</a></li>
+                    
+                    <li><a href="quy-dinh-thanh-toan.html">Quy định thanh toán</a></li>
+                    
+                    <li><a href="gui-yeu-cau-ho-tro.html">Gửi yêu cầu hỗ trợ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Kết nối với chúng tôi</h3>
+                <div class="social-links">
+                    <a href="#" style="background: #3b5998;"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" style="background: #ff0000;"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#" style="background: #000;"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+                <div class="certification">
+                    <p>Chứng nhận:</p>
+                    <img src="./images/bocongthuong.png" alt="Bộ công thương" width="120">
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 T-REX PC. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

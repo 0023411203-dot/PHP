@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T-REX PC Gaming</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="mainuser.css">
+    <link rel="stylesheet" href="policy.css">
+</head>
+<body>
+
+    <header>
+    <div class="logo">
+        <a href="main.html" title="Về trang chủ">
+            <div class="logo-image">
+                <img src="./images/logo/logodn.png" alt="Logo Shop">
+                <span></span>
+            </div>
+        </a>
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="#">PC Gaming</a></li>
+        <li><a href="#">PC Văn Phòng</a></li>
+        <li><a href="#">PC Đồ Họa</a></li>
+        <li><a href="#">Build PC</a></li>
+        <li><a href="#">Khuyến mãi</a></li>
+        
+        <li><a href="yeu-cau-ho-tro.html">Hỗ trợ</a></li>
+    </ul>
+    
+    <div class="header-actions">
+        <div class="search-bar">
+            <input type="text" placeholder="Tìm kiếm sản phẩm...">
+            <button type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+
+        <div class="icons">
+            <a href="#" title="Giỏ hàng"><i class="fa-solid fa-bag-shopping"></i></a>
+            <a href="#" title="Tài khoản"><i class="fa-regular fa-user"></i></a>
+            <a href="#" title="Đăng xuất"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+        </div>
+    </div>
+</header>
+
+   <div class="policy-box">
+    <h1 class="policy-title">Gửi yêu cầu hỗ trợ</h1>
+
+    <p class="policy-intro">
+        Đội ngũ kỹ thuật và CSKH của T-HEX GAMING luôn sẵn sàng lắng nghe bạn.
+        Vui lòng điền thông tin vào biểu mẫu bên dưới, chúng tôi sẽ phản hồi trong vòng 24h.
+    </p>
+
+    <div class="support-layout">
+        
+        <div class="support-form-col">
+            <div class="form-group">
+                <label>Họ và tên của bạn:</label>
+                <div class="input-with-icon">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" placeholder="Nhập họ tên..." id="cusName">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Số điện thoại / Email:</label>
+                <div class="input-with-icon">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="text" placeholder="Để chúng tôi liên hệ lại..." id="cusContact">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Vấn đề cần hỗ trợ:</label>
+                <div class="input-with-icon">
+                    <i class="fa-solid fa-list-check"></i>
+                    <select id="supportTopic">
+                        <option value="0">-- Chọn vấn đề --</option>
+                        <option value="1">Tư vấn cấu hình PC</option>
+                        <option value="2">Báo lỗi kỹ thuật / Bảo hành</option>
+                        <option value="3">Hỏi đáp về đơn hàng / Vận chuyển</option>
+                        <option value="4">Khiếu nại dịch vụ</option>
+                        <option value="5">Khác</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Nội dung chi tiết:</label>
+                <textarea class="support-textarea" rows="5" placeholder="Mô tả chi tiết vấn đề của bạn (VD: Máy không lên nguồn, giao thiếu dây cáp...)"></textarea>
+            </div>
+
+            <button class="btn-submit-support" onclick="sendSupport()">
+                <i class="fa-solid fa-paper-plane"></i> GỬI YÊU CẦU
+            </button>
+        </div>
+
+        <div class="support-info-col">
+            <div class="contact-card">
+                <div class="card-icon"><i class="fa-solid fa-headset"></i></div>
+                <div class="card-content">
+                    <h4>Tổng đài hỗ trợ</h4>
+                    <p class="highlight-text">1900 666 888</p>
+                    <p class="sub-text">(8:00 - 21:00 hàng ngày)</p>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <div class="card-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
+                <div class="card-content">
+                    <h4>Email CSKH</h4>
+                    <p>hotro@thex-gaming.vn</p>
+                    <p class="sub-text">Giải quyết trong 24h</p>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <div class="card-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                <div class="card-content">
+                    <h4>Showroom T-HEX</h4>
+                    <p>123 Đường Công Nghệ, Q.Thanh Xuân, Hà Nội</p>
+                    <a href="#" class="map-link">Xem bản đồ <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+
+    </div> </div>
+
+<script>
+    function sendSupport() {
+        alert("Cảm ơn bạn! Yêu cầu hỗ trợ đã được gửi thành công. T-HEX sẽ liên hệ lại sớm nhất.");
+    }
+</script>
+
+    <footer>
+    <div class="container">
+        <div class="footer-grid">
+            
+            <div class="footer-col">
+                <img src="./images/logo/logodn.png" alt="Logo Footer" class="footer-logo">
+                
+                <p class="company-desc">
+                    T-REX PC - Chuyên cung cấp PC Gaming, 
+                    <br>Đồ Họa, Văn Phòng chính hãng giá tốt nhất.
+                </p>
+                <div class="contact-info">
+                    <p><i class="fa-solid fa-location-dot"></i> 123 Đường ABC, Quận X, TP.HCM</p>
+                    <p><i class="fa-solid fa-phone"></i> 1900 1234</p>
+                    <p><i class="fa-solid fa-envelope"></i> contact@trexpc.com</p>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>Chính sách</h3>
+                <ul>
+                    <li><a href="chinh-sach-bao-hanh.html">Chính sách bảo hành</a></li>
+                    
+                    <li><a href="chinh-sach-doi-tra.html">Chính sách đổi trả</a></li>
+                    
+                    <li><a href="chinh-sach-bao-mat.html">Chính sách bảo mật</a></li>
+                    
+                    <li><a href="van-chuyen.html">Vận chuyển & Giao hàng</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Hỗ trợ khách hàng</h3>
+                <ul>
+                    <li><a href="huong-dan-mua-hang.html">Hướng dẫn mua hàng</a></li>
+                    
+                    <li><a href="tra-cuu-don-hang.html">Tra cứu đơn hàng</a></li>
+                    
+                    <li><a href="quy-dinh-thanh-toan.html">Quy định thanh toán</a></li>
+                    
+                    <li><a href="gui-yeu-cau-ho-tro.html">Gửi yêu cầu hỗ trợ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Kết nối với chúng tôi</h3>
+                <div class="social-links">
+                    <a href="#" style="background: #3b5998;"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" style="background: #ff0000;"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#" style="background: #000;"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+                <div class="certification">
+                    <p>Chứng nhận:</p>
+                    <img src="./images/bocongthuong.png" alt="Bộ công thương" width="120">
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 T-REX PC. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
