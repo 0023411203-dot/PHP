@@ -6,36 +6,43 @@
     <title>Shop T-HEX GAMING</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="mainuser.css">
+    <link rel="stylesheet" href="policy.css">
 </head>
 <body>
 
     <header>
-        <div class="logo">
+    <div class="logo">
+        <a href="main.html" title="Về trang chủ">
             <div class="logo-image">
-                <img src="./images/logo/logodn.png" >
-            <span></span>
-        </div>
-        <ul class="nav-links">
-            <li>PC Gaming</li>
-            <li>PC Văn Phòng</li>
-            <li>PC Đồ Họa</li>
-            <li>Build PC</li>
-            <li>Khuyến mãi</li>
-            <li>Hỗ trợ</li>
-        </ul>
+                <img src="./images/logo/logodn.png" alt="Logo Shop">
+                <span></span>
+            </div>
+        </a>
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="#">PC Gaming</a></li>
+        <li><a href="#">PC Văn Phòng</a></li>
+        <li><a href="#">PC Đồ Họa</a></li>
+        <li><a href="#">Build PC</a></li>
+        <li><a href="#">Khuyến mãi</a></li>
         
-        <div class="header-actions">
-            <div class="search-bar">
-                <input type="text" placeholder="Tìm kiếm sản phẩm...">
-                <i class="fa-solid fa-magnifying-glass"></i>
-            </div>
-            <div class="icons">
-                <i class="fa-solid fa-bag-shopping"></i>
-                <i class="fa-regular fa-user"></i>
-                <i class="fa-solid fa-arrow-right-from-bracket"></i>
-            </div>
+        <li><a href="yeu-cau-ho-tro.html">Hỗ trợ</a></li>
+    </ul>
+    
+    <div class="header-actions">
+        <div class="search-bar">
+            <input type="text" placeholder="Tìm kiếm sản phẩm...">
+            <button type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
-    </header>
+
+        <div class="icons">
+            <a href="#" title="Giỏ hàng"><i class="fa-solid fa-bag-shopping"></i></a>
+            <a href="#" title="Tài khoản"><i class="fa-regular fa-user"></i></a>
+            <a href="#" title="Đăng xuất"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+        </div>
+    </div>
+</header>
 
         <section class="top-hero">
         <aside class="left-banner">
@@ -130,45 +137,65 @@
     <div class="horizontal-scroll-container" id="featuredSlider">
         
         <div class="pc-tall-card">
-            <div class="pc-img-area">
-                <img src="./images/produce/pcgaming1.webp" alt="PC GVN Titan">
-                <div class="pc-badge">HOT</div>
-            </div>
-            <div class="pc-info-area">
-                <h3 class="pc-name">BREUNOR KRAKEN - PC Gaming Ryzen 7</h3>
-                <div class="pc-specs-row">
-                    <span><i class="fa-solid fa-microchip"></i> i9-14900K</span>
-                    <span><i class="fa-solid fa-memory"></i> 64GB DDR5</span>
-                </div>
-                <div class="pc-specs-row">
-                     <span><i class="fa-solid fa-vr-cardboard"></i> RTX 4090 24GB</span>
-                </div>
-                <div class="pc-price-box">
-                    <span class="price-val">105.000.000đ</span>
-                    <button class="btn-icon-add"><i class="fa-solid fa-cart-plus"></i></button>
-                </div>
-            </div>
+    
+    <div class="pc-img-area">
+        <img 
+            src="./images/produce/pcgaming1.webp" 
+            alt="PC GVN Titan"
+            ondblclick="window.location.href='thongtin.html'"
+            style="cursor: pointer;"
+            title="Nhấn đúp chuột để xem chi tiết"
+        >
+        <div class="pc-badge">HOT</div>
+    </div>
+
+    <div class="pc-info-area">
+        <h3 class="pc-name">BREUNOR KRAKEN - PC Gaming Ryzen 7</h3>
+        <div class="pc-specs-row">
+            <span><i class="fa-solid fa-microchip"></i> i9-14900K</span>
+            <span><i class="fa-solid fa-memory"></i> 64GB DDR5</span>
         </div>
+        <div class="pc-specs-row">
+            <span><i class="fa-solid fa-vr-cardboard"></i> RTX 4090 24GB</span>
+        </div>
+        <div class="pc-price-box">
+            <span class="price-val">105.000.000đ</span>
+            <button class="btn-icon-add"><i class="fa-solid fa-cart-plus"></i></button>
+        </div>
+    </div>
+
+</div>
 
         <div class="pc-tall-card">
-            <div class="pc-img-area" >
-                <img src="./images/produce/pcgaming2.webp" alt="PC Streamer Ultra">
-                <div class="pc-badge" style="background: linear-gradient(to bottom, #f3e5f5, #fff);"></div>
-            </div>
-            <div class="pc-info-area">
-                <h3 class="pc-name">PC STREAMER ULTRA</h3>
-                <div class="pc-specs-row">
-                    <span><i class="fa-solid fa-microchip"></i> i7-14700K</span>
-                    <span><i class="fa-solid fa-memory"></i> 32GB RGB</span>
-                </div>
-                <div class="pc-specs-row">
-                     <span><i class="fa-solid fa-vr-cardboard"></i> RTX 4080 Super</span>
-                </div>
-                <div class="pc-price-box">
-                    <span class="price-val">78.990.000đ</span>
-                    <button class="btn-icon-add"><i class="fa-solid fa-cart-plus"></i></button>
-                </div>
-            </div>
+            <div class="pc-tall-card">
+    
+    <div class="pc-img-area">
+        <img 
+            src="./images/produce/pcgaming1.webp" 
+            alt="PC GVN Titan"
+            ondblclick="window.location.href='thongtin.html'"
+            style="cursor: pointer;"
+            title="Nhấn đúp chuột để xem chi tiết"
+        >
+        <div class="pc-badge">HOT</div>
+    </div>
+
+    <div class="pc-info-area">
+        <h3 class="pc-name">BREUNOR KRAKEN - PC Gaming Ryzen 7</h3>
+        <div class="pc-specs-row">
+            <span><i class="fa-solid fa-microchip"></i> i9-14900K</span>
+            <span><i class="fa-solid fa-memory"></i> 64GB DDR5</span>
+        </div>
+        <div class="pc-specs-row">
+            <span><i class="fa-solid fa-vr-cardboard"></i> RTX 4090 24GB</span>
+        </div>
+        <div class="pc-price-box">
+            <span class="price-val">105.000.000đ</span>
+            <button class="btn-icon-add"><i class="fa-solid fa-cart-plus"></i></button>
+        </div>
+    </div>
+
+</div>
         </div>  
 
         <div class="pc-tall-card">
@@ -350,7 +377,6 @@
         </div>
     </div>
 </section>
-/*pc gaming hiệu năng cao */
 <div class="yellow-divider"></div>
 
         <section class="category-layout">
@@ -385,7 +411,7 @@
                             </ul>
                             <div class="c-price">42.590.000đ</div>
                             <div class="c-actions">
-                                <button class="btn-c-buy">Xem chi tiết</button>
+                                <a href="thongtin.html" class="btn-c-buy">Xem chi tiết</a>
                                 <button class="btn-c-add">Thêm giỏ</button>
                             </div>
                         </div>
@@ -705,7 +731,7 @@
         <section class="category-layout">
             
             <div class="sidebar-banner">
-                <img src="./images/panel/PhukienPC.png" alt="Banner Quảng Cáo">
+                <img src="/images/panel/PhukienPC.png" alt="Banner Quảng Cáo">
             </div>
 
             <div class="main-product-area">
@@ -901,7 +927,7 @@
 
 
     <div class="main-wrapper">
-        <img src="./images/panel/pcgiatot.png"  class="hero-banner">
+        <img src="/images/panel/pcgiatot.png"  class="hero-banner">
            
             </div>
         </section>
@@ -1009,33 +1035,39 @@
             <div class="footer-col">
                 <h3>Chính sách</h3>
                 <ul>
-                    <li><a href="#">Chính sách bảo hành</a></li>
-                    <li><a href="#">Chính sách đổi trả</a></li>
-                    <li><a href="#">Chính sách bảo mật</a></li>
-                    <li><a href="#">Vận chuyển & Giao hàng</a></li>
+                    <li><a href="chinh-sach-bao-hanh.html">Chính sách bảo hành</a></li>
+                    
+                    <li><a href="chinh-sach-doi-tra.html">Chính sách đổi trả</a></li>
+                    
+                    <li><a href="chinh-sach-bao-mat.html">Chính sách bảo mật</a></li>
+                    
+                    <li><a href="van-chuyen.html">Vận chuyển & Giao hàng</a></li>
                 </ul>
             </div>
 
             <div class="footer-col">
                 <h3>Hỗ trợ khách hàng</h3>
                 <ul>
-                    <li><a href="#">Hướng dẫn mua hàng</a></li>
-                    <li><a href="#">Tra cứu đơn hàng</a></li>
-                    <li><a href="#">Quy định thanh toán</a></li>
-                    <li><a href="#">Gửi yêu cầu hỗ trợ</a></li>
+                    <li><a href="huong-dan-mua-hang.html">Hướng dẫn mua hàng</a></li>
+                    
+                    <li><a href="tra-cuu-don-hang.html">Tra cứu đơn hàng</a></li>
+                    
+                    <li><a href="quy-dinh-thanh-toan.html">Quy định thanh toán</a></li>
+                    
+                    <li><a href="gui-yeu-cau-ho-tro.html">Gửi yêu cầu hỗ trợ</a></li>
                 </ul>
             </div>
 
             <div class="footer-col">
                 <h3>Kết nối với chúng tôi</h3>
                 <div class="social-links">
-                        <a href="#" style="background: #3b5998;"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="#" style="background: #ff0000;"><i class="fa-brands fa-youtube"></i></a>
-                        <a href="#" style="background: #000;"><i class="fa-brands fa-tiktok"></i></a>
-                    </div>
+                    <a href="#" style="background: #3b5998;"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" style="background: #ff0000;"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#" style="background: #000;"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
                 <div class="certification">
-                   <p>Chứng nhận:</p>
-                   <img src="./images/bocongthuong.png" alt="Bộ công thương" width="120">
+                    <p>Chứng nhận:</p>
+                    <img src="./images/bocongthuong.png" alt="Bộ công thương" width="120">
                 </div>
             </div>
 

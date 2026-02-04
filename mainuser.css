@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Roboto:wght@400;500;700&display=swap');
+
 /* --- RESET & BASIC STYLE --- */
 * {
     margin: 0;
@@ -52,6 +52,47 @@ header {
     background: #fff;
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     position: relative; /* Mốc định vị cho menu */           
+}
+/* --- CSS CHO HEADER LINKS --- */
+
+/* Xóa gạch chân và reset màu cho logo */
+.logo a {
+    text-decoration: none;
+    display: block;
+}
+
+/* Chỉnh style cho các link trong Menu */
+.nav-links li a {
+    text-decoration: none;  /* Bỏ gạch chân */
+    color: inherit;         /* Giữ nguyên màu chữ gốc của li */
+    display: block;         /* Để bấm được vào cả vùng chữ */
+    transition: 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #e30019; /* Đổi màu đỏ khi di chuột vào (giống phong cách web bạn) */
+}
+
+/* Chỉnh style cho các icon link bên phải */
+.header-actions .icons a {
+    text-decoration: none;
+    color: inherit; /* Giữ màu icon gốc (đen/xám) */
+    margin-left: 15px; /* Khoảng cách giữa các icon */
+    font-size: 20px; /* Kích thước icon */
+    transition: 0.3s;
+}
+
+.header-actions .icons a:hover {
+    color: #e30019; /* Icon sáng đỏ khi hover */
+    transform: translateY(-2px); /* Nhảy nhẹ lên khi hover */
+}
+
+/* Chỉnh nút tìm kiếm (kính lúp) */
+.search-bar button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #555;
 }
 
 
@@ -2166,7 +2207,6 @@ hero-box {
     font-weight: 600;
     outline: none; /* Bỏ viền xanh khi click vào */
     /* Ẩn nút tăng giảm mặc định của trình duyệt cho gọn */
-    -moz-appearance: textfield;
 }
 
 /* Ẩn nút mũi tên nhỏ trong ô input trên Chrome/Safari */
@@ -2174,4 +2214,11 @@ hero-box {
 .quantity-box input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+/* Thêm đoạn này vào file CSS */
+a.btn-c-buy {
+    text-decoration: none;       
+    display: inline-flex;       
+    align-items: center;       
+    justify-content: center;     
 }
