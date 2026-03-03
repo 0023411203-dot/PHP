@@ -13,7 +13,7 @@
     <div class="dashboard">
         <aside class="sidebar">
             <div class="logo-section">
-                <div class="logo-image"><img src="./image/logodn.png" alt="T-HEX Logo"></div>
+                <div class="logo-image"><img src="./image/logodn.png" alt="T-HEX Logo" onerror="this.src='https://cdn-icons-png.flaticon.com/512/906/906343.png'"></div>
                 <div class="logo-text"><p class="company-name">T-HEX</p><p class="company-subtitle">PC-WORLD</p></div>
             </div>
             <nav class="menu">
@@ -24,7 +24,7 @@
                     <img src="./image/store.png" alt=""><span>Quản lý sản phẩm</span>
                 </button>
                 <button class="menu-item" onclick="openTab(event, 'tab-orders')">
-                    <img src="./image/dathang.png" alt=""><span>Quản lý đặt hàng</span>
+                    <img src="./image/dathang.png" alt=""><span>Quản lý đơn hàng</span>
                 </button>
                 <button class="menu-item" onclick="openTab(event, 'tab-customers')">
                     <img src="./image/customer.png" alt=""><span>Quản lý khách hàng</span>
@@ -37,7 +37,7 @@
                 </button>
             </nav>
             <div class="logout-section">
-                <button class="menu-item"><img src="./image/logout.png" alt=""><span>ĐĂNG XUẤT</span></button>
+                <button class="menu-item" onclick="openModal('modal-logout')"><img src="./image/logout.png" alt=""><span>ĐĂNG XUẤT</span></button>
             </div>
         </aside>
 
@@ -54,7 +54,7 @@
                     </div>
                     <div class="user-info">
                         <div class="user-details"><p class="user-name">Xuân Phát</p><p class="user-role">Admin</p></div>
-                        <img src="./image/avatar.jpg" alt="User Avatar" class="user-avatar">
+                        <img src="./image/avatar.jpg" alt="User Avatar" class="user-avatar" onerror="this.src='https://cdn-icons-png.flaticon.com/512/147/147142.png'">
                     </div>
                 </div>
             </header>
@@ -62,45 +62,134 @@
             <div class="content-area">
                 
                 <div id="tab-overview" class="tab-content" style="display: block;">
-                    <div class="page-title"><h1>Tổng quan</h1><p>Chào mừng bạn quay lại! Dưới đây là những thông tin cập nhật về cửa hàng của bạn hôm nay.</p></div>
-                    <div class="stats-grid">
-                        <div class="stat-card"><img src="./image/store.png" class="stat-icon-img"><p class="stat-label">Tổng số sản phẩm</p><p class="stat-value text-orange">4</p></div>
-                        <div class="stat-card"><img src="./image/dathang.png" class="stat-icon-img"><p class="stat-label">Tổng số đặt hàng</p><p class="stat-value">1,429</p></div>
-                        <div class="stat-card"><img src="./image/doanhthu.png" class="stat-icon-img"><p class="stat-label">Doanh thu</p><p class="stat-value text-green">$94,567</p></div>
-                        <div class="stat-card"><img src="./image/customer.png" class="stat-icon-img"><p class="stat-label">Khách hàng</p><p class="stat-value text-green">3,842</p></div>
+                    <div class="page-title">
+                        <h1>Tổng quan</h1>
+                        <p>Chào mừng bạn quay lại! Nhấn vào các biểu tượng bên dưới để xem chi tiết.</p>
                     </div>
-                    <div class="dashboard-split">
-                        <div class="left-column">
-                            <div class="section-header-blue">Đơn đặt hàng gần đây</div>
-                            <div class="table-container">
-                                <table class="orders-table">
-                                    <thead><tr><th>ID đơn hàng</th><th>Khách hàng</th><th>Đơn hàng</th><th>Giá bán</th><th>Tình trạng</th></tr></thead>
+                    
+                    <div class="stats-grid clickable-grid">
+                        <div class="stat-card" onclick="showDetail('detail-inventory', this)">
+                            <img src="./image/store.png" class="stat-icon-img" onerror="this.src='https://cdn-icons-png.flaticon.com/512/869/869636.png'">
+                            <p class="stat-label">Số lượng tồn kho</p>
+                            <p class="stat-value text-orange">341</p>
+                        </div>
+                        <div class="stat-card" onclick="showDetail('detail-orders', this)">
+                            <img src="./image/dathang.png" class="stat-icon-img" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3500/3500833.png'">
+                            <p class="stat-label">Tổng số đơn hàng</p> 
+                            <p class="stat-value">1,429</p>
+                        </div>
+                        <div class="stat-card" onclick="showDetail('detail-revenue', this)">
+                            <img src="./image/doanhthu.png" class="stat-icon-img" onerror="this.src='https://cdn-icons-png.flaticon.com/512/2454/2454282.png'">
+                            <p class="stat-label">Doanh thu tháng</p>
+                            <p class="stat-value text-green">4.25 Tỷ</p> 
+                        </div>
+                        <div class="stat-card" onclick="showDetail('detail-customers', this)">
+                            <img src="./image/customer.png" class="stat-icon-img" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3126/3126647.png'">
+                            <p class="stat-label">Khách hàng</p>
+                            <p class="stat-value text-green">3,842</p>
+                        </div>
+                    </div>
+
+                    <div class="details-container">
+                        <div id="detail-inventory" class="detail-section" style="display: none;">
+                            <div class="order-header-blue">Tình trạng kho hàng</div>
+                            <div class="product-table-container">
+                                <table class="product-table">
+                                    <thead><tr><th>Sản phẩm</th><th>Tồn kho</th><th class="text-center">Trạng thái</th></tr></thead>
                                     <tbody>
-                                        <tr><td class="order-id-text">#ORD-1001</td><td>Xuân Phát</td><td>Wireless Gaming Mouse</td><td>500.000đ</td><td><span class="badge bg-success">Hoàn thành</span></td></tr>
-                                        <tr><td class="order-id-text">#ORD-1002</td><td>Thanh Hoài</td><td>Mechanical Keyboard RGB</td><td>5.500.000đ</td><td><span class="badge bg-warning">Xử lý</span></td></tr>
-                                        <tr><td class="order-id-text">#ORD-1003</td><td>Trung Hậu</td><td>PC Gaming GVN Supernova</td><td>72.500.000đ</td><td><span class="badge bg-warning">Xử lý</span></td></tr>
-                                        <tr><td class="order-id-text">#ORD-1004</td><td>Trung Kiên</td><td>PC Gaming GVN Titan 14</td><td>55.600.000đ</td><td><span class="badge bg-success">Hoàn thành</span></td></tr>
+                                        <tr>
+                                            <td><div class="product-cell"><img src="./image/pc1.webp" class="product-thumb" onerror="this.src='https://via.placeholder.com/50'"><span class="product-name-text">Bộ PC Gaming i5-12400F</span></div></td>
+                                            <td>153</td><td class="text-center"><span class="badge badge-stock">Còn hàng</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><div class="product-cell"><img src="./image/tannhiet.jpg" class="product-thumb" onerror="this.src='https://via.placeholder.com/50'"><span class="product-name-text">Tản Nhiệt CPU Jonsbo</span></div></td>
+                                            <td>5</td><td class="text-center"><span class="badge badge-stock">Còn hàng</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><div class="product-cell"><img src="./image/keycap.jpg" class="product-thumb" onerror="this.src='https://via.placeholder.com/50'"><span class="product-name-text">Keycap xuyên led</span></div></td>
+                                            <td>0</td><td class="text-center"><span class="badge badge-out">Hết hàng</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><div class="product-cell"><img src="./image/manhinh.jpg" class="product-thumb" onerror="this.src='https://via.placeholder.com/50'"><span class="product-name-text">Màn hình LG 24'' 144Hz</span></div></td>
+                                            <td>12</td><td class="text-center"><span class="badge badge-stock">Còn hàng</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><div class="product-cell"><img src="./image/ghe.jpg" class="product-thumb" onerror="this.src='https://via.placeholder.com/50'"><span class="product-name-text">Ghế Gaming Warrior</span></div></td>
+                                            <td>2</td><td class="text-center"><span class="badge badge-stock">Còn hàng</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><div class="product-cell"><img src="./image/tainghe.jpg" class="product-thumb" onerror="this.src='https://via.placeholder.com/50'"><span class="product-name-text">Tai nghe DareU EH722</span></div></td>
+                                            <td>45</td><td class="text-center"><span class="badge badge-stock">Còn hàng</span></td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
-                        <div class="right-column">
-                            <div class="cat-header"><h3>Danh mục bán chạy</h3></div>
-                            <div class="cat-list">
-                                <div class="cat-item"><div class="cat-info"><span>PC Gaming</span><span>59%</span></div><div class="progress-bar"><div class="progress-fill" style="width: 59%;"></div></div></div>
-                                <div class="cat-item"><div class="cat-info"><span>PC Văn phòng</span><span>73%</span></div><div class="progress-bar"><div class="progress-fill" style="width: 73%;"></div></div></div>
-                                <div class="cat-item"><div class="cat-info"><span>Linh kiện</span><span>46%</span></div><div class="progress-bar"><div class="progress-fill" style="width: 46%;"></div></div></div>
-                                <div class="cat-item"><div class="cat-info"><span>Phụ kiện</span><span>60%</span></div><div class="progress-bar"><div class="progress-fill" style="width: 60%;"></div></div></div>
-                                <div class="cat-item"><div class="cat-info"><span>Khác</span><span>26%</span></div><div class="progress-bar"><div class="progress-fill gray" style="width: 26%;"></div></div></div>
+
+                        <div id="detail-orders" class="detail-section" style="display: none;">
+                            <div class="order-header-blue">Danh sách đơn hàng</div>
+                            <div class="product-table-container">
+                                <table class="orders-table">
+                                    <thead><tr><th>ID</th><th>Khách hàng</th><th>Đơn hàng</th><th>Giá bán</th><th class="text-center">Tình trạng</th></tr></thead>
+                                    <tbody>
+                                        <tr><td class="order-id-text">#ORD-1001</td><td>Xuân Phát</td><td>Wireless Gaming Mouse</td><td>500.000đ</td><td class="text-center"><span class="badge bg-success">Hoàn thành</span></td></tr>
+                                        <tr><td class="order-id-text">#ORD-1002</td><td>Thanh Hoài</td><td>Mechanical Keyboard RGB</td><td>5.500.000đ</td><td class="text-center"><span class="badge badge-shipping">Đang giao hàng</span></td></tr>
+                                        <tr><td class="order-id-text">#ORD-1003</td><td>Trung Hậu</td><td>PC Gaming GVN Supernova</td><td>72.500.000đ</td><td class="text-center"><span class="badge bg-warning">Xử lý</span></td></tr>
+                                        <tr><td class="order-id-text">#ORD-1004</td><td>Đại Hải</td><td>Tai nghe Gaming H2</td><td>1.200.000đ</td><td class="text-center"><span class="badge badge-shipping">Đang giao hàng</span></td></tr>
+                                        <tr><td class="order-id-text">#ORD-1005</td><td>Quang Huy</td><td>Màn hình 24 inch 144Hz</td><td>3.800.000đ</td><td class="text-center"><span class="badge badge-cancelled">Đã hủy</span></td></tr>
+                                        <tr><td class="order-id-text">#ORD-1006</td><td>Minh Trí</td><td>Ghế Gaming Warrior</td><td>2.500.000đ</td><td class="text-center"><span class="badge bg-warning">Xử lý</span></td></tr>
+                                    </tbody>
+                                </table>
                             </div>
+                        </div>
+
+                        <div id="detail-revenue" class="detail-section" style="display: none;">
+                            <div class="white-section">
+                                <div class="section-header">
+                                    <div class="section-title-group">
+                                        <h3>Phân tích doanh thu</h3>
+                                        <p class="subtitle">Chi tiết theo thời gian (Đơn vị: Triệu VNĐ)</p>
+                                    </div>
+                                    <div class="year-toggle">
+                                        <span class="year active" onclick="updateRevenue('week', this)">Tuần</span>
+                                        <span class="year" onclick="updateRevenue('month', this)">Tháng</span>
+                                        <span class="year" onclick="updateRevenue('year', this)">Năm</span>
+                                    </div>
+                                </div>
+                                <div class="chart-wrapper" style="height: 300px;"><canvas id="revenueDetailChart"></canvas></div>
+                            </div>
+                        </div>
+
+                        <div id="detail-customers" class="detail-section" style="display: none;">
+                             <div class="white-section">
+                                <div class="cat-header"><h3>Phân loại khách hàng</h3></div>
+                                <div class="cat-list">
+                                    <div class="cat-item"><div class="cat-info"><span>Khách hàng VIP</span><span>25%</span></div><div class="progress-bar"><div class="progress-fill" style="width: 25%;"></div></div></div>
+                                    <div class="cat-item"><div class="cat-info"><span>Khách hàng Thường</span><span>75%</span></div><div class="progress-bar"><div class="progress-fill gray" style="width: 75%;"></div></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="white-section mt-24">
+                        <div class="cat-header"><h3>Danh mục bán chạy</h3></div>
+                        <div class="cat-list">
+                            <div class="cat-item"><div class="cat-info"><span>PC Gaming</span><span>59%</span></div><div class="progress-bar"><div class="progress-fill" style="width: 59%;"></div></div></div>
+                            <div class="cat-item"><div class="cat-info"><span>PC Văn phòng</span><span>73%</span></div><div class="progress-bar"><div class="progress-fill" style="width: 73%;"></div></div></div>
+                            <div class="cat-item"><div class="cat-info"><span>Linh kiện</span><span>46%</span></div><div class="progress-bar"><div class="progress-fill" style="width: 46%;"></div></div></div>
+                            <div class="cat-item"><div class="cat-info"><span>Phụ kiện</span><span>60%</span></div><div class="progress-bar"><div class="progress-fill" style="width: 60%;"></div></div></div>
+                            <div class="cat-item"><div class="cat-info"><span>Khác</span><span>26%</span></div><div class="progress-bar"><div class="progress-fill gray" style="width: 26%;"></div></div></div>
                         </div>
                     </div>
                 </div>
 
                 <div id="tab-products" class="tab-content" style="display: none;">
                     <div class="product-page-header">
-                        <div class="page-title" style="margin-bottom: 0;"><h1 style="color: #ff8c00; margin-bottom: 5px;">Quản lý sản phẩm</h1><p style="color: #666;">Quản lý kho sản phẩm và thông tin chi tiết sản phẩm</p></div>
-                        <button class="btn-add-product"><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4" /></svg> Thêm sản phẩm</button>
+                        <div class="page-title" style="margin-bottom: 0;"><h1>Quản lý sản phẩm</h1><p>Quản lý kho sản phẩm</p></div>
+                        <button class="btn-add-product" onclick="openModal('modal-product', 'Thêm sản phẩm')">
+                            <img src="./image/nutthem.png" alt="Thêm" style="width: 20px; height: 20px; object-fit: contain;">
+                            Thêm sản phẩm
+                        </button>
                     </div>
                     <div class="product-search-bar">
                         <div class="search-wrapper">
@@ -111,32 +200,32 @@
                     </div>
                     <div class="product-table-container">
                         <table class="product-table">
-                            <thead><tr><th>Hàng hóa</th><th>Phân loại</th><th>Số tiền</th><th>Số lượng</th><th>Trạng thái</th><th></th></tr></thead>
+                            <thead><tr><th>Hàng hóa</th><th>Phân loại</th><th>Số tiền</th><th>Tồn kho</th><th class="text-center">Trạng thái</th><th class="w-1"></th></tr></thead>
                             <tbody>
                                 <tr>
                                     <td><div class="product-cell"><img src="./image/pc1.webp" class="product-thumb"><span class="product-name-text">Bộ PC Gaming i5-12400F, RAM 16GB, RTX 3060</span></div></td>
-                                    <td>PC gaming</td><td>82.680.000đ</td><td>153</td><td><span class="badge-stock">Còn hàng</span></td>
-                                    <td><div class="action-buttons"><img src="./image/butsua.png" class="action-icon"><img src="./image/thungrac.png" class="action-icon"></div></td>
+                                    <td>PC gaming</td><td>82.680.000đ</td><td>153</td><td class="text-center"><span class="badge-stock">Còn hàng</span></td>
+                                    <td class="w-1"><div class="action-buttons"><img src="./image/butsua.png" class="action-icon" title="Sửa" onclick="openModal('modal-product', 'Sửa sản phẩm')"><img src="./image/thungrac.png" class="action-icon" title="Xóa" onclick="openModal('modal-delete')"></div></td>
                                 </tr>
                                 <tr>
-                                    <td><div class="product-cell"><img src="./image/pcvp.jpg" class="product-thumb"><span class="product-name-text">PC VĂN PHÒNG 02 (i5 10400/ H510/ 8G/ 2400 SSD)</span></div></td>
-                                    <td>PC Văn phòng</td><td>12.680.000đ</td><td>126</td><td><span class="badge-stock">Còn hàng</span></td>
-                                    <td><div class="action-buttons"><img src="./image/butsua.png" class="action-icon"><img src="./image/thungrac.png" class="action-icon"></div></td>
+                                    <td><div class="product-cell"><img src="./image/pcvp.jpg" class="product-thumb"><span class="product-name-text">PC VĂN PHÒNG 02</span></div></td>
+                                    <td>PC Văn phòng</td><td>12.680.000đ</td><td>126</td><td class="text-center"><span class="badge-stock">Còn hàng</span></td>
+                                    <td class="w-1"><div class="action-buttons"><img src="./image/butsua.png" class="action-icon" title="Sửa" onclick="openModal('modal-product', 'Sửa sản phẩm')"><img src="./image/thungrac.png" class="action-icon" title="Xóa" onclick="openModal('modal-delete')"></div></td>
                                 </tr>
                                 <tr>
-                                    <td><div class="product-cell"><img src="./image/tannhiet.jpg" class="product-thumb"><span class="product-name-text">Tản Nhiệt CPU Jonsbo CR1400 White LED RGB</span></div></td>
-                                    <td>Linh kiện</td><td>1.680.000đ</td><td>5</td><td><span class="badge-stock">Còn hàng</span></td>
-                                    <td><div class="action-buttons"><img src="./image/butsua.png" class="action-icon"><img src="./image/thungrac.png" class="action-icon"></div></td>
+                                    <td><div class="product-cell"><img src="./image/tannhiet.jpg" class="product-thumb"><span class="product-name-text">Tản Nhiệt CPU Jonsbo CR1400</span></div></td>
+                                    <td>Linh kiện</td><td>1.680.000đ</td><td>5</td><td class="text-center"><span class="badge-stock">Còn hàng</span></td>
+                                    <td class="w-1"><div class="action-buttons"><img src="./image/butsua.png" class="action-icon" title="Sửa" onclick="openModal('modal-product', 'Sửa sản phẩm')"><img src="./image/thungrac.png" class="action-icon" title="Xóa" onclick="openModal('modal-delete')"></div></td>
                                 </tr>
                                 <tr>
                                     <td><div class="product-cell"><img src="./image/banphim.jpg" class="product-thumb"><span class="product-name-text">Bàn phím cơ RAINBOW GEAR K104</span></div></td>
-                                    <td>Phụ kiện</td><td>1.785.000đ</td><td>125</td><td><span class="badge-stock">Còn hàng</span></td>
-                                    <td><div class="action-buttons"><img src="./image/butsua.png" class="action-icon"><img src="./image/thungrac.png" class="action-icon"></div></td>
+                                    <td>Phụ kiện</td><td>1.785.000đ</td><td>125</td><td class="text-center"><span class="badge-stock">Còn hàng</span></td>
+                                    <td class="w-1"><div class="action-buttons"><img src="./image/butsua.png" class="action-icon" title="Sửa" onclick="openModal('modal-product', 'Sửa sản phẩm')"><img src="./image/thungrac.png" class="action-icon" title="Xóa" onclick="openModal('modal-delete')"></div></td>
                                 </tr>
                                 <tr>
                                     <td><div class="product-cell"><img src="./image/keycap.jpg" class="product-thumb"><span class="product-name-text">Keycap xuyên led game console</span></div></td>
-                                    <td>Khác</td><td>85.000đ</td><td>0</td><td><span class="badge-out">Hết hàng</span></td>
-                                    <td><div class="action-buttons"><img src="./image/butsua.png" class="action-icon"><img src="./image/thungrac.png" class="action-icon"></div></td>
+                                    <td>Linh kiện</td><td>85.000đ</td><td>0</td><td class="text-center"><span class="badge-out">Hết hàng</span></td>
+                                    <td class="w-1"><div class="action-buttons"><img src="./image/butsua.png" class="action-icon" title="Sửa" onclick="openModal('modal-product', 'Sửa sản phẩm')"><img src="./image/thungrac.png" class="action-icon" title="Xóa" onclick="openModal('modal-delete')"></div></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -144,110 +233,305 @@
                 </div>
 
                 <div id="tab-orders" class="tab-content" style="display: none;">
-                    <div class="stats-grid">
-                        <div class="stat-card"><div class="stat-icon-wrapper bg-orange-light"><img src="./image/chuaxl.png" width="32"></div><p class="stat-label">Chưa giải quyết</p><p class="stat-value text-orange">8</p></div>
-                        <div class="stat-card"><div class="stat-icon-wrapper bg-yellow-light"><img src="./image/hoatdong.png" width="32"></div><p class="stat-label">Xử lý</p><p class="stat-value text-yellow">4</p></div>
-                        <div class="stat-card"><div class="stat-icon-wrapper bg-green-light"><img src="./image/hoanthanh.png" width="32"></div><p class="stat-label">Hoàn Thành</p><p class="stat-value text-green">2</p></div>
-                        <div class="stat-card"><div class="stat-icon-wrapper bg-red-light"><img src="./image/huy.png" width="32"></div><p class="stat-label">Đã hủy</p><p class="stat-value text-red">1</p></div>
+                    <div class="page-title">
+                        <h1>Quản lý đơn hàng</h1>
+                        <p>Theo dõi và xử lý các đơn hàng</p>
                     </div>
-                    <div class="order-actions">
-                        <button class="btn-order-action btn-edit-order"><img src="./image/butsua.png" class="action-icon-btn">Sửa</button>
-                        <button class="btn-order-action btn-delete-order"><img src="./image/thungrac.png" class="action-icon-btn">Xóa</button>
+                    <div class="product-search-bar">
+                        <div class="search-wrapper">
+                            <svg width="20" height="20" fill="none" stroke="#333" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                            <input type="text" placeholder="Tìm kiếm đơn hàng theo ID, tên khách...">
+                        </div>
+                        <button class="btn-search-dark">Tìm Kiếm</button>
                     </div>
                     <div class="product-table-container">
-                        <div class="order-header-blue">Đơn đặt hàng gần đây</div>
+                        <div class="order-header-blue">Danh sách đơn hàng gần đây</div>
                         <table class="orders-table">
-                            <thead><tr><th>ID đơn hàng</th><th>Khách hàng</th><th>Đơn hàng</th><th>Giá bán</th><th>Số lượng</th><th>Ngày mua</th><th>Tình trạng</th></tr></thead>
+                            <thead><tr><th>ID đơn hàng</th><th>Khách hàng</th><th>Đơn hàng</th><th>Giá bán</th><th>Số lượng</th><th>Ngày mua</th><th class="text-center">Tình trạng</th><th class="w-1"></th></tr></thead>
                             <tbody>
-                                <tr><td class="order-id-text">#ORD-1001</td><td>Xuân Phát</td><td>Wireless Gaming Mouse</td><td>500.000đ</td><td>1</td><td>1/10/2024</td><td><span class="badge-stock">Hoàn thành</span></td></tr>
-                                <tr><td class="order-id-text">#ORD-1002</td><td>Thanh Hoài</td><td>Mechanical Keyboard RGB</td><td>5.500.000đ</td><td>1</td><td>21/11/2025</td><td><span class="badge-pending">Xử lý</span></td></tr>
-                                <tr><td class="order-id-text">#ORD-1003</td><td>Trung Hậu</td><td>PC Gaming GVN Supernova</td><td>72.500.000đ</td><td>1</td><td>05/09/2025</td><td><span class="badge-pending">Xử lý</span></td></tr>
-                                <tr><td class="order-id-text">#ORD-1004</td><td>Trung Kiên</td><td>PC Gaming GVN Titan 14</td><td>55.600.000đ</td><td>1</td><td>02/05/2025</td><td><span class="badge-stock">Hoàn thành</span></td></tr>
-                                <tr><td class="order-id-text">#ORD-1005</td><td>Đại Hải</td><td>PC Gaming Supernova</td><td>36.600.000đ</td><td>2</td><td>02/05/2025</td><td><span class="badge-cancelled">Đã hủy</span></td></tr>
+                                <tr>
+                                    <td class="order-id-text">#ORD-1001</td><td>Xuân Phát</td><td>Wireless Gaming Mouse</td><td>500.000đ</td><td>1</td><td>1/10/2024</td>
+                                    <td class="text-center"><span class="badge-stock">Hoàn thành</span></td>
+                                    <td class="w-1"><div class="action-buttons"><img src="./image/butsua.png" class="action-icon" title="Sửa" onclick="openModal('modal-order', 'Chỉnh sửa đơn hàng')"><img src="./image/thungrac.png" class="action-icon" title="Xóa" onclick="openModal('modal-delete')"></div></td>
+                                </tr>
+                                <tr>
+                                    <td class="order-id-text">#ORD-1002</td><td>Thanh Hoài</td><td>Mechanical Keyboard RGB</td><td>5.500.000đ</td><td>1</td><td>21/11/2025</td>
+                                    <td class="text-center"><span class="badge badge-shipping">Đang giao hàng</span></td>
+                                    <td class="w-1"><div class="action-buttons"><img src="./image/butsua.png" class="action-icon" title="Sửa" onclick="openModal('modal-order', 'Chỉnh sửa đơn hàng')"><img src="./image/thungrac.png" class="action-icon" title="Xóa" onclick="openModal('modal-delete')"></div></td>
+                                </tr>
+                                <tr>
+                                    <td class="order-id-text">#ORD-1003</td><td>Trung Hậu</td><td>PC Gaming GVN Supernova</td><td>72.500.000đ</td><td>1</td><td>05/09/2025</td>
+                                    <td class="text-center"><span class="badge badge-pending">Xử lý</span></td>
+                                    <td class="w-1"><div class="action-buttons"><img src="./image/butsua.png" class="action-icon" title="Sửa" onclick="openModal('modal-order', 'Chỉnh sửa đơn hàng')"><img src="./image/thungrac.png" class="action-icon" title="Xóa" onclick="openModal('modal-delete')"></div></td>
+                                </tr>
+                                <tr>
+                                    <td class="order-id-text">#ORD-1004</td><td>Trung Kiên</td><td>PC Gaming GVN Titan 14</td><td>55.600.000đ</td><td>1</td><td>02/05/2025</td>
+                                    <td class="text-center"><span class="badge badge-stock">Hoàn thành</span></td>
+                                    <td class="w-1"><div class="action-buttons"><img src="./image/butsua.png" class="action-icon" title="Sửa" onclick="openModal('modal-order', 'Chỉnh sửa đơn hàng')"><img src="./image/thungrac.png" class="action-icon" title="Xóa" onclick="openModal('modal-delete')"></div></td>
+                                </tr>
+                                <tr>
+                                    <td class="order-id-text">#ORD-1005</td><td>Đại Hải</td><td>PC Gaming Supernova</td><td>36.600.000đ</td><td>2</td><td>02/05/2025</td>
+                                    <td class="text-center"><span class="badge badge-cancelled">Đã hủy</span></td>
+                                    <td class="w-1"><div class="action-buttons"><img src="./image/butsua.png" class="action-icon" title="Sửa" onclick="openModal('modal-order', 'Chỉnh sửa đơn hàng')"><img src="./image/thungrac.png" class="action-icon" title="Xóa" onclick="openModal('modal-delete')"></div></td>
+                                </tr>
+                                <tr>
+                                    <td class="order-id-text">#ORD-1006</td><td>Minh Trí</td><td>Ghế Gaming Warrior</td><td>2.500.000đ</td><td>1</td><td>03/05/2025</td>
+                                    <td class="text-center"><span class="badge badge-shipping">Đang giao hàng</span></td>
+                                    <td class="w-1"><div class="action-buttons"><img src="./image/butsua.png" class="action-icon" title="Sửa" onclick="openModal('modal-order', 'Chỉnh sửa đơn hàng')"><img src="./image/thungrac.png" class="action-icon" title="Xóa" onclick="openModal('modal-delete')"></div></td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
 
                 <div id="tab-customers" class="tab-content" style="display: none;">
-                    <div class="stats-grid">
-                        <div class="stat-card"><div class="stat-icon-wrapper"><img src="./image/taikhoan.png" class="stat-icon-img"></div><p class="stat-label">Tổng tài khoản</p><p class="stat-value text-blue">200</p></div>
-                        <div class="stat-card"><div class="stat-icon-wrapper"><img src="./image/taikhoanhd.png" class="stat-icon-img"></div><p class="stat-label">Tài khoản hoạt động</p><p class="stat-value text-green">22</p></div>
-                        <div class="stat-card"><div class="stat-icon-wrapper"><img src="./image/danhgia.png" class="stat-icon-img"></div><p class="stat-label">Đánh giá</p><p class="stat-value text-green">4.8 ⭐</p></div>
-                        <div class="stat-card"><div class="stat-icon-wrapper"><img src="./image/sanpham.png" class="stat-icon-img"></div><p class="stat-label">Đơn hàng trong ngày</p><p class="stat-value text-red">8</p></div>
+                    <div class="product-page-header">
+                        <div class="page-title" style="margin-bottom: 0;"><h1>Quản lý khách hàng</h1><p>Danh sách khách hàng thân thiết</p></div>
+                        <button class="btn-add-product" onclick="openModal('modal-customer', 'Thêm khách hàng')">
+                            <img src="./image/nutthem.png" alt="Thêm" style="width: 20px; height: 20px; object-fit: contain;">
+                            Thêm khách hàng
+                        </button>
                     </div>
-                    <div class="action-bar">
-                        <button class="btn-action btn-add-pastel"><img src="./image/nutthem.png" class="action-icon">Thêm</button>
-                        <button class="btn-action btn-edit-pastel"><img src="./image/butsua.png" class="action-icon">Sửa</button>
-                        <button class="btn-action btn-delete-pastel"><img src="./image/thungrac.png" class="action-icon">Xóa</button>
+                    <div class="product-search-bar">
+                        <div class="search-wrapper">
+                            <svg width="20" height="20" fill="none" stroke="#333" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                            <input type="text" placeholder="Tìm kiếm khách hàng...">
+                        </div>
+                        <button class="btn-search-dark">Tìm Kiếm</button>
                     </div>
-                    <div class="table-container">
-                        <div class="table-header-customer" style="background-color: #60A5FA;">Khách hàng thân thiết</div>
+                    <div class="product-table-container">
+                        <div class="order-header-blue">Khách hàng thân thiết</div>
                         <table class="data-table">
-                            <thead><tr><th>ID khách hàng</th><th>Tên khách</th><th>Email</th><th>Số điện thoại</th><th>Giới tính</th><th>Ngày lập</th><th>Tình trạng</th></tr></thead>
+                            <thead><tr><th>ID khách hàng</th><th>Tên khách</th><th>Email</th><th>Số điện thoại</th><th>Giới tính</th><th>Ngày lập</th><th class="text-center">Loại</th><th class="w-1"></th></tr></thead>
                             <tbody>
-                                <tr><td class="col-id">#KH01</td><td class="font-bold">Xuân Phát</td><td>Xuanphat123@gmail.com</td><td>033863521</td><td>Nam</td><td>1/10/2024</td><td><span class="badge badge-active">Hoạt động</span></td></tr>
-                                <tr><td class="col-id">#KH02</td><td class="font-bold">Thanh Hoài</td><td>Thanhhoai123@gmail.com</td><td>065973865</td><td>Nữ</td><td>21/11/2025</td><td><span class="badge badge-new">Mới</span></td></tr>
-                                <tr><td class="col-id">#KH03</td><td class="font-bold">Trung Hậu</td><td>Trunghau123@gmail.com</td><td>032254995</td><td>Nam</td><td>05/09/2025</td><td><span class="badge badge-new">Mới</span></td></tr>
-                                <tr><td class="col-id">#KH04</td><td class="font-bold">Trung Kiên</td><td>TrungKien123@gmail.com</td><td>069785655</td><td>Nam</td><td>02/05/2025</td><td><span class="badge badge-active">Hoạt động</span></td></tr>
-                                <tr><td class="col-id">#KH05</td><td class="font-bold">Đại Hải</td><td>Daihai123@gamil.com</td><td>096464575</td><td>Nam</td><td>02/05/2025</td><td><span class="badge badge-active">Hoạt động</span></td></tr>
+                                <tr>
+                                    <td class="col-id">#KH01</td><td class="font-bold">Xuân Phát</td><td>Xuanphat123@gmail.com</td><td>033863521</td><td>Nam</td><td>1/10/2024</td>
+                                    <td class="text-center"><span class="badge badge-vip">VIP</span></td>
+                                    <td class="w-1"><div class="action-buttons"><img src="./image/butsua.png" class="action-icon" title="Sửa" onclick="openModal('modal-customer', 'Sửa khách hàng')"><img src="./image/thungrac.png" class="action-icon" title="Xóa" onclick="openModal('modal-delete')"></div></td>
+                                </tr>
+                                <tr>
+                                    <td class="col-id">#KH02</td><td class="font-bold">Thanh Hoài</td><td>Thanhhoai123@gmail.com</td><td>065973865</td><td>Nữ</td><td>21/11/2025</td>
+                                    <td class="text-center"><span class="badge badge-regular">Thường</span></td>
+                                    <td class="w-1"><div class="action-buttons"><img src="./image/butsua.png" class="action-icon" title="Sửa" onclick="openModal('modal-customer', 'Sửa khách hàng')"><img src="./image/thungrac.png" class="action-icon" title="Xóa" onclick="openModal('modal-delete')"></div></td>
+                                </tr>
+                                <tr>
+                                    <td class="col-id">#KH03</td><td class="font-bold">Trung Hậu</td><td>Trunghau123@gmail.com</td><td>032254995</td><td>Nam</td><td>05/09/2025</td>
+                                    <td class="text-center"><span class="badge badge-regular">Thường</span></td>
+                                    <td class="w-1"><div class="action-buttons"><img src="./image/butsua.png" class="action-icon" title="Sửa" onclick="openModal('modal-customer', 'Sửa khách hàng')"><img src="./image/thungrac.png" class="action-icon" title="Xóa" onclick="openModal('modal-delete')"></div></td>
+                                </tr>
+                                <tr>
+                                    <td class="col-id">#KH04</td><td class="font-bold">Trung Kiên</td><td>TrungKien123@gmail.com</td><td>069785655</td><td>Nam</td><td>02/05/2025</td>
+                                    <td class="text-center"><span class="badge badge-vip">VIP</span></td>
+                                    <td class="w-1"><div class="action-buttons"><img src="./image/butsua.png" class="action-icon" title="Sửa" onclick="openModal('modal-customer', 'Sửa khách hàng')"><img src="./image/thungrac.png" class="action-icon" title="Xóa" onclick="openModal('modal-delete')"></div></td>
+                                </tr>
+                                <tr>
+                                    <td class="col-id">#KH05</td><td class="font-bold">Đại Hải</td><td>Daihai123@gamil.com</td><td>096464575</td><td>Nam</td><td>02/05/2025</td>
+                                    <td class="text-center"><span class="badge badge-regular">Thường</span></td>
+                                    <td class="w-1"><div class="action-buttons"><img src="./image/butsua.png" class="action-icon" title="Sửa" onclick="openModal('modal-customer', 'Sửa khách hàng')"><img src="./image/thungrac.png" class="action-icon" title="Xóa" onclick="openModal('modal-delete')"></div></td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
 
                 <div id="tab-employees" class="tab-content" style="display: none;">
-                    <div class="stats-grid">
-                        <div class="stat-card"><div class="stat-icon-wrapper"><img src="./image/tongnv.png" class="stat-icon-img"></div><p class="stat-label">Tổng nhân viên</p><p class="stat-desc">+3 so với tháng trước</p><p class="stat-value text-blue">15</p></div>
-                        <div class="stat-card"><div class="stat-icon-wrapper"><img src="./image/hoatdong.png" class="stat-icon-img"></div><p class="stat-label">Đang hoạt động</p><p class="stat-value text-green">13</p></div>
-                        <div class="stat-card"><div class="stat-icon-wrapper"><img src="./image/nhanvien.png" class="stat-icon-img"></div><p class="stat-label">Nhân viên mới</p><p class="stat-desc">Trong 30 ngày</p><p class="stat-value text-green">4</p></div>
-                        <div class="stat-card"><div class="stat-icon-wrapper"><img src="./image/tamnghi.png" class="stat-icon-img"></div><p class="stat-label">Tạm nghỉ</p><p class="stat-desc">Cần kiểm tra</p><p class="stat-value text-red">2</p></div>
+                    <div class="product-page-header">
+                        <div class="page-title" style="margin-bottom: 0;"><h1>Quản lý nhân viên</h1><p>Quản lý hồ sơ nhân sự</p></div>
+                        <button class="btn-add-product" onclick="openModal('modal-employee', 'Thêm nhân viên')">
+                            <img src="./image/nutthem.png" alt="Thêm" style="width: 20px; height: 20px; object-fit: contain;">
+                            Thêm nhân viên
+                        </button>
                     </div>
-                    <div class="action-bar">
-                        <button class="btn-action btn-add-pastel"><img src="./image/nutthem.png" class="action-icon">Thêm</button>
-                        <button class="btn-action btn-edit-pastel"><img src="./image/butsua.png" class="action-icon">Sửa</button>
-                        <button class="btn-action btn-delete-pastel"><img src="./image/thungrac.png" class="action-icon">Xóa</button>
+                    <div class="product-search-bar">
+                        <div class="search-wrapper">
+                            <svg width="20" height="20" fill="none" stroke="#333" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                            <input type="text" placeholder="Tìm kiếm nhân viên...">
+                        </div>
+                        <button class="btn-search-dark">Tìm Kiếm</button>
                     </div>
-                    <div class="table-container">
-                        <div class="table-header-customer" style="background-color: #93C5FD;">Nhân viên</div>
-                        <table class="data-table">
-                            <thead><tr><th>ID Nhân viên</th><th>Tên nhân viên</th><th>Email</th><th>Số điện thoại</th><th>Giới tính</th><th>Ngày lập</th><th>Tình trạng</th></tr></thead>
+                    <div class="product-table-container">
+                        <div class="order-header-blue">Danh sách nhân viên</div>
+                        <table class="orders-table">
+                            <thead>
+                                <tr>
+                                    <th>ID Nhân viên</th><th>Tên nhân viên</th><th>Email</th><th>Số điện thoại</th><th>Giới tính</th><th>Ngày lập</th><th class="w-1"></th> 
+                                </tr>
+                            </thead>
                             <tbody>
-                                <tr><td class="col-id">#NV01</td><td class="font-bold">Xuân Phát</td><td>Xuanphat123@gmail.com</td><td>033863521</td><td>Nam</td><td>1/10/2024</td><td><span class="badge badge-active">Hoạt động</span></td></tr>
-                                <tr><td class="col-id">#NV02</td><td class="font-bold">Thanh Hoài</td><td>Thanhhoai123@gmail.com</td><td>065973865</td><td>Nữ</td><td>21/11/2025</td><td><span class="badge badge-new">Mới</span></td></tr>
-                                <tr><td class="col-id">#NV03</td><td class="font-bold">Trung Hậu</td><td>Trunghau123@gmail.com</td><td>032254995</td><td>Nam</td><td>05/09/2025</td><td><span class="badge badge-new">Mới</span></td></tr>
-                                <tr><td class="col-id">#NV04</td><td class="font-bold">Trung Kiên</td><td>TrungKien123@gmail.com</td><td>069785655</td><td>Nam</td><td>02/05/2025</td><td><span class="badge badge-active">Hoạt động</span></td></tr>
-                                <tr><td class="col-id">#NV05</td><td class="font-bold">Đại Hải</td><td>Daihai123@gamil.com</td><td>096464575</td><td>Nam</td><td>02/05/2025</td><td><span class="badge badge-active">Hoạt động</span></td></tr>
+                                <tr>
+                                    <td class="col-id">#NV01</td><td class="font-bold">Xuân Phát</td><td>Xuanphat123@gmail.com</td><td>033863521</td><td>Nam</td><td>1/10/2024</td>
+                                    <td class="w-1"><div class="action-buttons"><img src="./image/butsua.png" class="action-icon" title="Sửa" onclick="openModal('modal-employee', 'Sửa nhân viên')"><img src="./image/thungrac.png" class="action-icon" title="Xóa" onclick="openModal('modal-delete')"></div></td>
+                                </tr>
+                                <tr>
+                                    <td class="col-id">#NV02</td><td class="font-bold">Thanh Hoài</td><td>Thanhhoai123@gmail.com</td><td>065973865</td><td>Nữ</td><td>21/11/2025</td>
+                                    <td class="w-1"><div class="action-buttons"><img src="./image/butsua.png" class="action-icon" title="Sửa" onclick="openModal('modal-employee', 'Sửa nhân viên')"><img src="./image/thungrac.png" class="action-icon" title="Xóa" onclick="openModal('modal-delete')"></div></td>
+                                </tr>
+                                <tr>
+                                    <td class="col-id">#NV03</td><td class="font-bold">Trung Hậu</td><td>Trunghau123@gmail.com</td><td>032254995</td><td>Nam</td><td>05/09/2025</td>
+                                    <td class="w-1"><div class="action-buttons"><img src="./image/butsua.png" class="action-icon" title="Sửa" onclick="openModal('modal-employee', 'Sửa nhân viên')"><img src="./image/thungrac.png" class="action-icon" title="Xóa" onclick="openModal('modal-delete')"></div></td>
+                                </tr>
+                                <tr>
+                                    <td class="col-id">#NV04</td><td class="font-bold">Trung Kiên</td><td>TrungKien123@gmail.com</td><td>069785655</td><td>Nam</td><td>02/05/2025</td>
+                                    <td class="w-1"><div class="action-buttons"><img src="./image/butsua.png" class="action-icon" title="Sửa" onclick="openModal('modal-employee', 'Sửa nhân viên')"><img src="./image/thungrac.png" class="action-icon" title="Xóa" onclick="openModal('modal-delete')"></div></td>
+                                </tr>
+                                <tr>
+                                    <td class="col-id">#NV05</td><td class="font-bold">Đại Hải</td><td>Daihai123@gamil.com</td><td>096464575</td><td>Nam</td><td>02/05/2025</td>
+                                    <td class="w-1"><div class="action-buttons"><img src="./image/butsua.png" class="action-icon" title="Sửa" onclick="openModal('modal-employee', 'Sửa nhân viên')"><img src="./image/thungrac.png" class="action-icon" title="Xóa" onclick="openModal('modal-delete')"></div></td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
 
                 <div id="tab-stats" class="tab-content" style="display: none;">
-                    <div class="stats-grid">
-                        <div class="stat-card"><div class="stat-icon-wrapper"><img src="./image/doanhthu.png" class="stat-icon-img"></div><p class="stat-label">Doanh thu tháng</p><p class="stat-value">16.563.600đ</p></div>
-                        <div class="stat-card"><div class="stat-icon-wrapper"><img src="./image/tongdon.png" class="stat-icon-img"></div><p class="stat-label">Tổng đơn hàng</p><p class="stat-value">136</p></div>
-                        <div class="stat-card"><div class="stat-icon-wrapper"><img src="./image/sanpham.png" class="stat-icon-img"></div><p class="stat-label">Sản phẩm bán chạy</p><p style="font-size: 11px; color: #999; margin-bottom: 2px;">Trong 30 ngày</p><p class="stat-value" style="font-size: 16px;">Wireless Gaming Mouse</p></div>
-                        <div class="stat-card"><div class="stat-icon-wrapper"><img src="./image/tangtruong.png" class="stat-icon-img"></div><p class="stat-label">Tăng trưởng</p><p class="stat-value text-green">20.5% ↗</p></div>
+                    <div class="product-page-header">
+                        <div class="page-title" style="margin-bottom: 0;">
+                            <h1>Thống kê kinh doanh</h1>
+                            <p>Báo cáo hiệu quả hoạt động theo thời gian thực</p>
+                        </div>
+                        <div style="display: flex; gap: 12px;">
+                            <button class="btn-blue" onclick="openModal('modal-export', 'Xác nhận Xuất báo cáo')">
+                                <img src="./image/baocao.png" alt="Thêm" style="width: 20px; height: 20px; object-fit: contain;">
+                                Xuất báo cáo
+                            </button>
+                            <button class="btn-blue" onclick="openModal('modal-export', 'Xác nhận Xuất thống kê')">
+                                <img src="./image/thongke.png" alt="Thêm" style="width: 20px; height: 20px; object-fit: contain;">
+                                Xuất thống kê
+                            </button>
+                        </div>
                     </div>
+
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon-wrapper"><img src="./image/doanhthu.png" class="stat-icon-img"></div>
+                            <p class="stat-label">Doanh thu tháng này</p>
+                            <p class="stat-value text-orange" id="stat-revenue">4,250,000,000đ</p>
+                            <p class="stat-desc text-green">Đang tăng trưởng tốt ↗</p>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon-wrapper"><img src="./image/tongdon.png" class="stat-icon-img"></div>
+                            <p class="stat-label">Tổng đơn hàng</p>
+                            <p class="stat-value">342</p>
+                            <p class="stat-desc">Trung bình 12 đơn/ngày</p>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon-wrapper"><img src="./image/sanpham.png" class="stat-icon-img"></div>
+                            <p class="stat-label">Sản phẩm Top 1</p>
+                            <p style="font-size: 11px; color: #999; margin-bottom: 2px;">Doanh thu cao nhất</p>
+                            <p class="stat-value" style="font-size: 16px;">PC Gaming i5-12400F</p>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon-wrapper"><img src="./image/tangtruong.png" class="stat-icon-img"></div>
+                            <p class="stat-label">Lợi nhuận ước tính</p>
+                            <p class="stat-value text-green">~20%</p>
+                            <p class="stat-desc">Biên lợi nhuận ổn định</p>
+                        </div>
+                    </div>
+
                     <div class="white-section">
                         <div class="section-header">
-                            <div class="section-title-group"><h3>Biểu đồ doanh thu</h3><p class="subtitle">Biến động doanh thu theo tháng (VND)</p></div>
-                            <div class="year-toggle"><span class="year active">2024</span><span class="year">2023</span></div>
+                            <div class="section-title-group">
+                                <h3>Biểu đồ doanh thu</h3>
+                                <p class="subtitle">Dữ liệu doanh thu (Đơn vị: Triệu Đồng)</p>
+                            </div>
+                            <div class="year-toggle" id="main-chart-years">
+                                <span class="year active" onclick="updateMainChart(2025, this)">2025</span>
+                                <span class="year" onclick="updateMainChart(2024, this)">2024</span>
+                                <span class="year" onclick="updateMainChart(2023, this)">2023</span>
+                                <span class="year" onclick="updateMainChart(2022, this)">2022</span>
+                            </div>
                         </div>
                         <div class="chart-wrapper"><canvas id="revenueChart"></canvas></div>
                     </div>
+
                     <div class="white-section mt-24">
-                        <div class="section-header"><h3>Top sản phẩm bán chạy</h3><a href="#" class="view-all">Xem tất cả →</a></div>
+                        <div class="section-header">
+                            <h3>Top sản phẩm bán chạy</h3>
+                            <a href="#" class="view-all" onclick="openTab(event, 'tab-products')">Xem kho hàng →</a>
+                        </div>
                         <div class="table-container">
                             <table class="top-product-table">
-                                <thead><tr><th style="width: 40%;">SẢN PHẨM</th><th style="width: 15%;">SỐ LƯỢNG</th><th style="width: 30%;">HIỆU SUẤT BÁN HÀNG</th><th style="width: 15%; text-align: right;">DOANH THU</th></tr></thead>
+                                <thead>
+                                    <tr>
+                                        <th style="width: 5%;">#</th>
+                                        <th style="width: 35%;">SẢN PHẨM</th>
+                                        <th style="width: 15%;">ĐÃ BÁN</th>
+                                        <th style="width: 30%;">HIỆU SUẤT</th>
+                                        <th style="width: 15%; text-align: right;">DOANH THU</th>
+                                    </tr>
+                                </thead>
                                 <tbody>
                                     <tr>
-                                        <td><div class="product-info"><img src="./image/pc.jpg" class="prod-img"><div><p class="prod-name">Ultra Gaming PC</p><span class="prod-tag">PC GAMING</span></div></div></td>
+                                        <td style="font-weight: bold; color: #FFD83B; font-size: 18px;">1</td>
+                                        <td>
+                                            <div class="product-info">
+                                                <img src="./image/pc1.webp" class="prod-img" onerror="this.src='https://via.placeholder.com/50'">
+                                                <div><p class="prod-name">PC Gaming i5-12400F</p><span class="prod-tag">PC GAMING</span></div>
+                                            </div>
+                                        </td>
                                         <td style="font-weight: 600;">124</td>
+                                        <td><div class="progress-wrapper"><div class="progress-bg"><div class="progress-fill blue" style="width: 95%;"></div></div><span class="progress-text">95%</span></div></td>
+                                        <td class="text-right font-bold">1.8 Tỷ</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-weight: bold; color: #9CA3AF; font-size: 18px;">2</td>
+                                        <td>
+                                            <div class="product-info">
+                                                <img src="./image/pcvp.jpg" class="prod-img" onerror="this.src='https://via.placeholder.com/50'">
+                                                <div><p class="prod-name">PC Văn Phòng 02</p><span class="prod-tag">VĂN PHÒNG</span></div>
+                                            </div>
+                                        </td>
+                                        <td style="font-weight: 600;">86</td>
+                                        <td><div class="progress-wrapper"><div class="progress-bg"><div class="progress-fill blue" style="width: 70%;"></div></div><span class="progress-text">70%</span></div></td>
+                                        <td class="text-right font-bold">950 Tr</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-weight: bold; color: #B45309; font-size: 18px;">3</td>
+                                        <td>
+                                            <div class="product-info">
+                                                <img src="./image/manhinh.jpg" class="prod-img" onerror="this.src='https://via.placeholder.com/50'">
+                                                <div><p class="prod-name">Màn hình LG 24'' 144Hz</p><span class="prod-tag">MÀN HÌNH</span></div>
+                                            </div>
+                                        </td>
+                                        <td style="font-weight: 600;">215</td>
                                         <td><div class="progress-wrapper"><div class="progress-bg"><div class="progress-fill blue" style="width: 85%;"></div></div><span class="progress-text">85%</span></div></td>
-                                        <td class="text-right font-bold">4.2B</td>
+                                        <td class="text-right font-bold">880 Tr</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-weight: bold; color: #64748B; font-size: 18px;">4</td>
+                                        <td>
+                                            <div class="product-info">
+                                                <img src="./image/tainghe.jpg" class="prod-img" onerror="this.src='https://via.placeholder.com/50'">
+                                                <div><p class="prod-name">Tai nghe DareU EH722</p><span class="prod-tag">PHỤ KIỆN</span></div>
+                                            </div>
+                                        </td>
+                                        <td style="font-weight: 600;">450</td>
+                                        <td><div class="progress-wrapper"><div class="progress-bg"><div class="progress-fill blue" style="width: 50%;"></div></div><span class="progress-text">50%</span></div></td>
+                                        <td class="text-right font-bold">150 Tr</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-weight: bold; color: #64748B; font-size: 18px;">5</td>
+                                        <td>
+                                            <div class="product-info">
+                                                <img src="./image/banphim.jpg" class="prod-img" onerror="this.src='https://via.placeholder.com/50'">
+                                                <div><p class="prod-name">Bàn phím cơ Keychron K8</p><span class="prod-tag">PHỤ KIỆN</span></div>
+                                            </div>
+                                        </td>
+                                        <td style="font-weight: 600;">85</td>
+                                        <td><div class="progress-wrapper"><div class="progress-bg"><div class="progress-fill blue" style="width: 65%;"></div></div><span class="progress-text">65%</span></div></td>
+                                        <td class="text-right font-bold">120 Tr</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-weight: bold; color: #64748B; font-size: 18px;">6</td>
+                                        <td>
+                                            <div class="product-info">
+                                                <img src="./image/ghe.jpg" class="prod-img" onerror="this.src='https://via.placeholder.com/50'">
+                                                <div><p class="prod-name">Ghế Gaming Warrior</p><span class="prod-tag">NỘI THẤT</span></div>
+                                            </div>
+                                        </td>
+                                        <td style="font-weight: 600;">32</td>
+                                        <td><div class="progress-wrapper"><div class="progress-bg"><div class="progress-fill blue" style="width: 40%;"></div></div><span class="progress-text">40%</span></div></td>
+                                        <td class="text-right font-bold">85 Tr</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -259,32 +543,460 @@
         </main>
     </div>
 
+    <div id="modal-product" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Thêm sản phẩm</h2>
+                <span class="close-btn" onclick="closeModal('modal-product')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Tên sản phẩm</label>
+                    <input type="text" class="form-control" placeholder="Nhập tên sản phẩm...">
+                </div>
+                <div class="form-group">
+                    <label>Phân loại</label>
+                    <select class="form-control">
+                        <option>PC Gaming</option>
+                        <option>PC Văn phòng</option>
+                        <option>Linh kiện</option>
+                        <option>Phụ kiện</option>
+                    </select>
+                </div>
+                <div class="form-group" style="display: flex; gap: 16px;">
+                    <div style="flex: 1;">
+                        <label>Giá bán (VNĐ)</label>
+                        <input type="number" class="form-control" placeholder="VD: 15000000">
+                    </div>
+                    <div style="flex: 1;">
+                        <label>Số lượng kho</label>
+                        <input type="number" class="form-control" placeholder="VD: 50">
+                    </div>
+                </div>
+                <div class="form-group" style="display: flex; gap: 16px;">
+                    <div style="flex: 1;">
+                        <label>Hình ảnh sản phẩm</label>
+                        <input type="file" class="form-control" accept="image/*">
+                    </div>
+                    <div style="flex: 1;">
+                        <label>Trạng thái</label>
+                        <select class="form-control">
+                            <option>Còn hàng</option>
+                            <option>Hết hàng</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-cancel" onclick="closeModal('modal-product')">Hủy</button>
+                <button class="btn-save">Lưu lại</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-customer" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Thêm khách hàng</h2>
+                <span class="close-btn" onclick="closeModal('modal-customer')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Họ và Tên</label>
+                    <input type="text" class="form-control" placeholder="Nhập họ tên...">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" class="form-control" placeholder="example@gmail.com">
+                </div>
+                <div class="form-group" style="display: flex; gap: 16px;">
+                    <div style="flex: 1;">
+                        <label>Số điện thoại</label>
+                        <input type="tel" class="form-control" placeholder="Nhập SĐT...">
+                    </div>
+                    <div style="flex: 1;">
+                        <label>Giới tính</label>
+                        <select class="form-control">
+                            <option>Nam</option>
+                            <option>Nữ</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group" style="display: flex; gap: 16px;">
+                    <div style="flex: 1;">
+                        <label>Ngày lập</label>
+                        <input type="date" class="form-control">
+                    </div>
+                    <div style="flex: 1;">
+                        <label>Loại khách hàng</label>
+                        <select class="form-control">
+                            <option>Thường</option>
+                            <option>VIP</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-cancel" onclick="closeModal('modal-customer')">Hủy</button>
+                <button class="btn-save">Lưu thông tin</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-employee" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Thêm nhân viên</h2>
+                <span class="close-btn" onclick="closeModal('modal-employee')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Họ và Tên</label>
+                    <input type="text" class="form-control" placeholder="Nhập họ tên...">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" class="form-control" placeholder="example@gmail.com">
+                </div>
+                <div class="form-group" style="display: flex; gap: 16px;">
+                    <div style="flex: 1;">
+                        <label>Số điện thoại</label>
+                        <input type="tel" class="form-control" placeholder="Nhập SĐT...">
+                    </div>
+                    <div style="flex: 1;">
+                        <label>Giới tính</label>
+                        <select class="form-control">
+                            <option>Nam</option>
+                            <option>Nữ</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Ngày lập</label>
+                    <input type="date" class="form-control">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-cancel" onclick="closeModal('modal-employee')">Hủy</button>
+                <button class="btn-save">Lưu thông tin</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-order" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Cập nhật đơn hàng</h2>
+                <span class="close-btn" onclick="closeModal('modal-order')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Khách hàng</label>
+                    <input type="text" class="form-control" placeholder="Tên khách hàng...">
+                </div>
+                <div class="form-group">
+                    <label>Sản phẩm (Đơn hàng)</label>
+                    <input type="text" class="form-control" placeholder="Tên sản phẩm...">
+                </div>
+                <div class="form-group" style="display: flex; gap: 16px;">
+                    <div style="flex: 1;">
+                        <label>Giá bán (VNĐ)</label>
+                        <input type="text" class="form-control" placeholder="VD: 500000">
+                    </div>
+                    <div style="flex: 1;">
+                        <label>Số lượng</label>
+                        <input type="number" class="form-control" placeholder="VD: 1">
+                    </div>
+                </div>
+                <div class="form-group" style="display: flex; gap: 16px;">
+                    <div style="flex: 1;">
+                        <label>Ngày mua</label>
+                        <input type="date" class="form-control">
+                    </div>
+                    <div style="flex: 1;">
+                        <label>Tình trạng</label>
+                        <select class="form-control">
+                            <option>Xử lý</option>
+                            <option>Đang giao hàng</option>
+                            <option>Hoàn thành</option>
+                            <option>Đã hủy</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-cancel" onclick="closeModal('modal-order')">Hủy</button>
+                <button class="btn-save">Cập nhật</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-delete" class="modal-overlay">
+        <div class="modal-content" style="max-width: 400px; text-align: center;">
+            <div class="modal-header" style="border-bottom: none; justify-content: center; position: relative;">
+                <span class="close-btn" style="position: absolute; right: 0; top: -10px;" onclick="closeModal('modal-delete')">&times;</span>
+                <div style="background: #FEF2F2; color: #DC2626; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                    <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                </div>
+            </div>
+            <div class="modal-body">
+                <h3 style="margin-bottom: 8px; font-size: 18px;">Bạn có chắc chắn muốn xóa?</h3>
+                <p style="color: #6b7280; font-size: 14px; margin-bottom: 20px;">Dữ liệu sau khi xóa sẽ không thể khôi phục lại được.</p>
+                <div style="display: flex; gap: 12px; justify-content: center;">
+                    <button class="btn-cancel" style="width: 100%;" onclick="closeModal('modal-delete')">Hủy bỏ</button>
+                    <button class="btn-save" style="width: 100%; background-color: #DC2626;">Xóa mục này</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-export" class="modal-overlay">
+        <div class="modal-content" style="max-width: 400px; text-align: center;">
+            <div class="modal-header" style="border-bottom: none; justify-content: center; position: relative;">
+                <span class="close-btn" style="position: absolute; right: 0; top: -10px;" onclick="closeModal('modal-export')">&times;</span>
+                <div style="background: #E0F2FE; color: #3B82F6; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                    <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                </div>
+            </div>
+            <div class="modal-body">
+                <h3 class="modal-title" style="margin-bottom: 8px; font-size: 18px;">Xác nhận tải xuống</h3>
+                <p style="color: #6b7280; font-size: 14px; margin-bottom: 20px;">Bạn có chắc chắn muốn xuất và tải tệp dữ liệu này về máy không?</p>
+                <div style="display: flex; gap: 12px; justify-content: center;">
+                    <button class="btn-cancel" style="width: 100%;" onclick="closeModal('modal-export')">Hủy bỏ</button>
+                    <button class="btn-save" style="width: 100%; background-color: #3B82F6;">Xác nhận xuất</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-logout" class="modal-overlay">
+        <div class="modal-content" style="max-width: 400px; text-align: center;">
+            <div class="modal-header" style="border-bottom: none; justify-content: center; position: relative;">
+                <span class="close-btn" style="position: absolute; right: 0; top: -10px;" onclick="closeModal('modal-logout')">&times;</span>
+                <div style="background: #FFFBEB; color: #F59E0B; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                    <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
+                </div>
+            </div>
+            <div class="modal-body">
+                <h3 style="margin-bottom: 8px; font-size: 18px;">Xác nhận đăng xuất</h3>
+                <p style="color: #6b7280; font-size: 14px; margin-bottom: 20px;">Bạn có chắc chắn muốn đăng xuất khỏi hệ thống không?</p>
+                <div style="display: flex; gap: 12px; justify-content: center;">
+                    <button class="btn-cancel" style="width: 100%;" onclick="closeModal('modal-logout')">Hủy bỏ</button>
+                    <button class="btn-save" style="width: 100%; background-color: #F59E0B;">Đăng xuất</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
+        // --- 1. JS CHUYỂN TAB (Cơ bản) ---
         function openTab(evt, tabName) {
+            if(evt) evt.preventDefault();
             var i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tab-content");
             for (i = 0; i < tabcontent.length; i++) { tabcontent[i].style.display = "none"; }
             tablinks = document.getElementsByClassName("menu-item");
             for (i = 0; i < tablinks.length; i++) { tablinks[i].className = tablinks[i].className.replace(" active", ""); }
-            document.getElementById(tabName).style.display = "block";
-            evt.currentTarget.className += " active";
+            
+            var selectedTab = document.getElementById(tabName);
+            if(selectedTab) {
+                selectedTab.style.display = "block";
+                selectedTab.style.animation = 'none';
+                selectedTab.offsetHeight; 
+                selectedTab.style.animation = 'fadeIn 0.5s ease-in-out';
+            }
+
+            var allButtons = document.querySelectorAll('.menu-item');
+            allButtons.forEach(btn => {
+                if(btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(tabName)) {
+                    btn.classList.add('active');
+                }
+            });
+
+            if (tabName === 'tab-stats' && window.mainChartInstance) {
+                window.mainChartInstance.resize();
+            }
+        }
+
+        // --- 2. JS CLICK CARD CHI TIẾT (Tab Tổng quan) ---
+        function showDetail(detailId, cardElement) {
+            var details = document.getElementsByClassName("detail-section");
+            for (var i = 0; i < details.length; i++) { details[i].style.display = "none"; }
+            var cards = document.querySelectorAll(".stat-card");
+            cards.forEach(card => card.classList.remove("active-card"));
+
+            var selected = document.getElementById(detailId);
+            if (selected) {
+                selected.style.display = "block";
+                selected.style.animation = 'fadeIn 0.5s ease-in-out';
+            }
+            if(cardElement) cardElement.classList.add("active-card");
+
+            if (detailId === 'detail-revenue') {
+                renderDetailChart('week');
+            }
+        }
+
+        // --- 3. JS BIỂU ĐỒ CHI TIẾT (Tab Tổng quan) ---
+        function updateRevenue(type, el) {
+            var btns = el.parentElement.getElementsByClassName("year");
+            for (var i = 0; i < btns.length; i++) { btns[i].classList.remove("active"); }
+            el.classList.add("active");
+            renderDetailChart(type);
+        }
+
+        function renderDetailChart(type) {
+            const ctx = document.getElementById('revenueDetailChart');
+            if (window.myDetailChart) { window.myDetailChart.destroy(); }
+            
+            let labels, data;
+            if (type === 'week') {
+                labels = ['Tuần 1', 'Tuần 2', 'Tuần 3', 'Tuần 4'];
+                data = [950, 1100, 850, 1350]; 
+            } else if (type === 'month') {
+                labels = ['T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'T8', 'T9', 'T10', 'T11', 'T12'];
+                data = [3500, 4200, 3800, 4500, 5100, 3200, 4100, 4400, 3900, 4600, 5200, 4800]; 
+            } else if (type === 'year') {
+                labels = ['2022', '2023', '2024', '2025'];
+                data = [35000, 42000, 48000, 52000]; 
+            }
+
+            if (ctx) {
+                window.myDetailChart = new Chart(ctx.getContext('2d'), {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: [{ 
+                            label: 'Doanh thu (Triệu VNĐ)', 
+                            data: data, 
+                            backgroundColor: '#FF8C00', 
+                            borderRadius: 6
+                        }]
+                    },
+                    options: { 
+                        responsive: true, 
+                        maintainAspectRatio: false,
+                        plugins: {
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        let value = context.parsed.y;
+                                        if (value >= 1000) return new Intl.NumberFormat('vi-VN').format(value/1000) + ' Tỷ';
+                                        return new Intl.NumberFormat('vi-VN').format(value) + ' Triệu';
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        }
+
+        // --- 4. JS BIỂU ĐỒ CHÍNH (Tab Thống kê) ---
+        let mainChartInstance = null;
+        const chartData = {
+            2025: [3500, 4200, 3800, 4500, 5100, 4800, 4900, 5300, 5600, 6100, 6500, 7200], 
+            2024: [3100, 3300, 3600, 4000, 3800, 4200, 4600, 4300, 3900, 4800, 5500, 6000], 
+            2023: [2200, 2400, 2100, 2800, 3000, 3200, 3500, 3400, 3100, 3800, 4200, 4500],
+            2022: [1500, 1800, 1600, 2000, 2200, 2500, 2700, 2600, 2400, 2900, 3100, 3500] 
+        };
+
+        function updateMainChart(year, element) {
+            const parent = document.getElementById('main-chart-years');
+            const buttons = parent.getElementsByClassName('year');
+            for (let btn of buttons) { btn.classList.remove('active'); }
+            element.classList.add('active');
+
+            if (mainChartInstance) {
+                mainChartInstance.data.datasets[0].data = chartData[year];
+                mainChartInstance.update();
+            }
         }
 
         document.addEventListener("DOMContentLoaded", function () {
             const ctx = document.getElementById('revenueChart');
             if (ctx) {
                 let gradient = ctx.getContext('2d').createLinearGradient(0, 0, 0, 400);
-                gradient.addColorStop(0, 'rgba(59, 130, 246, 0.2)'); gradient.addColorStop(1, 'rgba(59, 130, 246, 0)');
-                new Chart(ctx.getContext('2d'), {
+                gradient.addColorStop(0, 'rgba(59, 130, 246, 0.3)'); 
+                gradient.addColorStop(1, 'rgba(59, 130, 246, 0.0)');
+                
+                mainChartInstance = new Chart(ctx.getContext('2d'), {
                     type: 'line',
                     data: {
-                        labels: ['T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'T8', 'T9', 'T10', 'T11', 'T12'],
-                        datasets: [{ label: 'Doanh thu', data: [12, 18, 22, 20, 28, 45, 55, 58, 62, 65, 58, 70], borderColor: '#3B82F6', backgroundColor: gradient, borderWidth: 3, tension: 0.4, fill: true }]
+                        labels: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12'],
+                        datasets: [{ 
+                            label: 'Doanh thu', 
+                            data: chartData[2025], 
+                            borderColor: '#3B82F6', 
+                            backgroundColor: gradient, 
+                            borderWidth: 3, 
+                            tension: 0.4, 
+                            fill: true,
+                            pointBackgroundColor: '#fff',
+                            pointBorderColor: '#3B82F6',
+                            pointRadius: 5,
+                            pointHoverRadius: 7
+                        }]
                     },
-                    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, grid: { borderDash: [5, 5] }, ticks: { display: false } }, x: { grid: { display: false } } } }
+                    options: { 
+                        responsive: true, 
+                        maintainAspectRatio: false, 
+                        interaction: { mode: 'index', intersect: false },
+                        plugins: { 
+                            legend: { display: false },
+                            tooltip: {
+                                backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                                callbacks: {
+                                    label: function(context) {
+                                        let value = context.parsed.y;
+                                        if (value === null) return null;
+                                        return new Intl.NumberFormat('vi-VN').format(value * 1000000) + ' đ';
+                                    }
+                                }
+                            }
+                        }, 
+                        scales: { 
+                            y: { 
+                                beginAtZero: true, 
+                                min: 0, 
+                                max: 8000, 
+                                ticks: { stepSize: 2000 },
+                                grid: { borderDash: [4, 4], color: '#e5e7eb' }, 
+                                ticks: { 
+                                    callback: function(value) { return new Intl.NumberFormat('vi-VN').format(value); } 
+                                } 
+                            }, 
+                            x: { grid: { display: false } } 
+                        } 
+                    }
                 });
             }
         });
+
+        // --- 5. JS MODAL ---
+        function openModal(modalId, titleText = '') {
+            const modal = document.getElementById(modalId);
+            if(modal) {
+                modal.style.display = 'flex';
+                if(titleText) {
+                    const titleEl = modal.querySelector('.modal-title');
+                    if(titleEl) titleEl.innerText = titleText;
+                }
+            }
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if(modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal-overlay')) {
+                event.target.style.display = "none";
+            }
+        }
     </script>
 </body>
 </html>

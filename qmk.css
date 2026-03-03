@@ -11,18 +11,15 @@
 }
 
 /* LEFT IMAGE */
-.left{
-    flex:1.6;
-    background:
-        linear-gradient(to right,
-            rgba(0,0,0,.5),
-            rgba(0,0,0,.15)
-        ),
-        url("image/bgn.png");
+.left {
+    flex: 1.6;
+    
+    background-image: url("image/pcc.jpg");
 
-    background-size:cover;
-    background-position:center;
-    filter: brightness(1.15);
+    background-size: cover; 
+    background-position: center;
+
+    filter: none; 
 }
 
 
