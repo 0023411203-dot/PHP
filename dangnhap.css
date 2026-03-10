@@ -25,7 +25,7 @@
 /* RIGHT */
 .right{
     flex:1;
-    background:#f3df57;
+    background:#17eded;
     display:flex;
     justify-content:center;
     align-items:center;
