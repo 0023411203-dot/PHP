@@ -22,7 +22,7 @@
 /* RIGHT */
 .right {
     flex: 1;
-    background: #17eded;
+    background: #ffffff; /* Đã đổi thành nền trắng */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,11 +31,12 @@
 /* CARD */
 .card {
     width: 340px;
-    background: #f8f3dc;
+    background: #f8f3dc; /* Giữ nguyên nền vàng nhạt */
     padding: 35px;
     border-radius: 30px;
     text-align: center;
     box-shadow: 0 20px 40px rgba(0,0,0,.15);
+    border: 2px solid #e0d0a0; /* Thêm viền đậm hơn cho khung */
 }
 
 /* LOGO */
