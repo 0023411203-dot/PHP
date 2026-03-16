@@ -504,17 +504,7 @@
     line-height: 1.7;
 }
 
-/* Dấu check */
-.policy-section li::before {
-    content: "\f00c"; 
-    font-family: "Font Awesome 6 Free"; 
-    font-weight: 900;
-    position: absolute;
-    left: 0;
-    top: 3px;
-    color: #e30019;
-    font-size: 14px;
-}
+
 
 /* --- 2. CSS TRA CỨU ĐƠN HÀNG --- */
 .tracking-form-container {

@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T-REX PC Gaming</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="mainuser.css">
+    <link rel="stylesheet" href="policy.css">
+</head>
+<body>
+
+<body>
+
+    <header>
+    <div class="logo">
+        <a href="main.html" title="Về trang chủ">
+            <div class="logo-image">
+                <img src="./images/logo/logodn.png" alt="Logo Shop">
+                <span></span>
+            </div>
+        </a>
+    </div>
+
+    <ul class="nav-links">
+        <li>
+            <a class="flex items-center gap-[4px]" href="pc-gaming.html">
+                <span class="inline-flex items-center justify-center w-[32px] h-[32px] bg-[#E8F7FF] rounded-full min-[1620px]:w-[36px] min-[1620px]:h-[36px]">
+                    <i class="fa-solid fa-gamepad"></i> 
+                </span>
+                PC Gaming
+            </a>
+        </li>
+
+        <li>
+            <a class="flex items-center gap-[4px]" href="pc-vanphong.html">
+                <span class="inline-flex items-center justify-center w-[32px] h-[32px] bg-[#E8F7FF] rounded-full min-[1620px]:w-[36px] min-[1620px]:h-[36px]">
+                    <i class="fa-solid fa-briefcase"></i>
+                </span>
+                PC Văn Phòng
+            </a>
+        </li>
+
+        <li>
+            <a class="flex items-center gap-[4px]" href="pc-dohoa.html">
+                <span class="inline-flex items-center justify-center w-[32px] h-[32px] bg-[#E8F7FF] rounded-full min-[1620px]:w-[36px] min-[1620px]:h-[36px]">
+                    <i class="fa-solid fa-palette"></i>
+                </span>
+                PC Đồ Họa
+            </a>
+        </li>
+
+        <li>
+            <a class="flex items-center gap-[4px]" href="build-pc.html">
+                <span class="inline-flex items-center justify-center w-[32px] h-[32px] bg-[#E8F7FF] rounded-full min-[1620px]:w-[36px] min-[1620px]:h-[36px]">
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                </span>
+                Build PC
+            </a>
+        </li>
+
+        <li>
+            <a class="flex items-center gap-[4px]" href="dichvu.html">
+                <span class="inline-flex items-center justify-center w-[32px] h-[32px] bg-[#E8F7FF] rounded-full min-[1620px]:w-[36px] min-[1620px]:h-[36px]">
+                    <i class="fa-solid fa-tag"></i>
+                </span>
+                Dịch vụ của shop
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="header-actions">
+        <div class="search-bar">
+            <input type="text" placeholder="Tìm kiếm sản phẩm...">
+            <button type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+
+        <div class="icons">
+            <a href="giohang.html" title="Giỏ hàng"><i class="fa-solid fa-bag-shopping"></i></a>
+
+            <a href="dangnhap.html" title="Tài khoản">
+                <i class="fa-regular fa-user"></i>
+            </a>
+
+            <a href="main.html" title="Đăng xuất" onclick="alert('Bạn đã đăng xuất thành công!')"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+        </div>
+    </div>
+</header>
+
+
+<main class="buildpc-page">
+    <div class="build-container">
+        <div class="build-header">
+            <h2>CHỌN LINH KIỆN XÂY DỰNG CẤU HÌNH</h2>
+        </div>
+        
+        <div class="build-actions-top">
+            <button class="btn-reset" onclick="resetBuild()"><i class="fa-solid fa-rotate-right"></i> LÀM MỚI</button>
+            <div class="total-price">Chi phí dự tính: <span id="total-price-top">0 đ</span></div>
+        </div>
+
+        <div class="build-list">
+            <div class="build-row"><div class="col-name">1. CPU</div><div class="col-choose" id="slot-cpu"><button class="btn-choose" onclick="openModal('cpu', 'Chọn CPU')"><i class="fa-solid fa-plus"></i> Chọn CPU</button></div></div>
+            <div class="build-row"><div class="col-name">2. MAINBOARD</div><div class="col-choose" id="slot-mainboard"><button class="btn-choose" onclick="openModal('mainboard', 'Chọn Mainboard')"><i class="fa-solid fa-plus"></i> Chọn Mainboard</button></div></div>
+            <div class="build-row"><div class="col-name">3. RAM</div><div class="col-choose" id="slot-ram"><button class="btn-choose" onclick="openModal('ram', 'Chọn RAM')"><i class="fa-solid fa-plus"></i> Chọn RAM</button></div></div>
+            <div class="build-row"><div class="col-name">4. CARD ĐỒ HỌA</div><div class="col-choose" id="slot-vga"><button class="btn-choose" onclick="openModal('vga', 'Chọn Card Đồ Họa')"><i class="fa-solid fa-plus"></i> Chọn Card Đồ Họa</button></div></div>
+            <div class="build-row"><div class="col-name">5. Ổ CỨNG</div><div class="col-choose" id="slot-hdd"><button class="btn-choose" onclick="openModal('hdd', 'Chọn Ổ Cứng')"><i class="fa-solid fa-plus"></i> Chọn Ổ Cứng</button></div></div>
+            <div class="build-row"><div class="col-name">6. NGUỒN (PSU)</div><div class="col-choose" id="slot-psu"><button class="btn-choose" onclick="openModal('psu', 'Chọn Nguồn')"><i class="fa-solid fa-plus"></i> Chọn Nguồn (PSU)</button></div></div>
+            <div class="build-row"><div class="col-name">7. TẢN NHIỆT</div><div class="col-choose" id="slot-cooler"><button class="btn-choose" onclick="openModal('cooler', 'Chọn Tản Nhiệt')"><i class="fa-solid fa-plus"></i> Chọn Tản Nhiệt</button></div></div>
+            <div class="build-row"><div class="col-name">8. VỎ CASE</div><div class="col-choose" id="slot-case"><button class="btn-choose" onclick="openModal('case', 'Chọn Vỏ Case')"><i class="fa-solid fa-plus"></i> Chọn Vỏ Case</button></div></div>
+            <div class="build-row"><div class="col-name">9. MÀN HÌNH</div><div class="col-choose" id="slot-monitor"><button class="btn-choose" onclick="openModal('monitor', 'Chọn Màn Hình')"><i class="fa-solid fa-plus"></i> Chọn Màn Hình</button></div></div>
+        </div>
+
+        <div class="build-actions-bottom">
+            <div class="total-price">Chi phí dự tính: <span id="total-price-bottom">0 đ</span></div>
+        </div>
+
+        <div class="build-tool-buttons">
+            <button class="btn-tool dark-btn"><i class="fa-solid fa-image"></i> TẢI ẢNH CẤU HÌNH</button>
+            <button class="btn-tool dark-btn"><i class="fa-solid fa-file-excel"></i> TẢI FILE EXCEL CẤU HÌNH</button>
+            <button class="btn-tool dark-btn"><i class="fa-solid fa-print"></i> XEM & IN</button>
+            <button class="btn-tool cart-btn"><i class="fa-solid fa-cart-shopping"></i> THÊM VÀO GIỎ HÀNG</button>
+        </div>
+    </div>
+
+    <section class="shop-policies">
+        <div class="policy-item">
+            <i class="fa-solid fa-truck-fast"></i>
+            <h4>GIAO HÀNG TOÀN QUỐC</h4>
+            <p>Giao hàng trước, trả tiền sau COD</p>
+        </div>
+        <div class="policy-item">
+            <i class="fa-solid fa-rotate"></i>
+            <h4>ĐỔI TRẢ DỄ DÀNG</h4>
+            <p>Đổi mới trong 30 ngày đầu</p>
+        </div>
+        <div class="policy-item">
+            <i class="fa-regular fa-credit-card"></i>
+            <h4>THANH TOÁN TIỆN LỢI</h4>
+            <p>Trả tiền mặt, chuyển khoản, trả góp 0%</p>
+        </div>
+        <div class="policy-item">
+            <i class="fa-solid fa-headset"></i>
+            <h4>HỖ TRỢ NHIỆT TÌNH</h4>
+            <p>Tư vấn tổng đài miễn phí 24/7</p>
+        </div>
+    </section>
+    
+    <div class="commitment">
+        <h3>Trải nghiệm mua sắm tại <span class="highlight">T-HEX SHOP</span></h3>
+        <h2>Cam Kết 100% <span class="highlight">Hài Lòng</span></h2>
+    </div>
+
+    <div id="product-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Chọn Linh Kiện</h3>
+                <button class="btn-close-modal" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body" id="modal-product-list"></div>
+        </div>
+        <script>
+// 1. KHO DỮ LIỆU SẢN PHẨM MẪU (Đầy đủ 9 nhóm linh kiện)
+const dbProducts = {
+    cpu: [
+        { id: 'cpu1', name: 'Intel Core i9-14900K', price: 15000000 },
+        { id: 'cpu2', name: 'Intel Core i5-13400F', price: 5200000 },
+        { id: 'cpu3', name: 'AMD Ryzen 7 7800X3D', price: 10500000 }
+    ],
+    mainboard: [
+        { id: 'mb1', name: 'Mainboard MSI Z790 GAMING PRO WIFI', price: 6500000 },
+        { id: 'mb2', name: 'Mainboard ASUS TUF GAMING B760M-PLUS', price: 3800000 }
+    ],
+    ram: [
+        { id: 'ram1', name: 'RAM Corsair Vengeance RGB 32GB (2x16GB) DDR5', price: 3200000 },
+        { id: 'ram2', name: 'RAM Kingston Fury Beast 16GB (1x16GB) DDR4', price: 950000 }
+    ],
+    vga: [
+        { id: 'vga1', name: 'VGA MSI GeForce RTX 4090 SUPRIM X 24G', price: 55000000 },
+        { id: 'vga2', name: 'VGA ASUS Dual GeForce RTX 4060 8GB', price: 8500000 }
+    ],
+    hdd: [
+        { id: 'hdd1', name: 'SSD Samsung 990 PRO 1TB PCIe Gen 4.0', price: 2500000 },
+        { id: 'hdd2', name: 'HDD WD Blue 2TB 7200rpm', price: 1400000 }
+    ],
+    psu: [
+        { id: 'psu1', name: 'Nguồn Corsair RM850e 850W 80 Plus Gold', price: 3100000 },
+        { id: 'psu2', name: 'Nguồn MSI MAG A650BN 650W', price: 1250000 }
+    ],
+    cooler: [
+        { id: 'cl1', name: 'Tản nhiệt nước NZXT Kraken Elite 360', price: 6800000 },
+        { id: 'cl2', name: 'Tản nhiệt khí Deepcool AK400 Digital', price: 650000 }
+    ],
+    case: [
+        { id: 'case1', name: 'Vỏ Case Lian Li O11 Dynamic EVO', price: 3500000 },
+        { id: 'case2', name: 'Vỏ Case Montech AIR 903 BASE', price: 1450000 }
+    ],
+    monitor: [
+        { id: 'mn1', name: 'Màn hình ASUS TUF Gaming 27 inch 165Hz', price: 5500000 },
+        { id: 'mn2', name: 'Màn hình LG 24MP500 24 inch 75Hz', price: 2400000 }
+    ]
+};
+
+// 2. BIẾN LƯU TRỮ CẤU HÌNH KHÁCH ĐANG CHỌN (9 món)
+let currentBuild = {
+    cpu: null, mainboard: null, ram: null, vga: null, 
+    hdd: null, psu: null, cooler: null, case: null, monitor: null
+};
+
+let currentCategorySelecting = '';
+
+// 3. CÁC HÀM XỬ LÝ GIAO DIỆN VÀ LOGIC
+// Hàm định dạng số tiền sang chuẩn Việt Nam (vd: 15.000.000 đ)
+function formatMoney(amount) {
+    return amount.toLocaleString('vi-VN') + ' đ';
+}
+
+// Hàm mở Popup chọn linh kiện
+function openModal(category, title) {
+    currentCategorySelecting = category;
+    document.getElementById('modal-title').innerText = title;
+    
+    const productListDiv = document.getElementById('modal-product-list');
+    productListDiv.innerHTML = ''; // Làm sạch danh sách cũ
+
+    // Đổ danh sách sản phẩm mới vào
+    dbProducts[category].forEach(product => {
+        productListDiv.innerHTML += `
+            <div class="modal-product-item">
+                <div class="modal-product-info">
+                    <span class="modal-product-name">${product.name}</span>
+                    <span class="modal-product-price">${formatMoney(product.price)}</span>
+                </div>
+                <button class="btn-choose" onclick="selectProduct('${category}', '${product.id}')">Lắp vào cấu hình</button>
+            </div>
+        `;
+    });
+
+    document.getElementById('product-modal').style.display = 'flex';
+}
+
+// Hàm đóng Popup
+function closeModal() {
+    document.getElementById('product-modal').style.display = 'none';
+}
+
+// Hàm khi khách bấm nút "Lắp vào cấu hình"
+function selectProduct(category, productId) {
+    const product = dbProducts[category].find(p => p.id === productId);
+    currentBuild[category] = product; // Cập nhật giỏ hàng PC
+    closeModal();
+    updateUI(); // Cập nhật lại màn hình
+}
+
+// Hàm xóa linh kiện khỏi cấu hình
+function removeProduct(category) {
+    currentBuild[category] = null;
+    updateUI();
+}
+
+// Hàm Làm mới (Reset toàn bộ)
+function resetBuild() {
+    if(confirm("Bạn có chắc chắn muốn xóa toàn bộ cấu hình đang chọn?")) {
+        currentBuild = { cpu: null, mainboard: null, ram: null, vga: null, hdd: null, psu: null, cooler: null, case: null, monitor: null };
+        updateUI();
+    }
+}
+
+// Hàm render lại toàn bộ giao diện và tính tiền
+function updateUI() {
+    let totalPrice = 0;
+    
+    // Tên tiếng Việt để hiển thị lại trên các nút
+    const categoryNames = { 
+        cpu: 'CPU', mainboard: 'Mainboard', ram: 'RAM', vga: 'Card Đồ Họa',
+        hdd: 'Ổ Cứng', psu: 'Nguồn (PSU)', cooler: 'Tản Nhiệt', case: 'Vỏ Case', monitor: 'Màn Hình'
+    };
+
+    // Duyệt qua từng dòng linh kiện để hiển thị
+    for (const category in currentBuild) {
+        const slotDiv = document.getElementById(`slot-${category}`);
+        if(!slotDiv) continue; // Nếu lỡ thiếu thẻ div trong HTML thì bỏ qua tránh lỗi
+        
+        const product = currentBuild[category];
+
+        if (product) {
+            // Nếu đã chọn -> Hiện tên sản phẩm, giá tiền và nút thùng rác
+            slotDiv.innerHTML = `
+                <div class="selected-item-box">
+                    <span class="selected-name">${product.name}</span>
+                    <div>
+                        <span class="selected-price">${formatMoney(product.price)}</span>
+                        <button class="btn-remove" onclick="removeProduct('${category}')" title="Xóa khỏi cấu hình"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                </div>
+            `;
+            totalPrice += product.price; // Cộng dồn tiền
+        } else {
+            // Nếu chưa chọn -> Hiện nút bấm màu cam (+ Chọn ...)
+            slotDiv.innerHTML = `<button class="btn-choose" onclick="openModal('${category}', 'Chọn ${categoryNames[category]}')"><i class="fa-solid fa-plus"></i> Chọn ${categoryNames[category]}</button>`;
+        }
+    }
+
+    // Ghi số tiền tổng ra màn hình (cả dòng trên và dòng dưới)
+    document.getElementById('total-price-top').innerText = formatMoney(totalPrice);
+    document.getElementById('total-price-bottom').innerText = formatMoney(totalPrice);
+}
+
+// 4. HÀM CHỨC NĂNG NÂNG CAO: THÊM VÀO GIỎ HÀNG
+function addToCart() {
+    let selectedItems = [];
+    
+    // Gom các món đã chọn lại
+    for (const cat in currentBuild) {
+        if (currentBuild[cat]) {
+            selectedItems.push(currentBuild[cat]);
+        }
+    }
+    
+    // Kiểm tra xem khách có chọn gì chưa
+    if(selectedItems.length === 0) {
+        alert("Bạn chưa chọn linh kiện nào! Hãy chọn ít nhất 1 linh kiện nhé.");
+        return;
+    }
+    
+    // Lệnh này lưu tạm danh sách vào bộ nhớ trình duyệt (LocalStorage)
+    // Để sau này qua trang "Giỏ hàng (Cart)", bạn có thể gọi nó ra để thanh toán
+    localStorage.setItem('pcCart', JSON.stringify(selectedItems));
+    
+    alert("Tuyệt vời! Đã thêm bộ cấu hình vào giỏ hàng thành công.");
+}
+</script>
+    </div>
+    <section class="shop-faq-section">
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-header" onclick="toggleFaq(this)">
+                    <span class="faq-title">1. Liên hệ chăm sóc khách hàng dễ dàng</span>
+                    <i class="fa-solid fa-plus faq-icon"></i>
+                </div>
+                <div class="faq-content">
+                    <p>Bạn đang cần hỗ trợ hay cần đóng góp ý kiến cho T-HEX SHOP trong quá trình mua hàng. Hãy liên hệ với T-HEX SHOP trong bất cứ khi nào 24/7 qua số Hotline hoặc dịch vụ Chat trực tuyến miễn phí. T-HEX SHOP sẽ cung cấp giải pháp hỗ trợ quý khách các vấn đề liên quan đến sản phẩm mua hàng tại T-HEX SHOP của bạn nhanh nhất có thể.</p>
+                    <br>
+                    <p>Hotline chăm sóc và hỗ trợ khách mua hàng (chỉ hoạt động trong giờ hành chính): 0986552233</p>
+                    <br>
+                    <p>Ngoài ra khách hàng có thể liên hệ với T-HEX SHOP thông qua rất nhiều kênh khác nhau như: Email, Chat, Để lại đánh giá, bình luận ở các kênh mạng xã hội của T-HEX SHOP.</p>
+                    <br>
+                    <p>Fanpage: https://www.facebook.com/thexshopvn</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-header" onclick="toggleFaq(this)">
+                    <span class="faq-title">2. Giao hàng nhanh trong 2 giờ mà không thu thêm phí</span>
+                    <i class="fa-solid fa-plus faq-icon"></i>
+                </div>
+                <div class="faq-content">
+                    <p>Chính sách áp dụng cho các khu vực nội thành. Vui lòng liên hệ nhân viên để biết thêm chi tiết về phạm vi giao hàng.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-header" onclick="toggleFaq(this)">
+                    <span class="faq-title">3. Miễn phí lên đời và trải nghiệm sản phẩm trong vòng 15 ngày</span>
+                    <i class="fa-solid fa-plus faq-icon"></i>
+                </div>
+                <div class="faq-content">
+                    <p>Bạn được thoải mái trải nghiệm máy. Nếu có nhu cầu nâng cấp CPU, VGA hay bất kỳ linh kiện nào, shop sẽ hỗ trợ đổi mới và chỉ bù chênh lệch.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-header" onclick="toggleFaq(this)">
+                    <span class="faq-title">4. Cam kết thu cũ đổi mới trọn đời với tất cả các sản phẩm Gaming Gear và linh kiện máy tính</span>
+                    <i class="fa-solid fa-plus faq-icon"></i>
+                </div>
+                <div class="faq-content">
+                    <p>Hỗ trợ định giá thu lại linh kiện cũ với mức giá tốt nhất thị trường để bạn dễ dàng nâng cấp bộ PC của mình trong tương lai.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-header" onclick="toggleFaq(this)">
+                    <span class="faq-title">5. Cho mượn sản phẩm miễn phí thay thế trong thời gian bảo hành tại T-HEX SHOP</span>
+                    <i class="fa-solid fa-plus faq-icon"></i>
+                </div>
+                <div class="faq-content">
+                    <p>Trong trường hợp máy phải mang đi bảo hành thời gian dài, chúng tôi sẽ cho bạn mượn linh kiện/máy tính thay thế để đảm bảo công việc không bị gián đoạn.</p>
+                </div>
+                
+            </div>
+            
+        </div>
+        <script>
+            // HÀM XỬ LÝ ẨN HIỆN THÔNG TIN SHOP (ACCORDION)
+function toggleFaq(headerElement) {
+    const currentItem = headerElement.parentElement;
+    const content = currentItem.querySelector('.faq-content');
+    const icon = currentItem.querySelector('.faq-icon');
+
+    // Kiểm tra xem mục đang click đã mở hay chưa
+    const isCurrentlyActive = currentItem.classList.contains('active');
+
+    // BƯỚC 1: Đóng TẤT CẢ các mục khác lại và đổi về dấu (+)
+    const allItems = document.querySelectorAll('.faq-item');
+    allItems.forEach(item => {
+        item.classList.remove('active');
+        item.querySelector('.faq-content').style.display = 'none';
+        
+        const itemIcon = item.querySelector('.faq-icon');
+        itemIcon.classList.remove('fa-minus');
+        itemIcon.classList.add('fa-plus');
+    });
+
+    // BƯỚC 2: Nếu mục vừa click chưa mở, thì mở nó ra và đổi thành dấu (-)
+    if (!isCurrentlyActive) {
+        currentItem.classList.add('active');
+        content.style.display = 'block';
+        icon.classList.remove('fa-plus');
+        icon.classList.add('fa-minus');
+    }
+}
+        </script>
+        
+    </section>
+</main>
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            
+            <div class="footer-col">
+                <img src="./images/logo/logodn.png" alt="Logo Footer" class="footer-logo">
+                
+                <p class="company-desc">
+                    T-REX PC - Chuyên cung cấp PC Gaming, 
+                    <br>Đồ Họa, Văn Phòng chính hãng giá tốt nhất.
+                </p>
+                <div class="contact-info">
+                    <p><i class="fa-solid fa-location-dot"></i> 123 Đường ABC, Quận X, TP.HCM</p>
+                    <p><i class="fa-solid fa-phone"></i> 1900 1234</p>
+                    <p><i class="fa-solid fa-envelope"></i> contact@trexpc.com</p>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>Chính sách</h3>
+                <ul>
+                    <li><a href="chinh-sach-bao-hanh.html">Chính sách bảo hành</a></li>
+                    
+                    <li><a href="chinh-sach-doi-tra.html">Chính sách đổi trả</a></li>
+                    
+                    <li><a href="chinh-sach-bao-mat.html">Chính sách bảo mật</a></li>
+                    
+                    <li><a href="van-chuyen.html">Vận chuyển & Giao hàng</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Hỗ trợ khách hàng</h3>
+                <ul>
+                    <li><a href="huong-dan-mua-hang.html">Hướng dẫn mua hàng</a></li>
+                    
+                    <li><a href="tra-cuu-don-hang.html">Tra cứu đơn hàng</a></li>
+                    
+                    <li><a href="quy-dinh-thanh-toan.html">Quy định thanh toán</a></li>
+                    
+                    <li><a href="gui-yeu-cau-ho-tro.html">Gửi yêu cầu hỗ trợ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Kết nối với chúng tôi</h3>
+                <div class="social-links">
+                    <a href="#" style="background: #3b5998;"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" style="background: #ff0000;"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#" style="background: #000;"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+                <div class="certification">
+                    <p>Chứng nhận:</p>
+                    <img src="./images/bocongthuong.png" alt="Bộ công thương" width="120">
+                </div>
+            </div>  
+        <div class="footer-bottom">
+            <p>&copy; 2026 T-REX PC. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+
+</html>
+
+    
+
+</body>
+</html>

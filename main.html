@@ -3,14 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop T-HEX GAMING</title>
+    <title>T-REX PC Gaming</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="mainuser.css">
     <link rel="stylesheet" href="policy.css">
 </head>
-<body>
-
-    <header>
+<header>
     <div class="logo">
         <a href="main.html" title="Về trang chủ">
             <div class="logo-image">
@@ -21,13 +19,51 @@
     </div>
 
     <ul class="nav-links">
-        <li><a href="#">PC Gaming</a></li>
-        <li><a href="#">PC Văn Phòng</a></li>
-        <li><a href="#">PC Đồ Họa</a></li>
-        <li><a href="#">Build PC</a></li>
-        <li><a href="#">Khuyến mãi</a></li>
-        
-        <li><a href="yeu-cau-ho-tro.html">Hỗ trợ</a></li>
+        <li>
+            <a class="flex items-center gap-[4px]" href="pc-gaming.html">
+                <span class="inline-flex items-center justify-center w-[32px] h-[32px] bg-[#E8F7FF] rounded-full min-[1620px]:w-[36px] min-[1620px]:h-[36px]">
+                    <i class="fa-solid fa-gamepad"></i> 
+                </span>
+                PC Gaming
+            </a>
+        </li>
+
+        <li>
+            <a class="flex items-center gap-[4px]" href="pc-vanphong.html">
+                <span class="inline-flex items-center justify-center w-[32px] h-[32px] bg-[#E8F7FF] rounded-full min-[1620px]:w-[36px] min-[1620px]:h-[36px]">
+                    <i class="fa-solid fa-briefcase"></i>
+                </span>
+                PC Văn Phòng
+            </a>
+        </li>
+
+        <li>
+            <a class="flex items-center gap-[4px]" href="pc-dohoa.html">
+                <span class="inline-flex items-center justify-center w-[32px] h-[32px] bg-[#E8F7FF] rounded-full min-[1620px]:w-[36px] min-[1620px]:h-[36px]">
+                    <i class="fa-solid fa-palette"></i>
+                </span>
+                PC Đồ Họa
+            </a>
+        </li>
+
+        <li>
+            <a class="flex items-center gap-[4px]" href="build-pc.html">
+                <span class="inline-flex items-center justify-center w-[32px] h-[32px] bg-[#E8F7FF] rounded-full min-[1620px]:w-[36px] min-[1620px]:h-[36px]">
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                </span>
+                Build PC
+            </a>
+        </li>
+
+        <li>
+            <a class="flex items-center gap-[4px]" href="dichvu.html">
+                <span class="inline-flex items-center justify-center w-[32px] h-[32px] bg-[#E8F7FF] rounded-full min-[1620px]:w-[36px] min-[1620px]:h-[36px]">
+                    <i class="fa-solid fa-tag"></i>
+                </span>
+                Dịch vụ của shop
+            </a>
+        </li>
+
     </ul>
     
     <div class="header-actions">
@@ -37,9 +73,13 @@
         </div>
 
         <div class="icons">
-            <a href="#" title="Giỏ hàng"><i class="fa-solid fa-bag-shopping"></i></a>
-            <a href="#" title="Tài khoản"><i class="fa-regular fa-user"></i></a>
-            <a href="#" title="Đăng xuất"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+            <a href="giohang.html" title="Giỏ hàng"><i class="fa-solid fa-bag-shopping"></i></a>
+
+            <a href="dangnhap.html" title="Tài khoản">
+                <i class="fa-regular fa-user"></i>
+            </a>
+
+            <a href="main.html" title="Đăng xuất" onclick="alert('Bạn đã đăng xuất thành công!')"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
         </div>
     </div>
 </header>
@@ -57,7 +97,6 @@
                     <div class="badge-white">
                             PREMIUM TECHNOLOGY
                     </div>
-
                         <h2 class="hero-title-premium">
                         PC GAMING <br>
                         HIỆU NĂNG CAO<br>
@@ -121,10 +160,53 @@
         </section>
     </div>
 
-    <div class="float-btn">
-        <i class="fa-regular fa-comment-dots"></i>
-        <span>Hỗ trợ</span>
+    <!-- Floating Fan Contact -->
+<div class="fan-contact">
+    
+    <div class="fan-main">
+        <i class="fa-solid fa-headset"></i>
     </div>
+
+    <div class="fan-items">
+    
+    <a href="https://www.facebook.com/share/1HL2Np5svZ/" class="fan-item mes" title="Chat Messenger" target="_blank">
+        <i class="fa-brands fa-facebook-messenger"></i>
+    </a>
+
+    <a href="https://zalo.me/0338635221" class="fan-item zalo" title="Chat Zalo" target="_blank">
+        <span style="font-weight: 900; font-family: sans-serif; font-size: 14px;">Zalo</span>
+    </a>
+
+    <a href="tel:033863521" class="fan-item phone" title="Gọi ngay">
+        <i class="fa-solid fa-phone"></i>
+    </a>
+
+</div>
+</div>
+<script>
+const fan = document.querySelector('.fan-contact');
+const mainBtn = document.querySelector('.fan-main');
+
+// Toggle khi click nút chính
+mainBtn.addEventListener('click', function(e) {
+    e.stopPropagation(); // Ngăn sự kiện nổi bọt
+    fan.classList.toggle('active');
+});
+
+// Click bất kỳ đâu ngoài nút thì đóng lại
+document.addEventListener('click', function (e) {
+    if (!fan.contains(e.target)) {
+        fan.classList.remove('active');
+    }
+});
+</script>
+
+
+    </div>
+    
+
+</div>
+
     <section class="featured-section">
     <div class="section-header">
         <h2 class="section-title text-orange">KHUYỄN MÃI SỐC ! <i class="fa-solid fa-fire text-red"></i></h2>
@@ -167,7 +249,6 @@
 </div>
 
         <div class="pc-tall-card">
-            <div class="pc-tall-card">
     
     <div class="pc-img-area">
         <img 
@@ -182,22 +263,23 @@
 
     <div class="pc-info-area">
         <h3 class="pc-name">BREUNOR KRAKEN - PC Gaming Ryzen 7</h3>
+        
         <div class="pc-specs-row">
             <span><i class="fa-solid fa-microchip"></i> i9-14900K</span>
             <span><i class="fa-solid fa-memory"></i> 64GB DDR5</span>
         </div>
+        
         <div class="pc-specs-row">
             <span><i class="fa-solid fa-vr-cardboard"></i> RTX 4090 24GB</span>
         </div>
+        
         <div class="pc-price-box">
             <span class="price-val">105.000.000đ</span>
-            <button class="btn-icon-add"><i class="fa-solid fa-cart-plus"></i></button>
+            <button class="btn-icon-add" title="Thêm vào giỏ"><i class="fa-solid fa-cart-plus"></i></button>
         </div>
     </div>
 
 </div>
-        </div>  
-
         <div class="pc-tall-card">
             <div class="pc-img-area">
                 <img src="./images/produce/pcgaming3.webp" alt="PC Streamer Ultra">
@@ -263,7 +345,7 @@
 </section>
 <section class="featured-section">
     <div class="section-header">
-        <h2 class="section-title text-orange">SẢN PHẨM NỔI BẬT <i class="fa-solid fa-fire text-red"></i></h2>
+        <h2 class="section-title text-orange">SẢN PHẨM MỚI  <i class="fa-solid fa-fire text-red"></i></h2>
         <div class="slider-nav">
             <button class="nav-btn prev"><i class="fa-solid fa-chevron-left"></i></button>
             <button class="nav-btn next"><i class="fa-solid fa-chevron-right"></i></button>
@@ -379,23 +461,25 @@
 </section>
 <div class="yellow-divider"></div>
 
-        <section class="category-layout">
-            
-            <div class="sidebar-banner">
-                <img src="./images/panel/pchieunang.png">
-            </div>
+     <section class="category-layout">
+    
+ <div class="sidebar-banner">
+    
+    <h2 class="banner-title">
+        GAMING PC  HIỆU NĂNG CAO
+    </h2>
 
-            <div class="main-product-area">
-                
-                <div class="category-header">
-                    <h2 class="cat-title">GAMING PC HIỆU NĂNG CAO </h2>
-                    <div class="cat-filters">
-                        <button class="filter-btn active">Dưới 50 Triệu</button>
-                        <button class="filter-btn">Trên 50 Triệu</button>
-                        <button class="filter-btn">Dưới 100 Triệu</button>
-                    </div>
-                </div>
+    <img src="./images/panel/pchieunang.png" alt="Banner Gaming">
+</div>
 
+<div class="right-content">
+    <div class="category-header">
+        <div class="cat-filters">
+            <button class="filter-btn">Dưới 50 Triệu</button>
+            <button class="filter-btn">Trên 50 Triệu</button>
+            <button class="filter-btn">Dưới 100 Triệu</button>
+        </div>
+    </div>
                 <div class="category-grid">
                     
                     <div class="cat-product-card">
@@ -555,21 +639,24 @@
         <div class="yellow-divider" style="margin-top: 40px;"></div>
         </section>
         <section class="category-layout">
-            
-            <div class="sidebar-banner">
-                <img src="./images/panel/linhkien.png">
-            </div>
+    
+ <div class="sidebar-banner">
+    
+    <h2 class="banner-title">
+        LINH KIỆN PC CHÍNH HÃNG
+    </h2>
 
-            <div class="main-product-area">
-                
-                <div class="category-header">
-                    <h2 class="cat-title">LINH KIỆN PC CAO CẤP</h2>
-                    <div class="cat-filters">
-                        <button class="filter-btn active">Dưới 50 Triệu</button>
-                        <button class="filter-btn">Trên 50 Triệu</button>
-                        <button class="filter-btn">Dưới 100 Triệu</button>
-                    </div>
-                </div>
+    <img src="./images/panel/linhkien.png" alt="Banner Gaming">
+</div>
+
+<div class="right-content">
+    <div class="category-header">
+        <div class="cat-filters">
+            <button class="filter-btn">Dưới 50 Triệu</button>
+            <button class="filter-btn">Trên 50 Triệu</button>
+            <button class="filter-btn">Dưới 100 Triệu</button>
+        </div>
+    </div>
 
                 <div class="category-grid">
                     
@@ -731,19 +818,22 @@
         <section class="category-layout">
             
             <div class="sidebar-banner">
-                <img src="/images/panel/PhukienPC.png" alt="Banner Quảng Cáo">
-            </div>
+    
+    <h2 class="banner-title">
+        LINH KIỆN PC CHÍNH HÃNG
+    </h2>
 
-            <div class="main-product-area">
-                
-                <div class="category-header">
-                    <h2 class="cat-title">PHỤ KIỆN PC CHÍNH HÃNG</h2>
-                    <div class="cat-filters">
-                        <button class="filter-btn active">Dưới 50 Triệu</button>
-                        <button class="filter-btn">Trên 50 Triệu</button>
-                        <button class="filter-btn">Dưới 100 Triệu</button>
-                    </div>
-                </div>
+    <img src="./images/panel/PhukienPC.png" alt="Banner Gaming">
+</div>
+
+<div class="right-content">
+    <div class="category-header">
+        <div class="cat-filters">
+            <button class="filter-btn">Dưới 50 Triệu</button>
+            <button class="filter-btn">Trên 50 Triệu</button>
+            <button class="filter-btn">Dưới 100 Triệu</button>
+        </div>
+    </div>
 
                 <div class="category-grid">
                     
@@ -927,7 +1017,7 @@
 
 
     <div class="main-wrapper">
-        <img src="/images/panel/pcgiatot.png"  class="hero-banner">
+        <img src="./images/panel/pcgiatot.png"  class="hero-banner">
            
             </div>
         </section>
@@ -1069,15 +1159,13 @@
                     <p>Chứng nhận:</p>
                     <img src="./images/bocongthuong.png" alt="Bộ công thương" width="120">
                 </div>
-            </div>
-
-        </div>
-        
+            </div>  
         <div class="footer-bottom">
             <p>&copy; 2026 T-REX PC. All rights reserved.</p>
         </div>
     </div>
 </footer>
+
 
 </html>
 
