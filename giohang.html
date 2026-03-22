@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T-REX PC Gaming</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="mainuser.css">
+    <link rel="stylesheet" href="policy.css">
+</head>
+<header>
+    <div class="logo">
+        <a href="main.html" title="Về trang chủ">
+            <div class="logo-image">
+                <img src="./images/logo/logodn.png" alt="Logo Shop">
+                <span></span>
+            </div>
+        </a>
+    </div>
+
+    <ul class="nav-links">
+        <li>
+            <a class="flex items-center gap-[4px]" href="pc-gaming.html">
+                <span class="inline-flex items-center justify-center w-[32px] h-[32px] bg-[#E8F7FF] rounded-full min-[1620px]:w-[36px] min-[1620px]:h-[36px]">
+                    <i class="fa-solid fa-gamepad"></i> 
+                </span>
+                PC Gaming
+            </a>
+        </li>
+
+        <li>
+            <a class="flex items-center gap-[4px]" href="pc-vanphong.html">
+                <span class="inline-flex items-center justify-center w-[32px] h-[32px] bg-[#E8F7FF] rounded-full min-[1620px]:w-[36px] min-[1620px]:h-[36px]">
+                    <i class="fa-solid fa-briefcase"></i>
+                </span>
+                PC Văn Phòng
+            </a>
+        </li>
+
+        <li>
+            <a class="flex items-center gap-[4px]" href="pc-dohoa.html">
+                <span class="inline-flex items-center justify-center w-[32px] h-[32px] bg-[#E8F7FF] rounded-full min-[1620px]:w-[36px] min-[1620px]:h-[36px]">
+                    <i class="fa-solid fa-palette"></i>
+                </span>
+                PC Đồ Họa
+            </a>
+        </li>
+
+        <li>
+            <a class="flex items-center gap-[4px]" href="build-pc.html">
+                <span class="inline-flex items-center justify-center w-[32px] h-[32px] bg-[#E8F7FF] rounded-full min-[1620px]:w-[36px] min-[1620px]:h-[36px]">
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                </span>
+                Build PC
+            </a>
+        </li>
+
+        <li>
+            <a class="flex items-center gap-[4px]" href="dichvu.html">
+                <span class="inline-flex items-center justify-center w-[32px] h-[32px] bg-[#E8F7FF] rounded-full min-[1620px]:w-[36px] min-[1620px]:h-[36px]">
+                    <i class="fa-solid fa-tag"></i>
+                </span>
+                Dịch vụ của shop
+            </a>
+        </li>
+
+    </ul>
+    
+    <div class="header-actions">
+        <div class="search-bar">
+            <input type="text" placeholder="Tìm kiếm sản phẩm...">
+            <button type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+
+        <div class="icons">
+            <a href="giohang.html" title="Giỏ hàng"><i class="fa-solid fa-bag-shopping"></i></a>
+
+            <a href="dangnhap.html" title="Tài khoản">
+                <i class="fa-regular fa-user"></i>
+            </a>
+
+            <a href="main.html" title="Đăng xuất" onclick="alert('Bạn đã đăng xuất thành công!')"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+        </div>
+    </div>
+</header>
+<div class="cart-wrapper">
+    
+    <div class="cart-left">
+        <h2 class="cart-title"><i class="fa-solid fa-cart-shopping"></i> Giỏ hàng của bạn</h2>
+        
+        <div class="cart-item">
+            <input type="checkbox" class="item-checkbox" checked>
+            <img src="./images/pc-gaming-1.png" alt="PC Image" class="item-img" onerror="this.src='https://placehold.co/90x90?text=PC'">
+            
+            <div class="item-info">
+                <h3 class="item-name">PC TTG GAMING CREATOR</h3>
+                <div class="item-specs">Intel Core i9 14900K | 64GB DDR5 | RTX 4090</div>
+            </div>
+            
+            <div class="item-price">105.000.000đ</div>
+            
+            <div class="quantity-box">
+                <button class="qty-btn">-</button>
+                <input type="number" class="qty-input" value="1" min="1">
+                <button class="qty-btn">+</button>
+            </div>
+            
+            <button class="btn-delete"><i class="fa-solid fa-trash-can"></i></button>
+        </div>
+
+        <div class="cart-item">
+            <input type="checkbox" class="item-checkbox" checked>
+            <img src="./images/linhkien-1.png" alt="RAM Image" class="item-img" onerror="this.src='https://placehold.co/90x90?text=RAM'">
+            
+            <div class="item-info">
+                <h3 class="item-name">RAM Corsair Vengeance RGB 32GB</h3>
+                <div class="item-specs">DDR5 6000MHz (2x16GB)</div>
+            </div>
+            
+            <div class="item-price">6.400.000đ</div>
+            
+            <div class="quantity-box">
+                <button class="qty-btn">-</button>
+                <input type="number" class="qty-input" value="2" min="1">
+                <button class="qty-btn">+</button>
+            </div>
+            
+            <button class="btn-delete"><i class="fa-solid fa-trash-can"></i></button>
+        </div>
+    </div>
+
+    <div class="cart-right">
+        <div class="summary-box">
+            <h3 class="summary-title">Tóm tắt đơn hàng</h3>
+            
+            <div class="summary-row">
+                <span>Tạm tính:</span>
+                <strong>111.400.000đ</strong>
+            </div>
+            <div class="summary-row">
+                <span>Phí vận chuyển:</span>
+                <span>Miễn phí</span>
+            </div>
+            <div class="summary-row">
+                <span>Khuyến mãi:</span>
+                <span style="color: #28a745;">0đ</span>
+            </div>
+            
+            <div class="summary-total">
+                <span class="total-label">Tổng cộng:</span>
+                <span class="total-val">111.400.000đ</span>
+            </div>
+            <span class="vat-note">(Đã bao gồm VAT nếu có)</span>
+            
+            <a href="phuongthucthanhtoan.html" class="btn-checkout">Tiến hành đặt hàng</a>
+        </div>
+    </div>
+
+</div>
+
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            
+            <div class="footer-col">
+                <img src="./images/logo/logodn.png" alt="Logo Footer" class="footer-logo">
+                
+                <p class="company-desc">
+                    T-REX PC - Chuyên cung cấp PC Gaming, 
+                    <br>Đồ Họa, Văn Phòng chính hãng giá tốt nhất.
+                </p>
+                <div class="contact-info">
+                    <p><i class="fa-solid fa-location-dot"></i> 123 Đường ABC, Quận X, TP.HCM</p>
+                    <p><i class="fa-solid fa-phone"></i> 1900 1234</p>
+                    <p><i class="fa-solid fa-envelope"></i> contact@trexpc.com</p>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>Chính sách</h3>
+                <ul>
+                    <li><a href="chinh-sach-bao-hanh.html">Chính sách bảo hành</a></li>
+                    
+                    <li><a href="chinh-sach-doi-tra.html">Chính sách đổi trả</a></li>
+                    
+                    <li><a href="chinh-sach-bao-mat.html">Chính sách bảo mật</a></li>
+                    
+                    <li><a href="van-chuyen.html">Vận chuyển & Giao hàng</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Hỗ trợ khách hàng</h3>
+                <ul>
+                    <li><a href="huong-dan-mua-hang.html">Hướng dẫn mua hàng</a></li>
+                    
+                    <li><a href="tra-cuu-don-hang.html">Tra cứu đơn hàng</a></li>
+                    
+                    <li><a href="quy-dinh-thanh-toan.html">Quy định thanh toán</a></li>
+                    
+                    <li><a href="gui-yeu-cau-ho-tro.html">Gửi yêu cầu hỗ trợ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Kết nối với chúng tôi</h3>
+                <div class="social-links">
+                    <a href="#" style="background: #3b5998;"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" style="background: #ff0000;"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#" style="background: #000;"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+                <div class="certification">
+                    <p>Chứng nhận:</p>
+                    <img src="./images/bocongthuong.png" alt="Bộ công thương" width="120">
+                </div>
+            </div>  
+        <div class="footer-bottom">
+            <p>&copy; 2026 T-REX PC. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+
+</html>
+
+    
+
+</body>
+</html>

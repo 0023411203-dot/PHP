@@ -1,0 +1,115 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Inter', sans-serif;
+}
+
+.container{
+    display:flex;
+    height:100vh;
+}
+
+/* LEFT IMAGE */
+.left{
+    flex:1.6;
+    background:
+        linear-gradient(to right,
+            rgba(0,0,0,.5),
+            rgba(0,0,0,.15)
+        ),
+        url("image/bgn.png");
+
+    background-size:cover;
+    background-position:center;
+    filter: brightness(1.15);
+}
+
+
+/* RIGHT */
+.right{
+    flex:1;
+    background:#efd94c;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* CARD */
+.card{
+    width:300px;
+    background:#f7f1d7;
+    padding:30px;
+    border-radius:28px;
+    text-align:center;
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
+}
+
+/* LOGO */
+.logo{
+    width:65px;
+    margin-bottom:6px;
+}
+
+.sub{
+    display:block;
+    font-size:11px;
+    color:#777;
+    margin-bottom:15px;
+}
+
+/* LABEL */
+label{
+    display:block;
+    text-align:left;
+    font-size:12px;
+    color:#1e88e5;
+    margin-top:10px;
+}
+
+/* INPUT */
+input{
+    width:100%;
+    padding:8px;
+    border-radius:8px;
+    border:1px solid #8bbcff;
+    margin-top:4px;
+    outline:none;
+}
+
+input:focus{
+    border-color:#2b7cff;
+}
+
+/* BUTTON */
+button{
+    width:100%;
+    padding:10px;
+    margin-top:14px;
+    border:none;
+    border-radius:10px;
+    background:#ff9f1c;
+    color:white;
+    font-weight:600;
+    cursor:pointer;
+    transition:.25s;
+}
+
+button:hover{
+    background:#ff8700;
+}
+
+/* NOTE */
+.note{
+    font-size:11px;
+    color:#ff6f00;
+    margin-top:8px;
+}
+
+/* COPYRIGHT */
+small{
+    display:block;
+    margin-top:12px;
+    font-size:9px;
+    color:#666;
+}
