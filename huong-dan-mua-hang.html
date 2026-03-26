@@ -1,222 +1,254 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>T-REX PC Gaming</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="mainuser.css">
     <link rel="stylesheet" href="policy.css">
 </head>
+
 <body>
 
-    <body>
+
 
     <header>
-    <div class="logo">
-        <a href="main.html" title="Về trang chủ">
-            <div class="logo-image">
-                <img src="./images/logo/logodn.png" alt="Logo Shop">
-                <span></span>
+        <div class="top-bar-container">
+
+            <div class="header-left">
+                <div class="logo">
+                    <a href="main.html" title="Về trang chủ">
+                        <div class="logo-image">
+                            <img src="./images/logo/logodn.png" alt="Logo Shop">
+                            <span></span>
+                        </div>
+                    </a>
+                </div>
+
+                <ul class="nav-links">
+                    <li class="category-dropdown-wrapper">
+                        <a class="flex items-center gap-[4px]" href="#">
+                            <span
+                                class="inline-flex items-center justify-center w-[32px] h-[32px] bg-[#E8F7FF] rounded-full min-[1620px]:w-[36px] min-[1620px]:h-[36px]">
+                                <i class="fa-solid fa-bars"></i>
+                            </span>
+                            Danh mục sản phẩm
+                            <i class="fa-solid fa-chevron-down" style="font-size: 12px; margin-left: 5px;"></i>
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            <li><a href="pc-gaming.html"><i class="fa-solid fa-gamepad"></i> PC Gaming</a></li>
+                            <li><a href="pc-vanphong.html"><i class="fa-solid fa-briefcase"></i> PC Văn Phòng</a></li>
+                            <li><a href="linh_kien.html"><i class="fa-solid fa-microchip"></i> Linh Kiện</a></li>
+                            <li><a href="phu-kien.html"><i class="fa-solid fa-headphones"></i> Phụ Kiện</a></li>
+                        </ul>
+
+                    <li>
+                        <a class="flex items-center gap-[4px]" href="build-pc.html">
+                            <span
+                                class="inline-flex items-center justify-center w-[32px] h-[32px] bg-[#E8F7FF] rounded-full min-[1620px]:w-[36px] min-[1620px]:h-[36px]">
+                                <i class="fa-solid fa-screwdriver-wrench"></i>
+                            </span>
+                            Build PC
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="flex items-center gap-[4px]" href="dichvu.html">
+                            <span
+                                class="inline-flex items-center justify-center w-[32px] h-[32px] bg-[#E8F7FF] rounded-full min-[1620px]:w-[36px] min-[1620px]:h-[36px]">
+                                <i class="fa-solid fa-tag"></i>
+                            </span>
+                            Dịch vụ của shop
+                        </a>
+                    </li>
+                </ul>
             </div>
-        </a>
-    </div>
 
-    <ul class="nav-links">
-        <li>
-            <a class="flex items-center gap-[4px]" href="pc-gaming.html">
-                <span class="inline-flex items-center justify-center w-[32px] h-[32px] bg-[#E8F7FF] rounded-full min-[1620px]:w-[36px] min-[1620px]:h-[36px]">
-                    <i class="fa-solid fa-gamepad"></i> 
-                </span>
-                PC Gaming
-            </a>
-        </li>
+            <div class="header-center">
+                <div class="search-bar">
+                    <input type="text" placeholder="Tìm kiếm sản phẩm...">
+                    <button type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+            </div>
 
-        <li>
-            <a class="flex items-center gap-[4px]" href="pc-vanphong.html">
-                <span class="inline-flex items-center justify-center w-[32px] h-[32px] bg-[#E8F7FF] rounded-full min-[1620px]:w-[36px] min-[1620px]:h-[36px]">
-                    <i class="fa-solid fa-briefcase"></i>
-                </span>
-                PC Văn Phòng
-            </a>
-        </li>
+            <div class="header-right">
+                <div class="icons">
+                    <a href="thongbao.html" title="Thông báo" class="notification-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                            <path
+                                d="M12 22a2 2 0 0 0 2-2H10a2 2 0 0 0 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4a1.5 1.5 0 0 0-3 0v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z" />
+                        </svg>
+                        <span class="notification-badge">3</span>
+                    </a>
 
-        <li>
-            <a class="flex items-center gap-[4px]" href="pc-dohoa.html">
-                <span class="inline-flex items-center justify-center w-[32px] h-[32px] bg-[#E8F7FF] rounded-full min-[1620px]:w-[36px] min-[1620px]:h-[36px]">
-                    <i class="fa-solid fa-palette"></i>
-                </span>
-                PC Đồ Họa
-            </a>
-        </li>
+                    <a href="giohang.html" title="Giỏ hàng">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                            <path
+                                d="M19 6h-2c0-2.76-2.24-5-5-5S7 3.24 7 6H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-7-3c1.66 0 3 1.34 3 3H9c0-1.66 1.34-3 3-3zm7 17H5V8h14v12zm-7-8c-1.66 0-3-1.34-3-3H7c0 2.76 2.24 5 5 5s5-2.24 5-5h-2c0 1.66-1.34 3-3 3z" />
+                        </svg>
+                    </a>
 
-        <li>
-            <a class="flex items-center gap-[4px]" href="build-pc.html">
-                <span class="inline-flex items-center justify-center w-[32px] h-[32px] bg-[#E8F7FF] rounded-full min-[1620px]:w-[36px] min-[1620px]:h-[36px]">
-                    <i class="fa-solid fa-screwdriver-wrench"></i>
-                </span>
-                Build PC
-            </a>
-        </li>
+                    <a href="dangnhap.html" title="Tài khoản" id="btn-login">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                            <path
+                                d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                        </svg>
+                    </a>
 
-        <li>
-            <a class="flex items-center gap-[4px]" href="dichvu.html">
-                <span class="inline-flex items-center justify-center w-[32px] h-[32px] bg-[#E8F7FF] rounded-full min-[1620px]:w-[36px] min-[1620px]:h-[36px]">
-                    <i class="fa-solid fa-tag"></i>
-                </span>
-                Dịch vụ của shop
-            </a>
-        </li>
+                    <a href="#" title="Đăng xuất" id="btn-logout" class="hidden">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                            <path
+                                d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z" />
+                        </svg>
+                    </a>
+                    </a>
+                </div>
+            </div>
 
-    </ul>
-    
-    <div class="header-actions">
-        <div class="search-bar">
-            <input type="text" placeholder="Tìm kiếm sản phẩm...">
-            <button type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
+    </header>
 
-        <div class="icons">
-            <a href="giohang.html" title="Giỏ hàng"><i class="fa-solid fa-bag-shopping"></i></a>
-
-            <a href="dangnhap.html" title="Tài khoản">
-                <i class="fa-regular fa-user"></i>
-            </a>
-
-            <a href="main.html" title="Đăng xuất" onclick="alert('Bạn đã đăng xuất thành công!')"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
-        </div>
-    </div>
-</header>
 
 
     <div class="policy-box">
-    <h1 class="policy-title">Hướng dẫn mua hàng</h1>
+        <h1 class="policy-title">Hướng dẫn mua hàng</h1>
 
-    <p class="policy-intro">
-        Mua sắm tại T-HEX GAMING thật dễ dàng. Hãy làm theo 4 bước đơn giản dưới đây
-        để sở hữu ngay bộ PC ưng ý nhất.
-    </p>
-
-    <div class="policy-section">
-        <h3><i class="fa-solid fa-magnifying-glass"></i> Bước 1: Tìm kiếm sản phẩm</h3>
-        <p>
-            Truy cập website T-HEX GAMING, quý khách có thể sử dụng thanh tìm kiếm hoặc duyệt qua các danh mục (PC Gaming, PC Văn phòng, Linh kiện...) để chọn sản phẩm phù hợp với nhu cầu.
+        <p class="policy-intro">
+            Mua sắm tại T-HEX GAMING thật dễ dàng. Hãy làm theo 4 bước đơn giản dưới đây
+            để sở hữu ngay bộ PC ưng ý nhất.
         </p>
-        <ul>
-            <li>Xem kỹ thông số kỹ thuật và chế độ bảo hành.</li>
-            <li>Sử dụng tính năng "Tùy chọn cấu hình" nếu muốn nâng cấp RAM/SSD.</li>
-        </ul>
-    </div>
 
-    <div class="policy-section">
-        <h3><i class="fa-solid fa-cart-plus"></i> Bước 2: Thêm vào giỏ hàng</h3>
-        <p>
-            Sau khi chọn được sản phẩm ưng ý, quý khách bấm nút <strong>"Thêm vào giỏ hàng"</strong> (nếu muốn mua nhiều món) hoặc <strong>"Mua ngay"</strong> (để chuyển thẳng đến trang thanh toán).
+        <div class="policy-section">
+            <h3><i class="fa-solid fa-magnifying-glass"></i> Bước 1: Tìm kiếm sản phẩm</h3>
+            <p>
+                Truy cập website T-HEX GAMING, quý khách có thể sử dụng thanh tìm kiếm hoặc duyệt qua các danh mục (PC
+                Gaming, PC Văn phòng, Linh kiện...) để chọn sản phẩm phù hợp với nhu cầu.
+            </p>
+            <ul>
+                <li>Xem kỹ thông số kỹ thuật và chế độ bảo hành.</li>
+                <li>Sử dụng tính năng "Tùy chọn cấu hình" nếu muốn nâng cấp RAM/SSD.</li>
+            </ul>
+        </div>
+
+        <div class="policy-section">
+            <h3><i class="fa-solid fa-cart-plus"></i> Bước 2: Thêm vào giỏ hàng</h3>
+            <p>
+                Sau khi chọn được sản phẩm ưng ý, quý khách bấm nút <strong>"Thêm vào giỏ hàng"</strong> (nếu muốn mua
+                nhiều món) hoặc <strong>"Mua ngay"</strong> (để chuyển thẳng đến trang thanh toán).
+            </p>
+            <ul>
+                <li>Kiểm tra lại số lượng sản phẩm trong giỏ hàng.</li>
+                <li>Nhập mã giảm giá (Voucher) nếu có.</li>
+            </ul>
+        </div>
+
+        <div class="policy-section">
+            <h3><i class="fa-regular fa-id-card"></i> Bước 3: Thông tin & Thanh toán</h3>
+            <p>
+                Điền đầy đủ thông tin giao hàng để chúng tôi phục vụ bạn tốt nhất:
+            </p>
+            <ul>
+                <li><strong>Thông tin người nhận:</strong> Họ tên, Số điện thoại, Địa chỉ chính xác.</li>
+                <li><strong>Chọn phương thức thanh toán:</strong> COD (Thanh toán khi nhận hàng) hoặc Chuyển khoản ngân
+                    hàng.</li>
+            </ul>
+        </div>
+
+        <div class="policy-section">
+            <h3><i class="fa-solid fa-phone-volume"></i> Bước 4: Xác nhận đơn hàng</h3>
+            <p>
+                Sau khi đặt hàng thành công, hệ thống sẽ gửi thông báo xác nhận.
+            </p>
+            <ul>
+                <li>Nhân viên T-HEX sẽ liên hệ qua điện thoại trong vòng <strong>15 - 30 phút</strong> để xác nhận lại
+                    thông tin và thời gian giao hàng.</li>
+                <li>Đơn hàng sẽ được đóng gói và chuyển đi ngay sau khi xác nhận.</li>
+            </ul>
+        </div>
+
+        <p class="policy-note">
+            <i class="fa-solid fa-circle-question"></i> Nếu gặp khó khăn trong quá trình đặt hàng, hãy gọi ngay Hotline
+            để được hỗ trợ đặt hàng nhanh: <strong>1900.xxxx</strong>
         </p>
-        <ul>
-            <li>Kiểm tra lại số lượng sản phẩm trong giỏ hàng.</li>
-            <li>Nhập mã giảm giá (Voucher) nếu có.</li>
-        </ul>
+
     </div>
-
-    <div class="policy-section">
-        <h3><i class="fa-regular fa-id-card"></i> Bước 3: Thông tin & Thanh toán</h3>
-        <p>
-            Điền đầy đủ thông tin giao hàng để chúng tôi phục vụ bạn tốt nhất:
-        </p>
-        <ul>
-            <li><strong>Thông tin người nhận:</strong> Họ tên, Số điện thoại, Địa chỉ chính xác.</li>
-            <li><strong>Chọn phương thức thanh toán:</strong> COD (Thanh toán khi nhận hàng) hoặc Chuyển khoản ngân hàng.</li>
-        </ul>
-    </div>
-
-    <div class="policy-section">
-        <h3><i class="fa-solid fa-phone-volume"></i> Bước 4: Xác nhận đơn hàng</h3>
-        <p>
-            Sau khi đặt hàng thành công, hệ thống sẽ gửi thông báo xác nhận.
-        </p>
-        <ul>
-            <li>Nhân viên T-HEX sẽ liên hệ qua điện thoại trong vòng <strong>15 - 30 phút</strong> để xác nhận lại thông tin và thời gian giao hàng.</li>
-            <li>Đơn hàng sẽ được đóng gói và chuyển đi ngay sau khi xác nhận.</li>
-        </ul>
-    </div>
-
-    <p class="policy-note">
-        <i class="fa-solid fa-circle-question"></i> Nếu gặp khó khăn trong quá trình đặt hàng, hãy gọi ngay Hotline để được hỗ trợ đặt hàng nhanh: <strong>1900.xxxx</strong>
-    </p>
-
-</div>
 
     <!-- FOOTER -->
-<footer>
-    <div class="container">
-        <div class="footer-grid">
-            
-            <div class="footer-col">
-                <img src="./images/logo/logodn.png" alt="Logo Footer" class="footer-logo">
-                
-                <p class="company-desc">
-                    T-REX PC - Chuyên cung cấp PC Gaming, 
-                    <br>Đồ Họa, Văn Phòng chính hãng giá tốt nhất.
-                </p>
-                <div class="contact-info">
-                    <p><i class="fa-solid fa-location-dot"></i> 123 Đường ABC, Quận X, TP.HCM</p>
-                    <p><i class="fa-solid fa-phone"></i> 1900 1234</p>
-                    <p><i class="fa-solid fa-envelope"></i> contact@trexpc.com</p>
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+
+                <div class="footer-col">
+                    <img src="./images/logo/logodn.png" alt="Logo Footer" class="footer-logo">
+
+                    <p class="company-desc">
+                        T-REX PC - Chuyên cung cấp PC Gaming,
+                        <br>Đồ Họa, Văn Phòng chính hãng giá tốt nhất.
+                    </p>
+                    <div class="contact-info">
+                        <p><i class="fa-solid fa-location-dot"></i> 123 Đường ABC, Quận X, TP.HCM</p>
+                        <p><i class="fa-solid fa-phone"></i> 1900 1234</p>
+                        <p><i class="fa-solid fa-envelope"></i> contact@trexpc.com</p>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Chính sách</h3>
+                    <ul>
+                        <li><a href="chinh-sach-bao-hanh.html">Chính sách bảo hành</a></li>
+
+                        <li><a href="chinh-sach-doi-tra.html">Chính sách đổi trả</a></li>
+
+                        <li><a href="chinh-sach-bao-mat.html">Chính sách bảo mật</a></li>
+
+                        <li><a href="van-chuyen.html">Vận chuyển & Giao hàng</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Hỗ trợ khách hàng</h3>
+                    <ul>
+                        <li><a href="huong-dan-mua-hang.html">Hướng dẫn mua hàng</a></li>
+
+                        <li><a href="tra-cuu-don-hang.html">Tra cứu đơn hàng</a></li>
+
+                        <li><a href="quy-dinh-thanh-toan.html">Quy định thanh toán</a></li>
+
+                        <li><a href="gui-yeu-cau-ho-tro.html">Gửi yêu cầu hỗ trợ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Kết nối với chúng tôi</h3>
+                    <div class="social-links">
+                        <a href="#" style="background: #3b5998;"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" style="background: #ff0000;"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#" style="background: #000;"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                    <div class="certification">
+                        <p>Chứng nhận:</p>
+                        <img src="./images/bocongthuong.png" alt="Bộ công thương" width="120">
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 T-REX PC. All rights reserved.</p>
                 </div>
             </div>
-
-            <div class="footer-col">
-                <h3>Chính sách</h3>
-                <ul>
-                    <li><a href="chinh-sach-bao-hanh.html">Chính sách bảo hành</a></li>
-                    
-                    <li><a href="chinh-sach-doi-tra.html">Chính sách đổi trả</a></li>
-                    
-                    <li><a href="chinh-sach-bao-mat.html">Chính sách bảo mật</a></li>
-                    
-                    <li><a href="van-chuyen.html">Vận chuyển & Giao hàng</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h3>Hỗ trợ khách hàng</h3>
-                <ul>
-                    <li><a href="huong-dan-mua-hang.html">Hướng dẫn mua hàng</a></li>
-                    
-                    <li><a href="tra-cuu-don-hang.html">Tra cứu đơn hàng</a></li>
-                    
-                    <li><a href="quy-dinh-thanh-toan.html">Quy định thanh toán</a></li>
-                    
-                    <li><a href="gui-yeu-cau-ho-tro.html">Gửi yêu cầu hỗ trợ</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h3>Kết nối với chúng tôi</h3>
-                <div class="social-links">
-                    <a href="#" style="background: #3b5998;"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" style="background: #ff0000;"><i class="fa-brands fa-youtube"></i></a>
-                    <a href="#" style="background: #000;"><i class="fa-brands fa-tiktok"></i></a>
-                </div>
-                <div class="certification">
-                    <p>Chứng nhận:</p>
-                    <img src="./images/bocongthuong.png" alt="Bộ công thương" width="120">
-                </div>
-            </div>  
-        <div class="footer-bottom">
-            <p>&copy; 2026 T-REX PC. All rights reserved.</p>
-        </div>
-    </div>
-</footer>
+    </footer>
 
 
 </html>
 
-    
+
 
 </body>
+
 </html>

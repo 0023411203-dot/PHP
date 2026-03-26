@@ -6,6 +6,135 @@ html, body {
     width: 100%;
     height: 100%;
 }
+/* === BẢN CHUẨN: TẠO KHUNG TRẮNG KHÔNG LÀM VỠ GIAO DIỆN === */
+html {
+    background-color: #e2e8f0; 
+    overflow-x: hidden; /* Lệnh cực kỳ quan trọng: Giấu thanh cuộn ngang thừa */
+}
+
+body {
+    max-width: 1400px; 
+    margin: 0 auto 40px auto !important; 
+    background-color: #ffffff; 
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1); 
+    border-radius: 0 0 16px 16px !important; 
+    min-height: 100vh;
+    padding-top: 110px !important;
+}
+
+body header {
+    position: fixed; /* Cố định tuyệt đối trên màn hình */
+    top: 0;
+    left: 0;
+    width: 100%; /* Chiếm trọn chiều ngang */
+    background: #ffffff;
+  
+    /* Thuật toán ép nội dung Header vào giữa khung 1400px (Giữ nguyên bố cục của cậu) */
+    padding-left: max(20px, calc(50vw - 700px));
+    padding-right: max(20px, calc(50vw - 700px));
+    box-sizing: border-box;
+    border-bottom: 1px solid #f0f0f0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+/* =======================================================
+   CSS CHO MENU DROPDOWN "DANH MỤC SẢN PHẨM"
+======================================================= */
+.category-dropdown-wrapper {
+    position: relative; /* Đặt mốc để gắn menu con */
+}
+
+/* Khung menu thả xuống (Mặc định ẩn đi) */
+.dropdown-menu {
+    position: absolute;
+    top: 100%; /* Nằm ngay dưới nút */
+    left: 0;
+    background-color: #ffffff;
+    min-width: 220px; /* Độ rộng của menu con */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    padding: 10px 0;
+    margin: 0;
+    list-style: none;
+    
+    /* Hiệu ứng ẩn và trượt mượt mà */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+/* Khi rê chuột vào mục cha -> Hiển thị menu con */
+.category-dropdown-wrapper:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(10px); /* Cách nút cha 1 tí cho đẹp */
+}
+
+/* Thiết kế cho từng mục bên trong menu con */
+.dropdown-menu li {
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown-menu li a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    color: #333333;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-menu li a i {
+    width: 20px;
+    text-align: center;
+    color: #888;
+}
+
+/* Hiệu ứng khi rê chuột vào mục con */
+.dropdown-menu li a:hover {
+    background-color: #f5f8fa;
+    color: #f57c00; /* Đổi màu chữ khi hover, cậu có thể đổi màu tùy thích */
+}
+
+.dropdown-menu li a:hover i {
+    color: #f57c00;
+}
+
+
+.icons .notification-icon {
+    position: relative; /* Cho phép badge position absolute */
+    display: inline-flex; /* Đảm bảo căn giữa */
+}
+
+/* Kiểu dáng cho bóng đỏ thông báo */
+.icons .notification-badge {
+    position: absolute;
+    top: -4px; /* Đẩy lên trên góc */
+    right: -4px; /* Đẩy sang phải góc */
+    background-color: #ff3b30; /* Màu đỏ thông báo xịn, cực thể thao */
+    color: white;
+    font-family: 'Inter', sans-serif; /* Dùng Inter nét căng */
+    font-weight: bold;
+    font-size: 10px; /* Nhỏ nhắn */
+    width: 15px; /* Kích thước cố định tròn trịa */
+    height: 15px;
+    border-radius: 50%; /* Hình tròn mĩ mãn */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Bóng nhẹ làm nổi bật */
+}
+
+footer {
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+}
 
 h1, h2, h3,
 .banner-title,
@@ -21,14 +150,17 @@ h1, h2, h3,
     text-transform: uppercase;
     letter-spacing: 2px;
 }
-
-
-body {
-    font-family: 'Inter', sans-serif;
-    font-size: 15px;
-    color: #222;
-    line-height: 1.6;
+/* === 2. CÁI HỘP 1400PX CHỨA NHÂN THỊT Ở GIỮA === */
+.khung-trang {
+    max-width: 1400px;
+    margin: 0 auto; /* Tự động đẩy ra chính giữa màn hình */
+    background-color: #ffffff; /* Nền màu trắng */
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1); /* Đổ bóng cho đẹp */
+    min-height: 80vh; 
 }
+
+
+
 h1, h2, h3, h4, h5 {
     font-family: 'Inter', sans-serif;
     font-weight: 700;
@@ -56,6 +188,9 @@ button, .btn {
     color: #fbff00;   
     text-transform: uppercase;
     margin-bottom: 15px;
+
+
+
 }
 
 
@@ -85,6 +220,7 @@ button, .btn {
     color: #ffffff;
     max-width: 520px;
     margin-bottom: 25px;
+    font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
 /* Button */
@@ -109,20 +245,8 @@ button, .btn {
 
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
-/* --- HEADER (Phiên bản gộp chuẩn nhất) --- */
-header {
-    background: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0px 30px;
-    height: 80px;
-    position: sticky;        
-    top: 0;                  
-    z-index: 1000;           
-    border-bottom: 1px solid #ddd;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ cho đẹp */
-}
+
+
 
 .logo {
     font-weight: bold;
@@ -157,7 +281,7 @@ header {
 }
 
 .nav-links li a:hover {
-    color: #e30019; /* Đổi màu đỏ khi di chuột vào (giống phong cách web bạn) */
+    color: #e37500; /* Đổi màu đỏ khi di chuột vào (giống phong cách web bạn) */
 }
 
 /* Chỉnh style cho các icon link bên phải */
@@ -213,6 +337,8 @@ nav-links li:hover { color: #d4af37; cursor: pointer; }
 
 .search-bar {
     position: relative;
+    display: flex;
+    align-items: center;
 }
 
 .search-bar input {
@@ -220,7 +346,7 @@ nav-links li:hover { color: #d4af37; cursor: pointer; }
     border-radius: 20px;
     border: 1px solid #ddd;
     outline: none;
-    width: 200px;
+    width: 300px;
     font-size: 13px;
 }
 
@@ -243,11 +369,12 @@ nav-links li:hover { color: #d4af37; cursor: pointer; }
 /* --- MAIN CONTAINER --- */
 .container {
     display: flex; /* Xếp sidebar và nội dung nằm ngang */
-    gap: 20px;     /* Khoảng cách giữa banner và danh sách PC */
+    gap: 30px;     /* Khoảng cách giữa banner và danh sách PC */
     max-width: 1400px;
     margin: 0 auto;
     padding: 20px;
     font-family: Arial, sans-serif;
+    align-items: flex-start;
 }
 
 /* --- SECTION 1: TOP HERO (SIDEBAR + MAIN) --- */
@@ -281,7 +408,7 @@ nav-links li:hover { color: #d4af37; cursor: pointer; }
 
 /* Main Hero (Vàng) */
 .hero-main {
-    width: 80%;
+    width: 85%;
     background-color: #3e92c7;
     border-radius: 10px;
     display: flex;
@@ -382,6 +509,9 @@ nav-links li:hover { color: #d4af37; cursor: pointer; }
     justify-content: center;
     position: relative;
     overflow: hidden;
+}
+.hidden {
+    display: none !important;
 }
 
 .banner-red {
@@ -617,6 +747,7 @@ nav-links li:hover { color: #d4af37; cursor: pointer; }
     margin-bottom: 5px;
     font-size: 12px;
     color: #666;
+    font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 .pc-specs-row span {
     background: #f5f5f5;
@@ -664,28 +795,28 @@ nav-links li:hover { color: #d4af37; cursor: pointer; }
 
 /* 2. Bố cục 2 cột (Trái - Phải) */
 .category-layout {
-    display: flex;
-    
-    /* 1. Kích thước: Chiếm trọn chiều ngang giống Header */
-    width: 100%;
-    max-width: 100%; 
-    
-    /* 2. Căn lề: QUAN TRỌNG NHẤT */
-    /* Header của bạn là padding: 0 30px -> Cái này cũng phải y chang */
-    padding: 0 30px; 
-    margin: 40px 0; /* Cách header ra 40px, không dùng auto nữa */
-    
-    /* 3. Khoảng cách giữa 2 cột */
-    gap: 30px;
-    align-items: flex-start; /* Căn đỉnh trên cùng cho bằng nhau */
+   display: flex;
+    gap: 20px; /* Giảm gap giữa 2 cột cho gọn hơn */
+    max-width: 1400px;
+    margin: 40px auto; /* Căn giữa */
+    padding: 0 20px;
+    align-items: flex-start;
 }
 .right-content {
     flex: 1; 
+    padding: 20px 30px; 
+    box-sizing: border-box;
+    
+    background-color: #ffffff; /* Nền trắng */
+    border-radius: 8px;
+    
+    /* Nếu cậu sợ 4 cột bị chật quá, có thể thêm lệnh này để đề phòng: */
+    min-width: 0; 
 }
 
 /* Cột Trái: Banner */
 .sidebar {
-    width: 280px;       /* CỐ ĐỊNH chiều rộng menu trái (Số này rất quan trọng) */
+    width: 260px;       /* CỐ ĐỊNH chiều rộng menu trái (Số này rất quan trọng) */
     flex-shrink: 0;     /* Đảm bảo menu không bao giờ bị bóp méo */
     background: #fff;
     border-radius: 8px; /* Bo góc nhẹ */
@@ -697,11 +828,9 @@ nav-links li:hover { color: #d4af37; cursor: pointer; }
     width: 0;           /* Mẹo nhỏ giúp Grid không bị tràn màn hình */
 }
 .sidebar-banner {
-    width: 280px;  /* Chiều rộng cố định cho banner giống trong ảnh */
+    width: 300px;  /* Chiều rộng cố định cho banner giống trong ảnh */
     flex-shrink: 0;
-}
-.right-content {
-    flex: 1;
+
 }
 .sidebar-banner img {
     width: 100%;
@@ -772,23 +901,36 @@ nav-links li:hover { color: #d4af37; cursor: pointer; }
 /* 4. Lưới sản phẩm (Grid 4 cột) */
 .category-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 cột đều nhau */
-    gap: 20px; /* Khoảng cách giữa các ô */
+    grid-template-columns: repeat(4, 1fr); 
+    justify-content: center; /* canh giữa */
+    gap: 12px; /* Chỉnh số này để khoảng trống giữa các PC hẹp lại */
+    margin-top: 20px;
 }
 
 /* Thẻ sản phẩm */
 .cat-product-card {
-    border: 1px solid #ffcc80; /* Viền cam nhạt */
+    width: 100%; /* Lệnh quan trọng: Cho phép thẻ tự động thu nhỏ/phình to cho vừa khít với ô lưới */
+    height: 100%; /* Ép các thẻ cao bằng nhau */
+    
+    display: flex;
+    flex-direction: column;
+    
+    background: #fff;
+    border: 1px solid #e0e0e0;
     border-radius: 8px;
-    background: white;
-    padding-bottom: 10px;
-    overflow: hidden;
-    transition: 0.3s;
+    padding: 10px; /* Tớ giảm xuống 10px để các ô nhìn nhỏ nhắn, khít và gọn hơn */
+    
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-sizing: border-box;
+    
+    /* Chống tràn thẻ khi chữ quá dài */
+    min-width: 0; 
 }
 
 .cat-product-card:hover {
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     border-color: #f57c00;
+    transform: translateY(-5px);
 }
 
 .c-img {
@@ -799,11 +941,13 @@ nav-links li:hover { color: #d4af37; cursor: pointer; }
     width: 100%;
     height: auto;
     display: block;
+    object-fit: cover;
+    border-radius: 4px;
 }
 
 .c-info { padding: 10px; }
 .c-name {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
     color: #333;
     margin: 10px 0;
@@ -813,20 +957,28 @@ nav-links li:hover { color: #d4af37; cursor: pointer; }
 }
 
 .c-specs {
-    list-style: none; padding: 0; margin: 0 0 10px 0;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 10px 0;
     font-size: 11px; color: #666;
+    line-height: 1.6;
+    font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 .c-specs li { margin-bottom: 4px; }
 
 .c-price {
     font-size: 16px;
     font-weight: 900;
-    color: #212121;
+    color: #ff0000;
     margin-bottom: 12px;
     text-align: center;
+    font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
-.c-actions { display: flex; gap: 8px; }
+.c-actions { 
+    display: flex; 
+    gap: 8px; }
+    
 .btn-c-buy, .btn-c-add {
     flex: 1;
     padding: 6px 0;
@@ -835,6 +987,7 @@ nav-links li:hover { color: #d4af37; cursor: pointer; }
     font-size: 12px;
     font-weight: bold;
     cursor: pointer;
+    font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 .btn-c-buy { background: #f57c00; color: white; }
 .btn-c-buy:hover { background: #e65100; }
@@ -977,14 +1130,7 @@ nav-links li:hover { color: #d4af37; cursor: pointer; }
 
 .cta-text { color: #333; font-size: 1.1rem; }
 .cta-separator { margin: 0 10px; color: #ccc; }
-.btn-buy {
-    background: #c8cb0b;
-    color: rgb(255, 94, 0);
-    text-decoration: none;
-    padding: 5px 15px;
-    border-radius: 3px;
-    text-transform: uppercase;
-}
+
 
 /* Cột Ảnh (Phải) - Placeholder */
 
@@ -1123,17 +1269,12 @@ nav-links li:hover { color: #d4af37; cursor: pointer; }
     overflow: hidden;
 }
 
-.category-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 280px); /* mỗi card rộng 280px */
-    justify-content: center; /* canh giữa */
-    gap: 20px;
-}
+
 
 /* Card cố định size */
 .cat-product-card {
-    width: 280px;
-    height: 318px;
+    width: 220px;
+    height: 322px;
     display: flex;
     flex-direction: column;
 }
@@ -1174,6 +1315,7 @@ nav-links li:hover { color: #d4af37; cursor: pointer; }
     gap: 10px;
     color: white;
     font-size: 14px;
+    font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
 .newsletter input {
@@ -1201,6 +1343,10 @@ footer {
     padding-top: 60px;
     font-size: 14px;
     margin-top: 50px;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    box-sizing: border-box;
 }
 footer .container {
     max-width: 1200px;
@@ -1255,7 +1401,7 @@ footer .container {
 }
 
 .footer-col ul li a:hover {
-    color: #ff3333; /* Màu đỏ khi di chuột vào (giống theme T-REX) */
+    color: #ff8903; /* Màu đỏ khi di chuột vào (giống theme T-REX) */
     padding-left: 5px; /* Hiệu ứng đẩy chữ sang phải xíu */
 }
 
@@ -1388,7 +1534,7 @@ footer .container {
 
 /* Style cho ảnh bên trong */
 .sub-banners-grid img {
-    width: 90%;
+    width: 100%;
     height: 90%;
     object-fit: cover; /* Đảm bảo ảnh lấp đầy khung đẹp */
     display: block;
@@ -1646,10 +1792,7 @@ list-product {
     background: #e30019;
 }
 
-.footer-col ul { 
-    list-style: none;
-    padding: 0;
-}
+
 .footer-col ul li { margin-bottom: 12px; }
 
 .footer-col ul li a {
@@ -1797,6 +1940,7 @@ list-product {
     font-size: 14px;
     font-weight: bold;
     vertical-align: top;
+    font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
 /* CẤU HÌNH TÓM TẮT */
@@ -1979,12 +2123,7 @@ list-product {
 .promo-box ul { margin-left: 20px; font-size: 14px; color: #333; }
 
 /* --- PHẦN 2: BẢNG CẤU HÌNH CHI TIẾT --- */
-.section-title {
-    font-size: 20px;
-    border-left: 5px solid #e30019;
-    padding-left: 10px;
-    margin-bottom: 20px;
-}
+
 
 .specs-table {
     width: 100%;
@@ -2392,8 +2531,7 @@ header {
     /* 1. Giữ header dính chặt ở vị trí trên cùng */
     position: sticky; 
     top: 0;
-    
-    /* 2. Đảm bảo Header luôn nổi lên trên các thành phần khác (banner, sản phẩm...) */
+     /* 2. Đảm bảo Header luôn nổi lên trên các thành phần khác (banner, sản phẩm...) */
     z-index: 1000; 
 
     /* 3. Màu nền: Bắt buộc phải có, nếu không nội dung bên dưới sẽ trôi "xuyên qua" header nhìn rất rối */
@@ -2407,6 +2545,177 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 15px 5%; /* Hoặc padding cũ của bạn */
+    font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: #333;
+}
+/* ===================================================
+   1. KHUNG HEADER CHUẨN (CỐ ĐỊNH, CÓ BÓNG ĐỔ MỜ)
+=================================================== */
+header {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    z-index: 9999;
+    border-bottom: 1px solid #f0f0f0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+/* Ép toàn bộ nội dung Header vào giữa khung 1400px cân đối */
+.top-bar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1400px; /* Giới hạn chiều rộng để không bị loãng trên màn hình to */
+    margin: 0 auto;
+    padding: 12px 20px;
+}
+
+/* ===================================================
+   2. KHỐI TRÁI: LOGO VÀ DANH MỤC GẦN NHAU
+=================================================== */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* QUAN TRỌNG: Ép khoảng cách giữa Logo và Danh Mục gần lại */
+}
+
+/* Tăng nhẹ size logo nếu cần */
+.logo-image img {
+    height: 55px; 
+    width: auto;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Khoảng cách đều đặn giữa các menu */
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* ===================================================
+   3. KHỐI GIỮA: THANH TÌM KIẾM TO & CĂN CHÍNH GIỮA
+=================================================== */
+.header-center {
+    flex: 1; /* Cướp toàn bộ không gian trống để đẩy thanh search ra giữa tâm */
+    display: flex;
+    justify-content: center;
+    padding: 0 30px; /* Tránh cấn vào khối 2 bên */
+}
+
+.search-bar {
+    width: 100%;
+    max-width: 650px; /* TĂNG ĐỘ TO cho thanh tìm kiếm */
+    display: flex;
+    align-items: center;
+    background: #f8f9fa; /* Màu nền xám nhẹ nhìn hiện đại */
+    border: 1px solid #e1e8ed;
+    border-radius: 8px; /* Bo góc nhẹ nhàng */
+    overflow: hidden;
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 12px 20px; /* Làm ô input cao và thoáng hơn */
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 15px;
+}
+
+.search-bar button {
+    padding: 0 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #555;
+    font-size: 16px;
+    transition: color 0.2s;
+}
+
+.search-bar button:hover {
+    color: #f57c00; /* Đổi màu cam khi chỉ chuột vào kính lúp */
+}
+
+/* ===================================================
+   4. KHỐI PHẢI: ICONS TÀI KHOẢN, GIỎ HÀNG
+=================================================== */
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+    gap: 25px; 
+}
+
+/* =======================================================
+   5. CSS CHO MENU DROPDOWN "DANH MỤC SẢN PHẨM"
+======================================================= */
+.category-dropdown-wrapper {
+    position: relative; 
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%; 
+    left: 0;
+    background-color: #ffffff;
+    min-width: 220px; 
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    padding: 10px 0;
+    margin: 0;
+    list-style: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+.category-dropdown-wrapper:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(10px); 
+}
+
+.dropdown-menu li {
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown-menu li a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    color: #333333;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-menu li a i {
+    width: 20px;
+    text-align: center;
+    color: #888;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #f5f8fa;
+    color: #f57c00; 
+}
+
+.dropdown-menu li a:hover i {
+    color: #f57c00;
 }
 /* ===== FAN CONTACT ===== */
 
@@ -2918,8 +3227,7 @@ header {
 .srv-price-list { max-width: 800px; margin: 0 auto; background: #fff; border-radius: 8px; border: 1px solid #ddd; }
 .srv-price-item { display: flex; justify-content: space-between; padding: 15px 20px; border-bottom: 1px solid #eee; }
 .srv-price-item:last-child { border-bottom: none; }
-.srv-price-name { font-weight: 500; }
-.srv-price-val { font-weight: bold; color: #ff5722; }
+    .srv-price-name { font-weight: 500; }
 .srv-note { text-align: center; font-size: 13px; color: #777; margin-top: 15px; font-style: italic; }
 
 /* 4. Quy trình làm việc */

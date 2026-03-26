@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,265 +9,305 @@
     <link rel="stylesheet" href="mainuser.css">
     <link rel="stylesheet" href="policy.css">
 </head>
+
 <body>
 
     <header>
-    <div class="logo">
-        <a href="main.html" title="Về trang chủ">
-            <div class="logo-image">
-                <img src="./images/logo/logodn.png" alt="Logo Shop">
-                <span></span>
-            </div>
-        </a>
-    </div>
+        <div class="top-bar-container">
 
-    <ul class="nav-links">
-        <li>
-            <a class="flex items-center gap-[4px]" href="pc-gaming.html">
-                <span class="inline-flex items-center justify-center w-[32px] h-[32px] bg-[#E8F7FF] rounded-full min-[1620px]:w-[36px] min-[1620px]:h-[36px]">
-                    <i class="fa-solid fa-gamepad"></i> 
-                </span>
-                PC Gaming
-            </a>
-        </li>
+            <div class="header-left">
+                <div class="logo">
+                    <a href="main.html" title="Về trang chủ">
+                        <div class="logo-image">
+                            <img src="./images/logo/logodn.png" alt="Logo Shop">
+                            <span></span>
+                        </div>
+                    </a>
+                </div>
 
-        <li>
-            <a class="flex items-center gap-[4px]" href="pc-vanphong.html">
-                <span class="inline-flex items-center justify-center w-[32px] h-[32px] bg-[#E8F7FF] rounded-full min-[1620px]:w-[36px] min-[1620px]:h-[36px]">
-                    <i class="fa-solid fa-briefcase"></i>
-                </span>
-                PC Văn Phòng
-            </a>
-        </li>
+                <ul class="nav-links">
+                    <li class="category-dropdown-wrapper">
+                        <a class="flex items-center gap-[4px]" href="#">
+                            <span
+                                class="inline-flex items-center justify-center w-[32px] h-[32px] bg-[#E8F7FF] rounded-full min-[1620px]:w-[36px] min-[1620px]:h-[36px]">
+                                <i class="fa-solid fa-bars"></i>
+                            </span>
+                            Danh mục sản phẩm
+                            <i class="fa-solid fa-chevron-down" style="font-size: 12px; margin-left: 5px;"></i>
+                        </a>
 
-        <li>
-            <a class="flex items-center gap-[4px]" href="pc-dohoa.html">
-                <span class="inline-flex items-center justify-center w-[32px] h-[32px] bg-[#E8F7FF] rounded-full min-[1620px]:w-[36px] min-[1620px]:h-[36px]">
-                    <i class="fa-solid fa-palette"></i>
-                </span>
-                PC Đồ Họa
-            </a>
-        </li>
+                        <ul class="dropdown-menu">
+                            <li><a href="pc-gaming.html"><i class="fa-solid fa-gamepad"></i> PC Gaming</a></li>
+                            <li><a href="pc-vanphong.html"><i class="fa-solid fa-briefcase"></i> PC Văn Phòng</a></li>
+                            <li><a href="linh_kien.html"><i class="fa-solid fa-microchip"></i> Linh Kiện</a></li>
+                            <li><a href="phu-kien.html"><i class="fa-solid fa-headphones"></i> Phụ Kiện</a></li>
+                        </ul>
 
-        <li>
-            <a class="flex items-center gap-[4px]" href="build-pc.html">
-                <span class="inline-flex items-center justify-center w-[32px] h-[32px] bg-[#E8F7FF] rounded-full min-[1620px]:w-[36px] min-[1620px]:h-[36px]">
-                    <i class="fa-solid fa-screwdriver-wrench"></i>
-                </span>
-                Build PC
-            </a>
-        </li>
+                    <li>
+                        <a class="flex items-center gap-[4px]" href="build-pc.html">
+                            <span
+                                class="inline-flex items-center justify-center w-[32px] h-[32px] bg-[#E8F7FF] rounded-full min-[1620px]:w-[36px] min-[1620px]:h-[36px]">
+                                <i class="fa-solid fa-screwdriver-wrench"></i>
+                            </span>
+                            Build PC
+                        </a>
+                    </li>
 
-        <li>
-            <a class="flex items-center gap-[4px]" href="dichvu.html">
-                <span class="inline-flex items-center justify-center w-[32px] h-[32px] bg-[#E8F7FF] rounded-full min-[1620px]:w-[36px] min-[1620px]:h-[36px]">
-                    <i class="fa-solid fa-tag"></i>
-                </span>
-                Dịch vụ của shop
-            </a>
-        </li>
-
-    </ul>
-    
-    <div class="header-actions">
-        <div class="search-bar">
-            <input type="text" placeholder="Tìm kiếm sản phẩm...">
-            <button type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
-        </div>
-
-        <div class="icons">
-            <a href="giohang.html" title="Giỏ hàng"><i class="fa-solid fa-bag-shopping"></i></a>
-
-            <a href="dangnhap.html" title="Tài khoản">
-                <i class="fa-regular fa-user"></i>
-            </a>
-
-            <a href="main.html" title="Đăng xuất" onclick="alert('Bạn đã đăng xuất thành công!')"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
-        </div>
-    </div>
-</header>
-
-<main class="services-page">
-
-    <section class="srv-hero">
-        <div class="srv-hero-content">
-            <h1>DỊCH VỤ KỸ THUẬT PC CHUYÊN NGHIỆP</h1>
-            <p>Vệ sinh – Nâng cấp – Cài đặt – Lắp ráp theo yêu cầu. Nhanh chóng, minh bạch và tận tâm.</p>
-            <div class="srv-btn-group">
-                <a href="#lien-he" class="srv-btn-primary">Liên Hệ Ngay</a>
-                <a href="#bang-gia" class="srv-btn-outline">Xem Bảng Giá</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="srv-section">
-        <h2 class="srv-section-title">Dịch Vụ Của Chúng Tôi</h2>
-        <div class="srv-grid">
-            <div class="srv-card">
-                <i class="fa-solid fa-broom srv-icon"></i>
-                <h3>Vệ Sinh PC - Laptop</h3>
-                <ul>
-                    <li><i class="fa-solid fa-check"></i> Vệ sinh full case</li>
-                    <li><i class="fa-solid fa-check"></i> Thay keo tản nhiệt</li>
-                    <li><i class="fa-solid fa-check"></i> Bảo trì định kỳ</li>
+                    <li>
+                        <a class="flex items-center gap-[4px]" href="dichvu.html">
+                            <span
+                                class="inline-flex items-center justify-center w-[32px] h-[32px] bg-[#E8F7FF] rounded-full min-[1620px]:w-[36px] min-[1620px]:h-[36px]">
+                                <i class="fa-solid fa-tag"></i>
+                            </span>
+                            Dịch vụ của shop
+                        </a>
+                    </li>
                 </ul>
             </div>
-            <div class="srv-card">
-                <i class="fa-solid fa-microchip srv-icon"></i>
-                <h3>Nâng Cấp Linh Kiện</h3>
-                <ul>
-                    <li><i class="fa-solid fa-check"></i> Nâng cấp RAM</li>
-                    <li><i class="fa-solid fa-check"></i> Lắp thêm ổ SSD</li>
-                    <li><i class="fa-solid fa-check"></i> Nâng cấp VGA</li>
-                </ul>
-            </div>
-            <div class="srv-card">
-                <i class="fa-brands fa-windows srv-icon"></i>
-                <h3>Cài Đặt Phần Mềm</h3>
-                <ul>
-                    <li><i class="fa-solid fa-check"></i> Cài Windows chuẩn</li>
-                    <li><i class="fa-solid fa-check"></i> Cài Office, Đồ họa</li>
-                    <li><i class="fa-solid fa-check"></i> Tối ưu hệ thống</li>
-                </ul>
-            </div>
-            <div class="srv-card">
-                <i class="fa-solid fa-screwdriver-wrench srv-icon"></i>
-                <h3>Lắp PC Theo Yêu Cầu</h3>
-                <ul>
-                    <li><i class="fa-solid fa-check"></i> Build theo ngân sách</li>
-                    <li><i class="fa-solid fa-check"></i> Tối ưu FPS chơi game</li>
-                    <li><i class="fa-solid fa-check"></i> Tối ưu Render/Đồ họa</li>
-                </ul>
-            </div>
-        </div>
-    </section>
 
-    <section class="srv-section srv-bg-gray" id="bang-gia">
-        <h2 class="srv-section-title">Bảng Giá Tham Khảo</h2>
-        <div class="srv-price-list">
-            <div class="srv-price-item">
-                <span class="srv-price-name">Vệ sinh cơ bản (Thổi bụi, lau chùi ngoài)</span>
-                <span class="srv-price-val">100.000đ</span>
-            </div>
-            <div class="srv-price-item">
-                <span class="srv-price-name">Vệ sinh Full + Thay keo tản nhiệt xịn</span>
-                <span class="srv-price-val">250.000đ</span>
-            </div>
-            <div class="srv-price-item">
-                <span class="srv-price-name">Cài Win + Driver + Phần mềm cơ bản</span>
-                <span class="srv-price-val">150.000đ</span>
-            </div>
-            <div class="srv-price-item">
-                <span class="srv-price-name">Công lắp đặt linh kiện nâng cấp</span>
-                <span class="srv-price-val">Từ 50.000đ</span>
-            </div>
-        </div>
-        <p class="srv-note">* Giá trên chỉ mang tính chất tham khảo. Vui lòng liên hệ để được báo giá chính xác theo tình trạng máy.</p>
-    </section>
-
-    <section class="srv-section">
-        <h2 class="srv-section-title">Quy Trình Chuyên Nghiệp</h2>
-        <div class="srv-process">
-            <div class="srv-step"><div class="srv-step-num">1</div><p>Tiếp nhận máy</p></div>
-            <i class="fa-solid fa-angle-right srv-step-arrow"></i>
-            <div class="srv-step"><div class="srv-step-num">2</div><p>Kiểm tra lỗi</p></div>
-            <i class="fa-solid fa-angle-right srv-step-arrow"></i>
-            <div class="srv-step"><div class="srv-step-num">3</div><p>Báo giá</p></div>
-            <i class="fa-solid fa-angle-right srv-step-arrow"></i>
-            <div class="srv-step"><div class="srv-step-num">4</div><p>Thực hiện</p></div>
-            <i class="fa-solid fa-angle-right srv-step-arrow"></i>
-            <div class="srv-step"><div class="srv-step-num">5</div><p>Bàn giao</p></div>
-        </div>
-    </section>
-
-    <section class="srv-section srv-commitments">
-        <div class="srv-grid">
-            <div class="srv-trust-item">
-                <i class="fa-solid fa-shield-halved"></i>
-                <h4>Linh Kiện Chính Hãng</h4>
-            </div>
-            <div class="srv-trust-item">
-                <i class="fa-solid fa-eye"></i>
-                <h4>Không Tráo Đổi</h4>
-            </div>
-            <div class="srv-trust-item">
-                <i class="fa-solid fa-file-invoice-dollar"></i>
-                <h4>Báo Giá Rõ Ràng</h4>
-            </div>
-            <div class="srv-trust-item">
-                <i class="fa-solid fa-award"></i>
-                <h4>Bảo Hành 1-3 Tháng</h4>
-            </div>
-        </div>
-    </section>
-
-</main>
-<footer>
-    <div class="container">
-        <div class="footer-grid">
-            
-            <div class="footer-col">
-                <img src="./images/logo/logodn.png" alt="Logo Footer" class="footer-logo">
-                
-                <p class="company-desc">
-                    T-REX PC - Chuyên cung cấp PC Gaming, 
-                    <br>Đồ Họa, Văn Phòng chính hãng giá tốt nhất.
-                </p>
-                <div class="contact-info">
-                    <p><i class="fa-solid fa-location-dot"></i> 123 Đường ABC, Quận X, TP.HCM</p>
-                    <p><i class="fa-solid fa-phone"></i> 1900 1234</p>
-                    <p><i class="fa-solid fa-envelope"></i> contact@trexpc.com</p>
+            <div class="header-center">
+                <div class="search-bar">
+                    <input type="text" placeholder="Tìm kiếm sản phẩm...">
+                    <button type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
             </div>
 
-            <div class="footer-col">
-                <h3>Chính sách</h3>
-                <ul>
-                    <li><a href="chinh-sach-bao-hanh.html">Chính sách bảo hành</a></li>
-                    
-                    <li><a href="chinh-sach-doi-tra.html">Chính sách đổi trả</a></li>
-                    
-                    <li><a href="chinh-sach-bao-mat.html">Chính sách bảo mật</a></li>
-                    
-                    <li><a href="van-chuyen.html">Vận chuyển & Giao hàng</a></li>
-                </ul>
+            <div class="header-right">
+                <div class="icons">
+                    <a href="thongbao.html" title="Thông báo" class="notification-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                            <path
+                                d="M12 22a2 2 0 0 0 2-2H10a2 2 0 0 0 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4a1.5 1.5 0 0 0-3 0v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z" />
+                        </svg>
+                        <span class="notification-badge">3</span>
+                    </a>
+
+                    <a href="giohang.html" title="Giỏ hàng">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                            <path
+                                d="M19 6h-2c0-2.76-2.24-5-5-5S7 3.24 7 6H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-7-3c1.66 0 3 1.34 3 3H9c0-1.66 1.34-3 3-3zm7 17H5V8h14v12zm-7-8c-1.66 0-3-1.34-3-3H7c0 2.76 2.24 5 5 5s5-2.24 5-5h-2c0 1.66-1.34 3-3 3z" />
+                        </svg>
+                    </a>
+
+                    <a href="dangnhap.html" title="Tài khoản" id="btn-login">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                            <path
+                                d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                        </svg>
+                    </a>
+
+                    <a href="#" title="Đăng xuất" id="btn-logout" class="hidden">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                            <path
+                                d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z" />
+                        </svg>
+                    </a>
+                    </a>
+                </div>
             </div>
 
-            <div class="footer-col">
-                <h3>Hỗ trợ khách hàng</h3>
-                <ul>
-                    <li><a href="huong-dan-mua-hang.html">Hướng dẫn mua hàng</a></li>
-                    
-                    <li><a href="tra-cuu-don-hang.html">Tra cứu đơn hàng</a></li>
-                    
-                    <li><a href="quy-dinh-thanh-toan.html">Quy định thanh toán</a></li>
-                    
-                    <li><a href="gui-yeu-cau-ho-tro.html">Gửi yêu cầu hỗ trợ</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h3>Kết nối với chúng tôi</h3>
-                <div class="social-links">
-                    <a href="#" style="background: #3b5998;"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" style="background: #ff0000;"><i class="fa-brands fa-youtube"></i></a>
-                    <a href="#" style="background: #000;"><i class="fa-brands fa-tiktok"></i></a>
-                </div>
-                <div class="certification">
-                    <p>Chứng nhận:</p>
-                    <img src="./images/bocongthuong.png" alt="Bộ công thương" width="120">
-                </div>
-            </div>  
-        <div class="footer-bottom">
-            <p>&copy; 2026 T-REX PC. All rights reserved.</p>
         </div>
-    </div>
-</footer>
+    </header>
+
+
+    <main class="services-page">
+
+        <section class="srv-hero">
+            <div class="srv-hero-content">
+                <h1>DỊCH VỤ KỸ THUẬT PC CHUYÊN NGHIỆP</h1>
+                <p>Vệ sinh – Nâng cấp – Cài đặt – Lắp ráp theo yêu cầu. Nhanh chóng, minh bạch và tận tâm.</p>
+                <div class="srv-btn-group">
+                    <a href="#lien-he" class="srv-btn-primary">Liên Hệ Ngay</a>
+                    <a href="#bang-gia" class="srv-btn-outline">Xem Bảng Giá</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="srv-section">
+            <h2 class="srv-section-title">Dịch Vụ Của Chúng Tôi</h2>
+            <div class="srv-grid">
+                <div class="srv-card">
+                    <i class="fa-solid fa-broom srv-icon"></i>
+                    <h3>Vệ Sinh PC - Laptop</h3>
+                    <ul>
+                        <li><i class="fa-solid fa-check"></i> Vệ sinh full case</li>
+                        <li><i class="fa-solid fa-check"></i> Thay keo tản nhiệt</li>
+                        <li><i class="fa-solid fa-check"></i> Bảo trì định kỳ</li>
+                    </ul>
+                </div>
+                <div class="srv-card">
+                    <i class="fa-solid fa-microchip srv-icon"></i>
+                    <h3>Nâng Cấp Linh Kiện</h3>
+                    <ul>
+                        <li><i class="fa-solid fa-check"></i> Nâng cấp RAM</li>
+                        <li><i class="fa-solid fa-check"></i> Lắp thêm ổ SSD</li>
+                        <li><i class="fa-solid fa-check"></i> Nâng cấp VGA</li>
+                    </ul>
+                </div>
+                <div class="srv-card">
+                    <i class="fa-brands fa-windows srv-icon"></i>
+                    <h3>Cài Đặt Phần Mềm</h3>
+                    <ul>
+                        <li><i class="fa-solid fa-check"></i> Cài Windows chuẩn</li>
+                        <li><i class="fa-solid fa-check"></i> Cài Office, Đồ họa</li>
+                        <li><i class="fa-solid fa-check"></i> Tối ưu hệ thống</li>
+                    </ul>
+                </div>
+                <div class="srv-card">
+                    <i class="fa-solid fa-screwdriver-wrench srv-icon"></i>
+                    <h3>Lắp PC Theo Yêu Cầu</h3>
+                    <ul>
+                        <li><i class="fa-solid fa-check"></i> Build theo ngân sách</li>
+                        <li><i class="fa-solid fa-check"></i> Tối ưu FPS chơi game</li>
+                        <li><i class="fa-solid fa-check"></i> Tối ưu Render/Đồ họa</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="srv-section srv-bg-gray" id="bang-gia">
+            <h2 class="srv-section-title">Bảng Giá Tham Khảo</h2>
+            <div class="srv-price-list">
+                <div class="srv-price-item">
+                    <span class="srv-price-name">Vệ sinh cơ bản (Thổi bụi, lau chùi ngoài)</span>
+                    <span class="srv-price-val">100.000đ</span>
+                </div>
+                <div class="srv-price-item">
+                    <span class="srv-price-name">Vệ sinh Full + Thay keo tản nhiệt xịn</span>
+                    <span class="srv-price-val">250.000đ</span>
+                </div>
+                <div class="srv-price-item">
+                    <span class="srv-price-name">Cài Win + Driver + Phần mềm cơ bản</span>
+                    <span class="srv-price-val">150.000đ</span>
+                </div>
+                <div class="srv-price-item">
+                    <span class="srv-price-name">Công lắp đặt linh kiện nâng cấp</span>
+                    <span class="srv-price-val">Từ 50.000đ</span>
+                </div>
+            </div>
+            <p class="srv-note">* Giá trên chỉ mang tính chất tham khảo. Vui lòng liên hệ để được báo giá chính xác theo
+                tình trạng máy.</p>
+        </section>
+
+        <section class="srv-section">
+            <h2 class="srv-section-title">Quy Trình Chuyên Nghiệp</h2>
+            <div class="srv-process">
+                <div class="srv-step">
+                    <div class="srv-step-num">1</div>
+                    <p>Tiếp nhận máy</p>
+                </div>
+                <i class="fa-solid fa-angle-right srv-step-arrow"></i>
+                <div class="srv-step">
+                    <div class="srv-step-num">2</div>
+                    <p>Kiểm tra lỗi</p>
+                </div>
+                <i class="fa-solid fa-angle-right srv-step-arrow"></i>
+                <div class="srv-step">
+                    <div class="srv-step-num">3</div>
+                    <p>Báo giá</p>
+                </div>
+                <i class="fa-solid fa-angle-right srv-step-arrow"></i>
+                <div class="srv-step">
+                    <div class="srv-step-num">4</div>
+                    <p>Thực hiện</p>
+                </div>
+                <i class="fa-solid fa-angle-right srv-step-arrow"></i>
+                <div class="srv-step">
+                    <div class="srv-step-num">5</div>
+                    <p>Bàn giao</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="srv-section srv-commitments">
+            <div class="srv-grid">
+                <div class="srv-trust-item">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <h4>Linh Kiện Chính Hãng</h4>
+                </div>
+                <div class="srv-trust-item">
+                    <i class="fa-solid fa-eye"></i>
+                    <h4>Không Tráo Đổi</h4>
+                </div>
+                <div class="srv-trust-item">
+                    <i class="fa-solid fa-file-invoice-dollar"></i>
+                    <h4>Báo Giá Rõ Ràng</h4>
+                </div>
+                <div class="srv-trust-item">
+                    <i class="fa-solid fa-award"></i>
+                    <h4>Bảo Hành 1-3 Tháng</h4>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+
+                <div class="footer-col">
+                    <img src="./images/logo/logodn.png" alt="Logo Footer" class="footer-logo">
+
+                    <p class="company-desc">
+                        T-REX PC - Chuyên cung cấp PC Gaming,
+                        <br>Đồ Họa, Văn Phòng chính hãng giá tốt nhất.
+                    </p>
+                    <div class="contact-info">
+                        <p><i class="fa-solid fa-location-dot"></i> 123 Đường ABC, Quận X, TP.HCM</p>
+                        <p><i class="fa-solid fa-phone"></i> 1900 1234</p>
+                        <p><i class="fa-solid fa-envelope"></i> contact@trexpc.com</p>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Chính sách</h3>
+                    <ul>
+                        <li><a href="chinh-sach-bao-hanh.html">Chính sách bảo hành</a></li>
+
+                        <li><a href="chinh-sach-doi-tra.html">Chính sách đổi trả</a></li>
+
+                        <li><a href="chinh-sach-bao-mat.html">Chính sách bảo mật</a></li>
+
+                        <li><a href="van-chuyen.html">Vận chuyển & Giao hàng</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Hỗ trợ khách hàng</h3>
+                    <ul>
+                        <li><a href="huong-dan-mua-hang.html">Hướng dẫn mua hàng</a></li>
+
+                        <li><a href="tra-cuu-don-hang.html">Tra cứu đơn hàng</a></li>
+
+                        <li><a href="quy-dinh-thanh-toan.html">Quy định thanh toán</a></li>
+
+                        <li><a href="gui-yeu-cau-ho-tro.html">Gửi yêu cầu hỗ trợ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Kết nối với chúng tôi</h3>
+                    <div class="social-links">
+                        <a href="#" style="background: #3b5998;"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" style="background: #ff0000;"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#" style="background: #000;"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                    <div class="certification">
+                        <p>Chứng nhận:</p>
+                        <img src="./images/bocongthuong.png" alt="Bộ công thương" width="120">
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 T-REX PC. All rights reserved.</p>
+                </div>
+            </div>
+    </footer>
 
 
 </html>
 
-    
+
 
 </body>
+
 </html>
