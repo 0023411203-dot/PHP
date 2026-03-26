@@ -11,8 +11,10 @@
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Roboto:wght@400;500;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="mainuser.css">
-    <link rel="stylesheet" href="policy.css">
+    <link rel="stylesheet" href="thongtinkh.css">
 </head>
 
 <body>
@@ -118,53 +120,123 @@
         </header>
 
 
-        <div class="policy-box">
-            <h1 class="policy-title">Chính sách bảo mật</h1>
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-            <p class="policy-intro">
-                T-HEX GAMING cam kết bảo mật tuyệt đối thông tin cá nhân của khách hàng
-                khi truy cập và mua sắm tại website. Sự riêng tư của bạn là ưu tiên hàng đầu của chúng tôi.
-            </p>
-
-            <div class="policy-section">
-                <h3>1. Thông tin thu thập</h3>
-                <p>Để xử lý đơn hàng và cung cấp dịch vụ tốt nhất, chúng tôi có thể thu thập các thông tin sau:</p>
-                <ul>
-                    <li><strong>Thông tin cá nhân:</strong> Họ và tên, giới tính, ngày sinh.</li>
-                    <li><strong>Thông tin liên lạc:</strong> Số điện thoại, địa chỉ email, địa chỉ giao hàng.</li>
-                    <li><strong>Thông tin giao dịch:</strong> Chi tiết đơn hàng, lịch sử mua hàng, phương thức thanh
-                        toán.</li>
-                </ul>
+<div class="account-container">
+    <aside class="account-sidebar">
+        <div class="user-profile">
+            <div class="avatar-circle">
+                <i class="fa-solid fa-user"></i>
             </div>
-
-            <div class="policy-section">
-                <h3>2. Mục đích sử dụng thông tin</h3>
-                <ul>
-                    <li>Xử lý đơn hàng, vận chuyển và giao hàng đến tay quý khách.</li>
-                    <li>Thông báo về việc giao hàng và hỗ trợ khách hàng khi có phát sinh.</li>
-                    <li>Cung cấp thông tin liên quan đến sản phẩm, các chương trình khuyến mãi (chỉ khi khách hàng đăng
-                        ký nhận tin).</li>
-                    <li>Xử lý các yêu cầu đổi trả hoặc bảo hành sản phẩm.</li>
-                </ul>
-            </div>
-
-            <div class="policy-section">
-                <h3>3. Cam kết bảo mật</h3>
-                <p>
-                    T-HEX GAMING cam kết <strong>không chia sẻ, mua bán hoặc trao đổi</strong> thông tin khách hàng cho
-                    bất kỳ bên thứ ba nào khác, ngoại trừ các đơn vị vận chuyển liên kết để thực hiện giao hàng.
-                </p>
-                <p>
-                    Mọi thông tin giao dịch sẽ được bảo mật ngoại trừ trường hợp cơ quan pháp luật yêu cầu.
-                </p>
-            </div>
-
-            <p class="policy-note">
-                <i class="fa-solid fa-shield-halved"></i> Chúng tôi sử dụng các biện pháp an ninh tốt nhất để bảo vệ
-                thông tin của bạn khỏi các truy cập trái phép.
-            </p>
+            <div class="user-name">
+                <p>Tài khoản của</p>
+                <strong>NGUYỄN XUÂN PHÁT</strong> </div>
         </div>
+        <ul class="account-menu">
+            <li><a href="#" class="active" data-tab="tab-info"><i class="fa-regular fa-address-card"></i> Thông tin tài khoản</a></li>
+            <li><a href="#" data-tab="tab-addresses"><i class="fa-solid fa-location-dot"></i> Sổ địa chỉ (Giao hàng)</a></li>
+            <li><a href="#" data-tab="tab-orders"><i class="fa-solid fa-clipboard-list"></i> Đơn hàng của tôi</a></li>
+            <li><a href="#" data-tab="tab-password"><i class="fa-solid fa-lock"></i> Thay đổi mật khẩu</a></li>
+            <li><a href="#" id="btn-logout"><i class="fa-solid fa-power-off"></i> Đăng xuất</a></li>
+        </ul>
+    </aside>
+
+    <main class="account-content">
+        
+        <div id="tab-info" class="tab-pane active">
+            <h2 class="tab-title">Cập nhật thông tin tài khoản</h2>
+            <form class="custom-form">
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label>Họ và tên</label>
+                        <input type="text" value="NGUYỄN XUÂN PHÁT">
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Email</label>
+                        <input type="email" value="0023411063@student.dthu.edu.vn">
+                    </div>
+                    <div class="form-group">
+                        <label>Điện thoại cố định</label>
+                        <input type="tel" value="0338635222">
+                    </div>
+                    <div class="form-group">
+                        <label>Điện thoại di động</label>
+                        <input type="tel" value="0338635222">
+                    </div>
+                </div>
+                <button type="button" class="btn-primary">THAY ĐỔI</button>
+            </form>
         </div>
+
+        <div id="tab-addresses" class="tab-pane">
+            <h2 class="tab-title">Sổ địa chỉ</h2>
+            <p class="sub-text">Quản lý thông tin nhận hàng của bạn để thanh toán nhanh hơn.</p>
+            <div class="address-list">
+                <div class="address-item active">
+                    <div class="address-info">
+                        <strong>Nguyễn Xuân Phát (Mặc định)</strong>
+                        <p>Số 123 Đường Dịch Vọng Hậu, Quận Cầu Giấy, Hà Nội</p>
+                        <p>Điện thoại: 0338635222</p>
+                    </div>
+                    <div class="address-actions">
+                        <a href="#"><i class="fa-solid fa-pen"></i></a>
+                        <a href="#"><i class="fa-solid fa-trash-can"></i></a>
+                    </div>
+                </div>
+                <button type="button" class="btn-secondary">THÊM ĐỊA CHỈ MỚI</button>
+            </div>
+        </div>
+
+        <div id="tab-orders" class="tab-pane">
+            <h2 class="tab-title">Đơn hàng của tôi</h2>
+            <div class="table-responsive">
+                <table class="order-table">
+                    <thead>
+                        <tr>
+                            <th>Mã đơn hàng</th>
+                            <th>Ngày mua</th>
+                            <th>Sản phẩm</th>
+                            <th>Tổng tiền</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="order-meta">
+                                <strong>#1756483731</strong>
+                                <a href="#" class="view-detail">(Xem chi tiết)</a>
+                            </td>
+                            <td class="order-date">20-03-2026</td>
+                            <td class="order-product">
+                                - PC TTG GAMING i5 12400F - RTX 3050 8GB...
+                            </td>
+                            <td class="order-price">18.380.000 ₫</td>
+                        </tr>
+                        </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="tab-password" class="tab-pane">
+            <h2 class="tab-title">Thay đổi mật khẩu</h2>
+            <form class="custom-form">
+                <div class="form-group">
+                    <label>Mật khẩu cũ</label>
+                    <input type="password" placeholder="Nhập mật khẩu cũ">
+                </div>
+                <div class="form-group">
+                    <label>Mật khẩu mới</label>
+                    <input type="password" placeholder="Nhập mật khẩu mới">
+                </div>
+                <div class="form-group">
+                    <label>Nhập lại mật khẩu mới</label>
+                    <input type="password" placeholder="Nhập lại mật khẩu mới">
+                </div>
+                <button type="button" class="btn-primary">CẬP NHẬT MẬT KHẨU</button>
+            </form>
+        </div>
+
+    </main>
+</div>
 
         <!-- FOOTER -->
         <footer>
@@ -231,7 +303,33 @@
 
 
 </html>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Tìm các đường link trong menu và các tab nội dung
+    const menuLinks = document.querySelectorAll('.account-menu a[data-tab]');
+    const tabPanes = document.querySelectorAll('.tab-pane');
 
+    // Bắt sự kiện khi click vào một mục menu
+    menuLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault(); // Ngăn trang bị load lại
+            
+            // 1. XỬ LÝ CSS MENU TRÁI
+            // Bỏ class 'active' của tất cả các menu cũ
+            menuLinks.forEach(item => item.classList.remove('active'));
+            // Thêm class 'active' cho menu vừa click
+            this.classList.add('active');
+
+            // 2. XỬ LÝ NỘI DUNG PHẢI
+            // Ẩn tất cả các khối nội dung cũ
+            tabPanes.forEach(pane => pane.classList.remove('active'));
+            // Hiện khối nội dung tương ứng với menu vừa click (dựa trên data-tab)
+            const targetTab = this.getAttribute('data-tab');
+            document.getElementById(targetTab).classList.add('active');
+        });
+    });
+});
+</script>
 
 
 </body>

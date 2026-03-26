@@ -1,0 +1,230 @@
+/* =======================================================
+   CSS CHO TRANG TÀI KHOẢN NGƯỜI DÙNG (SINGLE-PAGE)
+======================================================= */
+
+/* --- BỐ CỤC CHUNG --- */
+.account-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    display: flex;
+    gap: 30px;
+    padding: 0 20px;
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+}
+
+/* --- CỘT TRÁI (SIDEBAR) --- */
+.account-sidebar {
+    width: 280px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    height: fit-content;
+    position: sticky; top: 100px; /* Làm cho menu trượt theo khi cuộn trang */
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 0 20px 20px;
+    border-bottom: 1px solid #f0f0f0;
+    margin-bottom: 10px;
+}
+
+.avatar-circle {
+    width: 50px;
+    height: 50px;
+    background: #e53935; /* Màu đỏ làm nền avatar */
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+.user-name p { margin: 0; font-size: 13px; color: #777; }
+.user-name strong { margin: 0; font-size: 16px; color: #333; }
+
+.account-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.account-menu li a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 25px;
+    color: #444;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+}
+
+.account-menu li a i {
+    font-size: 18px;
+    width: 20px;
+    text-align: center;
+}
+
+/* Hiệu ứng khi chỉ chuột hoặc menu đang được chọn */
+.account-menu li a:hover, .account-menu li a.active {
+    background: #fdf2f2;
+    color: #e53935;
+    border-left-color: #e53935;
+    font-weight: bold;
+}
+
+/* --- CỘT PHẢI (NỘI DUNG) --- */
+.account-content {
+    flex: 1;
+    background: #fff;
+    border-radius: 12px;
+    padding: 30px 40px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.tab-title {
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 22px;
+    color: #333;
+}
+
+.sub-text {
+    color: #777;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+/* Ẩn hiện các tab, tạo hiệu ứng fadeIn mượt mà */
+.tab-pane {
+    display: none;
+    animation: fadeIn 0.4s ease;
+}
+.tab-pane.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- FORM ĐẸP (THEO ẢNH CHỤP CỦA BẠN) --- */
+.custom-form { max-width: 700px; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.full-width { grid-column: span 2; }
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #555;
+}
+
+.form-group input {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: border 0.3s;
+    outline: none;
+}
+
+.form-group input:focus {
+    border-color: #e53935; /* Màu cam/đỏ khi gõ */
+}
+
+.btn-primary {
+    background: #e53935;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background: #c62828;
+}
+
+/* --- BẢNG ĐƠN HÀNG SẠCH SẼ --- */
+.table-responsive { overflow-x: auto; }
+.order-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.order-table th {
+    background: #f8f9fa;
+    padding: 15px;
+    text-align: left;
+    border-bottom: 2px solid #ddd;
+    color: #333;
+    font-size: 15px;
+}
+
+.order-table td {
+    padding: 20px 15px;
+    border-bottom: 1px solid #eee;
+    vertical-align: middle;
+}
+
+.order-meta { display: flex; flex-direction: column; gap: 5px; font-size: 14px; }
+.order-meta strong { color: #e53935; }
+.order-meta .view-detail { color: #0056b3; text-decoration: none; font-size: 13px; }
+
+.order-date { color: #666; font-size: 14px; }
+.order-product { color: #444; font-size: 14px; line-height: 1.5; }
+.order-price { font-weight: bold; color: #e53935; }
+
+/* --- SỔ ĐỊA CHỈ --- */
+.address-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    margin-bottom: 20px;
+}
+
+.address-item.active {
+    border-color: #e53935;
+    background: #fdf2f2;
+}
+
+.address-info strong { margin-bottom: 8px; display: block; color: #333; }
+.address-info p { margin: 4px 0; color: #555; font-size: 14px; }
+
+.address-actions {
+    display: flex; gap: 15px;
+}
+
+.address-actions a { color: #999; text-decoration: none; transition: 0.2s; }
+.address-actions a:hover { color: #e53935; }
+
+.btn-secondary {
+    background: #fff;
+    border: 1px solid #ddd;
+    color: #555;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.btn-secondary:hover { background: #f9f9f9; }

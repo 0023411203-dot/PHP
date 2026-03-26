@@ -1,503 +1,547 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>T-REX PC Gaming</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="mainuser.css">
     <link rel="stylesheet" href="policy.css">
 </head>
-<body>
 
 <body>
 
-    <header>
-    <div class="logo">
-        <a href="main.html" title="Về trang chủ">
-            <div class="logo-image">
-                <img src="./images/logo/logodn.png" alt="Logo Shop">
-                <span></span>
+    <body>
+
+        <header>
+            <div class="top-bar-container">
+
+                <div class="header-left">
+                    <div class="logo">
+                        <a href="main.html" title="Về trang chủ">
+                            <div class="logo-image">
+                                <img src="./images/logo/logodn.png" alt="Logo Shop">
+                                <span></span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <ul class="nav-links">
+                        <li class="category-dropdown-wrapper">
+                            <a class="flex items-center gap-[4px]" href="#">
+                                <span
+                                    class="inline-flex items-center justify-center w-[32px] h-[32px] bg-[#E8F7FF] rounded-full min-[1620px]:w-[36px] min-[1620px]:h-[36px]">
+                                    <i class="fa-solid fa-bars"></i>
+                                </span>
+                                Danh mục sản phẩm
+                                <i class="fa-solid fa-chevron-down" style="font-size: 12px; margin-left: 5px;"></i>
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                <li><a href="pc-gaming.html"><i class="fa-solid fa-gamepad"></i> PC Gaming</a></li>
+                                <li><a href="pc-vanphong.html"><i class="fa-solid fa-briefcase"></i> PC Văn Phòng</a>
+                                </li>
+                                <li><a href="linh_kien.html"><i class="fa-solid fa-microchip"></i> Linh Kiện</a></li>
+                                <li><a href="phu-kien.html"><i class="fa-solid fa-headphones"></i> Phụ Kiện</a></li>
+                            </ul>
+
+                        <li>
+                            <a class="flex items-center gap-[4px]" href="build-pc.html">
+                                <span
+                                    class="inline-flex items-center justify-center w-[32px] h-[32px] bg-[#E8F7FF] rounded-full min-[1620px]:w-[36px] min-[1620px]:h-[36px]">
+                                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                                </span>
+                                Build PC
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="flex items-center gap-[4px]" href="dichvu.html">
+                                <span
+                                    class="inline-flex items-center justify-center w-[32px] h-[32px] bg-[#E8F7FF] rounded-full min-[1620px]:w-[36px] min-[1620px]:h-[36px]">
+                                    <i class="fa-solid fa-tag"></i>
+                                </span>
+                                Dịch vụ của shop
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="header-center">
+                    <div class="search-bar">
+                        <input type="text" placeholder="Tìm kiếm sản phẩm...">
+                        <button type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </div>
+                </div>
+
+                <div class="header-right">
+                    <div class="icons">
+                        <a href="thongbao.html" title="Thông báo" class="notification-icon">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                                <path
+                                    d="M12 22a2 2 0 0 0 2-2H10a2 2 0 0 0 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4a1.5 1.5 0 0 0-3 0v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z" />
+                            </svg>
+                            <span class="notification-badge">3</span>
+                        </a>
+
+                        <a href="giohang.html" title="Giỏ hàng">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                                <path
+                                    d="M19 6h-2c0-2.76-2.24-5-5-5S7 3.24 7 6H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-7-3c1.66 0 3 1.34 3 3H9c0-1.66 1.34-3 3-3zm7 17H5V8h14v12zm-7-8c-1.66 0-3-1.34-3-3H7c0 2.76 2.24 5 5 5s5-2.24 5-5h-2c0 1.66-1.34 3-3 3z" />
+                            </svg>
+                        </a>
+
+                        <a href="dangnhap.html" title="Tài khoản" id="btn-login">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                                <path
+                                    d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                            </svg>
+                        </a>
+
+                        <a href="#" title="Đăng xuất" id="btn-logout" class="hidden">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                                <path
+                                    d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z" />
+                            </svg>
+                        </a>
+                        </a>
+                    </div>
+                </div>
+
             </div>
-        </a>
-    </div>
+        </header>
 
-    <ul class="nav-links">
-        <li>
-            <a class="flex items-center gap-[4px]" href="pc-gaming.html">
-                <span class="inline-flex items-center justify-center w-[32px] h-[32px] bg-[#E8F7FF] rounded-full min-[1620px]:w-[36px] min-[1620px]:h-[36px]">
-                    <i class="fa-solid fa-gamepad"></i> 
-                </span>
-                PC Gaming
-            </a>
-        </li>
 
-        <li>
-            <a class="flex items-center gap-[4px]" href="pc-vanphong.html">
-                <span class="inline-flex items-center justify-center w-[32px] h-[32px] bg-[#E8F7FF] rounded-full min-[1620px]:w-[36px] min-[1620px]:h-[36px]">
-                    <i class="fa-solid fa-briefcase"></i>
-                </span>
-                PC Văn Phòng
-            </a>
-        </li>
+        <div class="container product-detail-wrapper">
 
-        <li>
-            <a class="flex items-center gap-[4px]" href="pc-dohoa.html">
-                <span class="inline-flex items-center justify-center w-[32px] h-[32px] bg-[#E8F7FF] rounded-full min-[1620px]:w-[36px] min-[1620px]:h-[36px]">
-                    <i class="fa-solid fa-palette"></i>
-                </span>
-                PC Đồ Họa
-            </a>
-        </li>
+            <div class="product-top">
 
-        <li>
-            <a class="flex items-center gap-[4px]" href="build-pc.html">
-                <span class="inline-flex items-center justify-center w-[32px] h-[32px] bg-[#E8F7FF] rounded-full min-[1620px]:w-[36px] min-[1620px]:h-[36px]">
-                    <i class="fa-solid fa-screwdriver-wrench"></i>
-                </span>
-                Build PC
-            </a>
-        </li>
+                <div class="product-images">
+                    <div class="main-image">
+                        <img src="./images/danhgia/danhgia.jpg" alt="PC Gaming T-REX" id="mainImg">
+                    </div>
+                    <div class="thumbnail-list">
+                        <img src="./images/danhgia/danhgia.jpg" class="active">
+                        <img src="./images/danhgia/danhgia.jpg">
+                        <img src="./images/danhgia/danhgia.jpg">
+                        <img src="./images/danhgia/danhgia.jpg">
+                    </div>
+                    <div class="config-upgrade-box">
+                        <p class="config-title"><i class="fa-solid fa-screwdriver-wrench"></i> Nâng cấp cấu hình:</p>
 
-        <li>
-            <a class="flex items-center gap-[4px]" href="dichvu.html">
-                <span class="inline-flex items-center justify-center w-[32px] h-[32px] bg-[#E8F7FF] rounded-full min-[1620px]:w-[36px] min-[1620px]:h-[36px]">
-                    <i class="fa-solid fa-tag"></i>
-                </span>
-                Dịch vụ của shop
-            </a>
-        </li>
+                        <div class="config-group">
+                            <label>Bộ nhớ RAM:</label>
+                            <div class="config-options">
+                                <div class="option-item selected" onclick="selectOption(this, 'ram')">
+                                    <span class="opt-name">16GB (8GBx2)</span>
+                                    <span class="opt-price">Mặc định</span>
+                                    <i class="fa-solid fa-check check-icon"></i>
+                                </div>
 
-    </ul>
-    
-    <div class="header-actions">
-        <div class="search-bar">
-            <input type="text" placeholder="Tìm kiếm sản phẩm...">
-            <button type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
-        </div>
+                                <div class="option-item" onclick="selectOption(this, 'ram')">
+                                    <span class="opt-name">32GB (16GBx2)</span>
+                                    <span class="opt-price">+ 950.000₫</span>
+                                    <i class="fa-solid fa-check check-icon"></i>
+                                </div>
+                            </div>
+                            <script>
+                                // Hàm xử lý khi click chọn cấu hình
+                                function selectOption(element, groupName) {
+                                    // 1. Tìm thẻ cha chứa nhóm các lựa chọn đó
+                                    let parent = element.parentElement;
 
-        <div class="icons">
-            <a href="giohang.html" title="Giỏ hàng"><i class="fa-solid fa-bag-shopping"></i></a>
+                                    // 2. Tìm tất cả các ô trong nhóm đó và bỏ class 'selected'
+                                    let options = parent.getElementsByClassName('option-item');
+                                    for (let i = 0; i < options.length; i++) {
+                                        options[i].classList.remove('selected');
+                                    }
 
-            <a href="dangnhap.html" title="Tài khoản">
-                <i class="fa-regular fa-user"></i>
-            </a>
+                                    // 3. Thêm class 'selected' cho ô vừa click
+                                    element.classList.add('selected');
 
-            <a href="main.html" title="Đăng xuất" onclick="alert('Bạn đã đăng xuất thành công!')"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
-        </div>
-    </div>
-</header>
+                                    // (Nâng cao: Sau này bạn có thể thêm code tính lại tổng tiền ở đây)
+                                    console.log("Đã chọn nâng cấp nhóm: " + groupName);
+                                }
+                            </script>
+                        </div>
 
-            <div class="container product-detail-wrapper">
-    
-    <div class="product-top">
-        
-        <div class="product-images">
-            <div class="main-image">
-                <img src="./images/danhgia/danhgia.jpg" alt="PC Gaming T-REX" id="mainImg">
-            </div>
-            <div class="thumbnail-list">
-                <img src="./images/danhgia/danhgia.jpg" class="active">
-                <img src="./images/danhgia/danhgia.jpg">
-                <img src="./images/danhgia/danhgia.jpg">
-                <img src="./images/danhgia/danhgia.jpg">
-            </div>
-            <div class="config-upgrade-box">
-    <p class="config-title"><i class="fa-solid fa-screwdriver-wrench"></i> Nâng cấp cấu hình:</p>
+                        <div class="config-group">
+                            <label>Ổ cứng SSD:</label>
+                            <div class="config-options">
+                                <div class="option-item selected" onclick="selectOption(this, 'ssd')">
+                                    <span class="opt-name">500GB NVMe</span>
+                                    <span class="opt-price">Mặc định</span>
+                                    <i class="fa-solid fa-check check-icon"></i>
+                                </div>
 
-    <div class="config-group">
-        <label>Bộ nhớ RAM:</label>
-        <div class="config-options">
-            <div class="option-item selected" onclick="selectOption(this, 'ram')">
-                <span class="opt-name">16GB (8GBx2)</span>
-                <span class="opt-price">Mặc định</span>
-                <i class="fa-solid fa-check check-icon"></i>
-            </div>
-            
-            <div class="option-item" onclick="selectOption(this, 'ram')">
-                <span class="opt-name">32GB (16GBx2)</span>
-                <span class="opt-price">+ 950.000₫</span>
-                <i class="fa-solid fa-check check-icon"></i>
-            </div>
-        </div>
-        <script>
-    // Hàm xử lý khi click chọn cấu hình
-    function selectOption(element, groupName) {
-        // 1. Tìm thẻ cha chứa nhóm các lựa chọn đó
-        let parent = element.parentElement;
-        
-        // 2. Tìm tất cả các ô trong nhóm đó và bỏ class 'selected'
-        let options = parent.getElementsByClassName('option-item');
-        for (let i = 0; i < options.length; i++) {
-            options[i].classList.remove('selected');
-        }
-        
-        // 3. Thêm class 'selected' cho ô vừa click
-        element.classList.add('selected');
+                                <div class="option-item" onclick="selectOption(this, 'ssd')">
+                                    <span class="opt-name">1TB NVMe Gen4</span>
+                                    <span class="opt-price">+ 1.200.000₫</span>
+                                    <i class="fa-solid fa-check check-icon"></i>
+                                </div>
+                            </div>
+                        </div>
 
-        // (Nâng cao: Sau này bạn có thể thêm code tính lại tổng tiền ở đây)
-        console.log("Đã chọn nâng cấp nhóm: " + groupName);
-    }
-</script>
-    </div>
+                        <div class="config-group">
+                            <label>Lắp thêm HDD:</label>
+                            <div class="config-options">
+                                <div class="option-item selected" onclick="selectOption(this, 'hdd')">
+                                    <span class="opt-name">Không lấy</span>
+                                    <span class="opt-price">0₫</span>
+                                    <i class="fa-solid fa-check check-icon"></i>
+                                </div>
 
-    <div class="config-group">
-        <label>Ổ cứng SSD:</label>
-        <div class="config-options">
-            <div class="option-item selected" onclick="selectOption(this, 'ssd')">
-                <span class="opt-name">500GB NVMe</span>
-                <span class="opt-price">Mặc định</span>
-                <i class="fa-solid fa-check check-icon"></i>
-            </div>
-            
-            <div class="option-item" onclick="selectOption(this, 'ssd')">
-                <span class="opt-name">1TB NVMe Gen4</span>
-                <span class="opt-price">+ 1.200.000₫</span>
-                <i class="fa-solid fa-check check-icon"></i>
-            </div>
-        </div>
-    </div>
+                                <div class="option-item" onclick="selectOption(this, 'hdd')">
+                                    <span class="opt-name">HDD 1TB WD Blue</span>
+                                    <span class="opt-price">+ 990.000₫</span>
+                                    <i class="fa-solid fa-check check-icon"></i>
+                                </div>
+                            </div>
+                        </div>
 
-    <div class="config-group">
-        <label>Lắp thêm HDD:</label>
-        <div class="config-options">
-            <div class="option-item selected" onclick="selectOption(this, 'hdd')">
-                <span class="opt-name">Không lấy</span>
-                <span class="opt-price">0₫</span>
-                <i class="fa-solid fa-check check-icon"></i>
-            </div>
-            
-            <div class="option-item" onclick="selectOption(this, 'hdd')">
-                <span class="opt-name">HDD 1TB WD Blue</span>
-                <span class="opt-price">+ 990.000₫</span>
-                <i class="fa-solid fa-check check-icon"></i>
-            </div>
-        </div>
-    </div>
+                    </div>
+                </div>
 
-</div>
-        </div>
+                <div class="product-info">
+                    <h1 class="product-title">PC Gaming T-REX Ultra 3060 (Core i5 12400F / RTX 3060 12GB / 16GB RAM)
+                    </h1>
 
-        <div class="product-info">
-            <h1 class="product-title">PC Gaming T-REX Ultra 3060 (Core i5 12400F / RTX 3060 12GB / 16GB RAM)</h1>
-            
-            <div class="product-meta">
-                <span class="sku">Mã SP: TREX-001</span>
-                <span class="status available">Tình trạng: Còn hàng</span>
-            </div>
+                    <div class="product-meta">
+                        <span class="sku">Mã SP: TREX-001</span>
+                        <span class="status available">Tình trạng: Còn hàng</span>
+                    </div>
 
-            <div class="product-price">
-                <span class="current-price">15.990.000₫</span>
-                <span class="old-price">18.500.000₫</span>
-                <span class="discount">-14%</span>
+                    <div class="product-price">
+                        <span class="current-price">15.990.000₫</span>
+                        <span class="old-price">18.500.000₫</span>
+                        <span class="discount">-14%</span>
+                    </div>
+
+                    <div class="short-specs">
+                        <p><strong>Thông số nổi bật:</strong></p>
+                        <ul>
+                            <li><i class="fa-solid fa-microchip"></i> CPU: Intel Core i5 12400F</li>
+                            <li><i class="fa-solid fa-memory"></i> RAM: 16GB DDR4 3200MHz</li>
+                            <li><i class="fa-solid fa-hard-drive"></i> SSD: 500GB NVMe Gen4</li>
+                            <li><i class="fa-solid fa-gamepad"></i> VGA: NVIDIA RTX 3060 12GB</li>
+                        </ul>
+                    </div>
+
+                    <div class="purchase-actions">
+                        <div class="quantity-box">
+                            <button class="qty-btn" onclick="updateQuantity(-1)">-</button>
+
+                            <input type="number" id="quantityInput" value="1" min="1">
+
+                            <button class="qty-btn" onclick="updateQuantity(1)">+</button>
+                        </div>
+
+                        <div class="buttons">
+                            <a href="giohang.html">
+                                <button class="btn-buy-now">
+                                    MUA NGAY
+                                    <span>(Giao hàng tận nơi - Miễn phí lắp đặt)</span>
+                                </button>
+                            </a>
+
+                            <button class="btn-add-cart">
+                                <i class="fa-solid fa-cart-plus"></i> THÊM VÀO GIỎ
+                            </button>
+                        </div>
+                        <script>
+                            function updateQuantity(change) {
+                                // 1. Lấy ô nhập liệu
+                                let input = document.getElementById('quantityInput');
+
+                                // 2. Lấy số lượng hiện tại (ép kiểu sang số nguyên)
+                                let currentQty = parseInt(input.value);
+
+                                // 3. Tính số lượng mới
+                                let newQty = currentQty + change;
+
+                                // 4. Kiểm tra: Không cho phép số lượng nhỏ hơn 1
+                                if (newQty < 1) {
+                                    newQty = 1;
+                                }
+
+                                // 5. Cập nhật lại giá trị vào ô input
+                                input.value = newQty;
+                            }
+                        </script>
+                    </div>
+
+                    <div class="promo-box">
+                        <h4><i class="fa-solid fa-gift"></i> Quà tặng kèm theo:</h4>
+                        <ul>
+                            <li>Tặng Phím chuột Gaming giả cơ trị giá 300k</li>
+                            <li>Tặng lót chuột size lớn T-REX</li>
+                            <li>Miễn phí cài Win & Phần mềm trọn đời</li>
+                        </ul>
+                    </div>
+
+                </div>
             </div>
 
             <div class="short-specs">
-                <p><strong>Thông số nổi bật:</strong></p>
-                <ul>
-                    <li><i class="fa-solid fa-microchip"></i> CPU: Intel Core i5 12400F</li>
-                    <li><i class="fa-solid fa-memory"></i> RAM: 16GB DDR4 3200MHz</li>
-                    <li><i class="fa-solid fa-hard-drive"></i> SSD: 500GB NVMe Gen4</li>
-                    <li><i class="fa-solid fa-gamepad"></i> VGA: NVIDIA RTX 3060 12GB</li>
-                </ul>
+                <p class="specs-title">✨ Thông số nổi bật</p>
+                <div class="specs-grid">
+
+                    <div class="spec-item">
+                        <div class="spec-icon">
+                            <i class="fa-solid fa-microchip"></i>
+                        </div>
+                        <div class="spec-content">
+                            <span>CPU</span>
+                            <strong>Intel Core i5 12400F</strong>
+                        </div>
+                    </div>
+
+                    <div class="spec-item">
+                        <div class="spec-icon">
+                            <i class="fa-solid fa-gamepad"></i>
+                        </div>
+                        <div class="spec-content">
+                            <span>VGA</span>
+                            <strong>RTX 3060 12GB</strong>
+                        </div>
+                    </div>
+
+                    <div class="spec-item">
+                        <div class="spec-icon">
+                            <i class="fa-solid fa-memory"></i>
+                        </div>
+                        <div class="spec-content">
+                            <span>RAM</span>
+                            <strong>16GB DDR4 3200</strong>
+                        </div>
+                    </div>
+
+                    <div class="spec-item">
+                        <div class="spec-icon">
+                            <i class="fa-solid fa-hard-drive"></i>
+                        </div>
+                        <div class="spec-content">
+                            <span>SSD</span>
+                            <strong>500GB NVMe Gen4</strong>
+                        </div>
+                    </div>
+
+                    <div class="spec-item">
+                        <div class="spec-icon">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                        <div class="spec-content">
+                            <span>Nguồn</span>
+                            <strong>650W 80 Plus</strong>
+                        </div>
+                    </div>
+
+                    <div class="spec-item">
+                        <div class="spec-icon">
+                            <i class="fa-solid fa-desktop"></i>
+                        </div>
+                        <div class="spec-content">
+                            <span>Vỏ Case</span>
+                            <strong>Kính cường lực</strong>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="product-reviews">
+            <h3 class="section-title">Đánh giá & Nhận xét (120)</h3>
+
+            <div class="review-dashboard">
+                <div class="rating-summary">
+                    <div class="average-score">4.9</div>
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <p class="total-count">120 nhận xét</p>
+                </div>
+
+                <div class="rating-progress">
+                    <div class="progress-item">
+                        <span>5 sao</span>
+                        <div class="bar">
+                            <div class="fill" style="width: 85%;"></div>
+                        </div>
+                        <span>85%</span>
+                    </div>
+                    <div class="progress-item">
+                        <span>4 sao</span>
+                        <div class="bar">
+                            <div class="fill" style="width: 10%;"></div>
+                        </div>
+                        <span>10%</span>
+                    </div>
+                    <div class="progress-item">
+                        <span>3 sao</span>
+                        <div class="bar">
+                            <div class="fill" style="width: 5%;"></div>
+                        </div>
+                        <span>5%</span>
+                    </div>
+                </div>
+
+                <div class="write-review-btn">
+                    <button>Viết đánh giá của bạn</button>
+                </div>
             </div>
 
-            <div class="purchase-actions">
-                <div class="quantity-box">
-                <button class="qty-btn" onclick="updateQuantity(-1)">-</button>
-    
-                    <input type="number" id="quantityInput" value="1" min="1">
-    
-                <button class="qty-btn" onclick="updateQuantity(1)">+</button>
+            <div class="review-list">
+
+                <div class="review-item">
+                    <div class="user-avatar">
+                        <img src="./images/user/3tl.jpg" alt="">
+                    </div>
+                    <div class="review-content">
+                        <div class="review-header">
+                            <strong class="user-name">Trương Thanh Hoài </strong>
+                            <span class="verified-badge"><i class="fa-solid fa-circle-check"></i> Đã mua hàng tại
+                                T-REX</span>
+                        </div>
+                        <div class="user-rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="review-text">
+                            Máy build rất đẹp, đi dây gọn gàng. Cấu hình này chiến PUBG, Valorant mượt mà không lag.
+                            Nhân
+                            viên tư vấn nhiệt tình, giao hàng nhanh trong ngày. Sẽ ủng hộ shop dài dài!
+                        </p>
+                        <div class="review-images">
+                            <img src="./images/danhgia/danhgia1.webp" alt="Review img">
+                            <img src="./images/danhgia/danhgia2.jpg" alt="Review img">
+                        </div>
+                        <span class="review-date">Đăng ngày: 15/05/2026</span>
+
+                        <div class="admin-reply">
+                            <strong><i class="fa-solid fa-headset"></i> T-REX PC phản hồi:</strong>
+                            <p>Cảm ơn bạn Tuấn đã tin tưởng ủng hộ T-REX PC ạ. Chúc bạn có những giờ phút chiến game
+                                thật
+                                bùng nổ nhé! ^^</p>
+                        </div>
+                    </div>
                 </div>
-                                
-                <div class="buttons"> 
-                    <a href="giohang.html">
-                        <button class="btn-buy-now">
-                            MUA NGAY
-                            <span>(Giao hàng tận nơi - Miễn phí lắp đặt)</span>
-                        </button>
+
+                <div class="review-item">
+                    <div class="user-avatar">
+                        <img src="./images/user/kienl.jpg" alt="">
+                    </div>
+                    <div class="review-content">
+                        <div class="review-header">
+                            <strong class="user-name">Phạm Trung Kiên</strong>
+                            <span class="verified-badge"><i class="fa-solid fa-circle-check"></i> Đã mua hàng</span>
+                        </div>
+                        <div class="user-rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                        <p class="review-text">Hàng ngon trong tầm giá, nhưng giao hàng hơi chậm mất 3 ngày mới tới nơi.
+                        </p>
+                        <span class="review-date">Đăng ngày: 10/05/2026</span>
+                    </div>
+                </div>
+                <div class="view-more-container">
+                    <a href="#" class="btn-view-more">
+                        Xem thêm 118 đánh giá <i class="fa-solid fa-angle-down"></i>
                     </a>
-              
-                    <button class="btn-add-cart">
-                        <i class="fa-solid fa-cart-plus"></i> THÊM VÀO GIỎ
-                    </button>
-                </div>
-                <script>
-    function updateQuantity(change) {
-        // 1. Lấy ô nhập liệu
-        let input = document.getElementById('quantityInput');
-        
-        // 2. Lấy số lượng hiện tại (ép kiểu sang số nguyên)
-        let currentQty = parseInt(input.value);
-
-        // 3. Tính số lượng mới
-        let newQty = currentQty + change;
-
-        // 4. Kiểm tra: Không cho phép số lượng nhỏ hơn 1
-        if (newQty < 1) {
-            newQty = 1;
-        }
-
-        // 5. Cập nhật lại giá trị vào ô input
-        input.value = newQty;
-    }
-</script>
-            </div>
-
-            <div class="promo-box">
-                <h4><i class="fa-solid fa-gift"></i> Quà tặng kèm theo:</h4>
-                <ul>
-                    <li>Tặng Phím chuột Gaming giả cơ trị giá 300k</li>
-                    <li>Tặng lót chuột size lớn T-REX</li>
-                    <li>Miễn phí cài Win & Phần mềm trọn đời</li>
-                </ul>
-            </div>
-            
-        </div>
-    </div>
-
-    <div class="short-specs">
-    <p class="specs-title">✨ Thông số nổi bật</p>
-    <div class="specs-grid">
-        
-        <div class="spec-item">
-            <div class="spec-icon">
-                <i class="fa-solid fa-microchip"></i>
-            </div>
-            <div class="spec-content">
-                <span>CPU</span>
-                <strong>Intel Core i5 12400F</strong>
-            </div>
-        </div>
-
-        <div class="spec-item">
-            <div class="spec-icon">
-                <i class="fa-solid fa-gamepad"></i>
-            </div>
-            <div class="spec-content">
-                <span>VGA</span>
-                <strong>RTX 3060 12GB</strong>
-            </div>
-        </div>
-
-        <div class="spec-item">
-            <div class="spec-icon">
-                <i class="fa-solid fa-memory"></i>
-            </div>
-            <div class="spec-content">
-                <span>RAM</span>
-                <strong>16GB DDR4 3200</strong>
-            </div>
-        </div>
-
-        <div class="spec-item">
-            <div class="spec-icon">
-                <i class="fa-solid fa-hard-drive"></i>
-            </div>
-            <div class="spec-content">
-                <span>SSD</span>
-                <strong>500GB NVMe Gen4</strong>
-            </div>
-        </div>
-
-        <div class="spec-item">
-            <div class="spec-icon">
-                <i class="fa-solid fa-bolt"></i>
-            </div>
-            <div class="spec-content">
-                <span>Nguồn</span>
-                <strong>650W 80 Plus</strong>
-            </div>
-        </div>
-
-        <div class="spec-item">
-            <div class="spec-icon">
-                <i class="fa-solid fa-desktop"></i>
-            </div>
-            <div class="spec-content">
-                <span>Vỏ Case</span>
-                <strong>Kính cường lực</strong>
-            </div>
-        </div>
-
-    </div>
-</div>
-    </div>
-    <div class="product-reviews">
-        <h3 class="section-title">Đánh giá & Nhận xét (120)</h3>
-        
-        <div class="review-dashboard">
-            <div class="rating-summary">
-                <div class="average-score">4.9</div>
-                <div class="stars">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star-half-stroke"></i>
-                </div>
-                <p class="total-count">120 nhận xét</p>
-            </div>
-            
-            <div class="rating-progress">
-                <div class="progress-item">
-                    <span>5 sao</span>
-                    <div class="bar"><div class="fill" style="width: 85%;"></div></div>
-                    <span>85%</span>
-                </div>
-                <div class="progress-item">
-                    <span>4 sao</span>
-                    <div class="bar"><div class="fill" style="width: 10%;"></div></div>
-                    <span>10%</span>
-                </div>
-                <div class="progress-item">
-                    <span>3 sao</span>
-                    <div class="bar"><div class="fill" style="width: 5%;"></div></div>
-                    <span>5%</span>
                 </div>
             </div>
 
-            <div class="write-review-btn">
-                <button>Viết đánh giá của bạn</button>
-            </div>
+        </div>
         </div>
 
-        <div class="review-list">
-            
-            <div class="review-item">
-                <div class="user-avatar">
-                    <img src="./images/user/3tl.jpg" alt=""> </div>
-                <div class="review-content">
-                    <div class="review-header">
-                        <strong class="user-name">Trương Thanh Hoài </strong>
-                        <span class="verified-badge"><i class="fa-solid fa-circle-check"></i> Đã mua hàng tại T-REX</span>
+        </div>
+
+        </div>
+
+        <!-- FOOTER -->
+        <footer>
+            <div class="container">
+                <div class="footer-grid">
+
+                    <div class="footer-col">
+                        <img src="./images/logo/logodn.png" alt="Logo Footer" class="footer-logo">
+
+                        <p class="company-desc">
+                            T-REX PC - Chuyên cung cấp PC Gaming,
+                            <br>Đồ Họa, Văn Phòng chính hãng giá tốt nhất.
+                        </p>
+                        <div class="contact-info">
+                            <p><i class="fa-solid fa-location-dot"></i> 123 Đường ABC, Quận X, TP.HCM</p>
+                            <p><i class="fa-solid fa-phone"></i> 1900 1234</p>
+                            <p><i class="fa-solid fa-envelope"></i> contact@trexpc.com</p>
+                        </div>
                     </div>
-                    <div class="user-rating">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
+
+                    <div class="footer-col">
+                        <h3>Chính sách</h3>
+                        <ul>
+                            <li><a href="chinh-sach-bao-hanh.html">Chính sách bảo hành</a></li>
+
+                            <li><a href="chinh-sach-doi-tra.html">Chính sách đổi trả</a></li>
+
+                            <li><a href="chinh-sach-bao-mat.html">Chính sách bảo mật</a></li>
+
+                            <li><a href="van-chuyen.html">Vận chuyển & Giao hàng</a></li>
+                        </ul>
                     </div>
-                    <p class="review-text">
-                        Máy build rất đẹp, đi dây gọn gàng. Cấu hình này chiến PUBG, Valorant mượt mà không lag. Nhân viên tư vấn nhiệt tình, giao hàng nhanh trong ngày. Sẽ ủng hộ shop dài dài!
-                    </p>
-                    <div class="review-images">
-                        <img src="./images/danhgia/danhgia1.webp" alt="Review img">
-                        <img src="./images/danhgia/danhgia2.jpg" alt="Review img">
+
+                    <div class="footer-col">
+                        <h3>Hỗ trợ khách hàng</h3>
+                        <ul>
+                            <li><a href="huong-dan-mua-hang.html">Hướng dẫn mua hàng</a></li>
+
+                            <li><a href="tra-cuu-don-hang.html">Tra cứu đơn hàng</a></li>
+
+                            <li><a href="quy-dinh-thanh-toan.html">Quy định thanh toán</a></li>
+
+                            <li><a href="gui-yeu-cau-ho-tro.html">Gửi yêu cầu hỗ trợ</a></li>
+                        </ul>
                     </div>
-                    <span class="review-date">Đăng ngày: 15/05/2026</span>
-                    
-                    <div class="admin-reply">
-                        <strong><i class="fa-solid fa-headset"></i> T-REX PC phản hồi:</strong>
-                        <p>Cảm ơn bạn Tuấn đã tin tưởng ủng hộ T-REX PC ạ. Chúc bạn có những giờ phút chiến game thật bùng nổ nhé! ^^</p>
+
+                    <div class="footer-col">
+                        <h3>Kết nối với chúng tôi</h3>
+                        <div class="social-links">
+                            <a href="#" style="background: #3b5998;"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#" style="background: #ff0000;"><i class="fa-brands fa-youtube"></i></a>
+                            <a href="#" style="background: #000;"><i class="fa-brands fa-tiktok"></i></a>
+                        </div>
+                        <div class="certification">
+                            <p>Chứng nhận:</p>
+                            <img src="./images/bocongthuong.png" alt="Bộ công thương" width="120">
+                        </div>
+                    </div>
+                    <div class="footer-bottom">
+                        <p>&copy; 2026 T-REX PC. All rights reserved.</p>
                     </div>
                 </div>
-            </div>
-
-            <div class="review-item">
-                <div class="user-avatar">
-                    <img src="./images/user/kienl.jpg" alt=""> </div>
-                <div class="review-content">
-                    <div class="review-header">
-                        <strong class="user-name">Phạm Trung Kiên</strong>
-                        <span class="verified-badge"><i class="fa-solid fa-circle-check"></i> Đã mua hàng</span>
-                    </div>
-                    <div class="user-rating">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                    </div>
-                    <p class="review-text">Hàng ngon trong tầm giá, nhưng giao hàng hơi chậm mất 3 ngày mới tới nơi.</p>
-                    <span class="review-date">Đăng ngày: 10/05/2026</span>
-                </div>
-                </div> <div class="view-more-container">
-            <a href="#" class="btn-view-more">
-                Xem thêm 118 đánh giá <i class="fa-solid fa-angle-down"></i>
-            </a>
-        </div>
-            </div>
-
-        </div>
-    </div>
-
-</div>
-
-    </div>
-
-    <!-- FOOTER -->
-<footer>
-    <div class="container">
-        <div class="footer-grid">
-            
-            <div class="footer-col">
-                <img src="./images/logo/logodn.png" alt="Logo Footer" class="footer-logo">
-                
-                <p class="company-desc">
-                    T-REX PC - Chuyên cung cấp PC Gaming, 
-                    <br>Đồ Họa, Văn Phòng chính hãng giá tốt nhất.
-                </p>
-                <div class="contact-info">
-                    <p><i class="fa-solid fa-location-dot"></i> 123 Đường ABC, Quận X, TP.HCM</p>
-                    <p><i class="fa-solid fa-phone"></i> 1900 1234</p>
-                    <p><i class="fa-solid fa-envelope"></i> contact@trexpc.com</p>
-                </div>
-            </div>
-
-            <div class="footer-col">
-                <h3>Chính sách</h3>
-                <ul>
-                    <li><a href="chinh-sach-bao-hanh.html">Chính sách bảo hành</a></li>
-                    
-                    <li><a href="chinh-sach-doi-tra.html">Chính sách đổi trả</a></li>
-                    
-                    <li><a href="chinh-sach-bao-mat.html">Chính sách bảo mật</a></li>
-                    
-                    <li><a href="van-chuyen.html">Vận chuyển & Giao hàng</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h3>Hỗ trợ khách hàng</h3>
-                <ul>
-                    <li><a href="huong-dan-mua-hang.html">Hướng dẫn mua hàng</a></li>
-                    
-                    <li><a href="tra-cuu-don-hang.html">Tra cứu đơn hàng</a></li>
-                    
-                    <li><a href="quy-dinh-thanh-toan.html">Quy định thanh toán</a></li>
-                    
-                    <li><a href="gui-yeu-cau-ho-tro.html">Gửi yêu cầu hỗ trợ</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h3>Kết nối với chúng tôi</h3>
-                <div class="social-links">
-                    <a href="#" style="background: #3b5998;"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" style="background: #ff0000;"><i class="fa-brands fa-youtube"></i></a>
-                    <a href="#" style="background: #000;"><i class="fa-brands fa-tiktok"></i></a>
-                </div>
-                <div class="certification">
-                    <p>Chứng nhận:</p>
-                    <img src="./images/bocongthuong.png" alt="Bộ công thương" width="120">
-                </div>
-            </div>  
-        <div class="footer-bottom">
-            <p>&copy; 2026 T-REX PC. All rights reserved.</p>
-        </div>
-    </div>
-</footer>
+        </footer>
 
 
 </html>
 
-    
+
 
 </body>
+
 </html>

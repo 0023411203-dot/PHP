@@ -109,6 +109,7 @@
     line-height: 1.6;
     margin-bottom: 12px;
     padding-left: 10px; /* Thụt vào 1 chút cho thẳng hàng với text */
+    font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
 /* Tô đậm các từ khóa quan trọng */
