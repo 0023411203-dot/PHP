@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T-HEX - Quản lý khách hàng</title>
+    <link rel="stylesheet" href="staff.css">
+    <style>
+        /* --- CSS riêng cho phần nội dung trang Khách Hàng --- */
+        .toolbar-qlkh {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .toolbar-qlkh h1 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1e293b;
+            margin-bottom: 4px;
+        }
+
+        .toolbar-qlkh p {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .create-btn {
+            background: linear-gradient(135deg, #0047ff 0%, #007bff 100%);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0, 71, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .create-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 71, 255, 0.4);
+        }
+
+        /* Cell chứa tên và ID khách hàng trong bảng */
+        .customer-info-cell {
+            display: flex;
+            align-items: center;
+        }
+
+        .customer-name-id b {
+            display: block;
+            color: #1e293b;
+            font-size: 14px;
+        }
+
+        .customer-name-id small {
+            color: #94a3b8;
+            font-size: 12px;
+        }
+
+        .contact-info {
+            font-size: 13px;
+            line-height: 1.5;
+            color: #475569;
+        }
+
+        /* Trạng thái hoạt động (Dấu chấm tròn) */
+        .status-active {
+            color: #22c55e;
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        .status-blocked {
+            color: #ef4444;
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        /* --- CSS cho hộp thông tin trong Popup (Modal) --- */
+        .info-box {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .info-box p {
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #475569;
+        }
+
+        .info-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-box b {
+            color: #1e293b;
+            display: inline-block;
+            width: 110px;
+        }
+
+        /* Nút Gọi & Nhắn tin */
+        .btn-call {
+            background: #dbeafe;
+            color: #1d4ed8;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            font-size: 14px;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-call:hover {
+            background: #bfdbfe;
+            transform: translateY(-2px);
+        }
+
+        .btn-message {
+            background: #dcfce7;
+            color: #15803d;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            font-size: 14px;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-message:hover {
+            background: #bbf7d0;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard">
+        <aside class="sidebar">
+            <div class="logo-section">
+                <div class="logo-image"><img src="./anh/logo.png" alt="T-HEX Logo"></div>
+                <div class="logo-text">
+                    <p class="company-name">T-HEX</p>
+                    <p class="company-subtitle">PC-WORLD</p>
+                </div>
+            </div>
+            <nav class="menu">
+                <a href="staff.html" class="menu-item" style="text-decoration: none; color: inherit;"><img
+                        src="./anh/list.png" alt=""><span>Tổng quan</span></a>
+                <a href="staff_qlsp.html" class="menu-item" style="text-decoration: none; color: inherit;"><img
+                        src="./anh/store.png" alt=""><span>Quản lý Kho</span></a>
+                <a href="staff_qldh.html" class="menu-item" style="text-decoration: none; color: inherit;"><img
+                        src="./anh/delivery.png" alt=""><span>Quản lý đơn hàng</span></a>
+
+                <a href="staff_qlkh.html" class="menu-item active">
+                    <img src="./anh/customer.png" alt=""><span>Quản lý khách hàng</span>
+                </a>
+
+                <a href="staff_qlhd.html" class="menu-item" style="text-decoration: none; color: inherit;"><img
+                        src="./anh/analytics.png" alt=""><span>Quản lý hóa đơn</span></a>
+                <a href="staff_thongtin.html" class="menu-item" style="text-decoration: none; color: inherit;"><img
+                        src="./anh/transaction.png" alt=""><span>Thông tin</span></a>
+            </nav>
+            <div class="logout-section">
+                <a href="#logoutConfirm" class="menu-item" style="text-decoration: none;">
+                    <img src="./anh/logout.png" alt=""><span>ĐĂNG XUẤT</span>
+                </a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="header">
+                <div class="search-container">
+                    <img src="./anh/find.jpg" alt="" class="search-icon">
+                    <input type="text" placeholder="Tìm kiếm..." class="search-input">
+                </div>
+
+                <div class="header-right-group">
+                    <div class="notification-bell">
+                        <img src="./anh/bel.gif" alt="Notification">
+                        <span class="bell-badge"></span>
+                    </div>
+
+                    <div class="user-info">
+                        <img src="./anh/avatar.jpg" alt="User Avatar" class="user-avatar">
+
+                        <div class="user-details">
+                            <p class="user-name">Xuân Phát</p>
+                            <p class="user-role">Staff</p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-area">
+                <div class="toolbar-qlkh">
+                    <div>
+                        <h1>Quản lý khách hàng</h1>
+                        <p>Xem hồ sơ và lịch sử giao dịch của khách hàng.</p>
+                    </div>
+                    <button class="create-btn">+ Thêm khách hàng</button>
+                </div>
+
+                <div class="customer-table-container">
+                    <div class="table-container">
+                        <table class="orders-table table-hoverable">
+                            <thead>
+                                <tr>
+                                    <th>Khách hàng (Tên / ID)</th>
+                                    <th>Liên hệ (SĐT / Email)</th>
+                                    <th>Tổng đơn</th>
+                                    <th>Tổng chi tiêu</th>
+                                    <th>Ngày tham gia</th>
+                                    <th>Trạng thái</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr
+                                    onclick="openCustomerModal('Nguyễn Xuân Phát', 'KH001', '0901234567', 'nva@email.com', '15', '125.000.000 đ', '15/3/2024', 'Đang hoạt động')">
+                                    <td>
+                                        <div class="customer-info-cell">
+                                            <div class="customer-name-id">
+                                                <b>Nguyễn Xuân Phát</b>
+                                                <small>#KH001</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="contact-info">📞 0901234567<br>📧 nva@email.com</td>
+                                    <td style="font-weight: 600;">15</td>
+                                    <td style="font-weight: 700; color: #1e293b;">125.000.000 đ</td>
+                                    <td>15/3/2024</td>
+                                    <td><span class="status-active">● Đang hoạt động</span></td>
+                                </tr>
+
+                                <tr
+                                    onclick="openCustomerModal('Võ Thị Phương', 'KH002', '0956789012', 'vtp@email.com', '12', '95.000.000 đ', '18/2/2024', 'Đang hoạt động')">
+                                    <td>
+                                        <div class="customer-info-cell">
+                                            <div class="customer-name-id">
+                                                <b>Võ Thị Phương</b>
+                                                <small>#KH002</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="contact-info">📞 0956789012<br>📧 vtp@email.com</td>
+                                    <td style="font-weight: 600;">12</td>
+                                    <td style="font-weight: 700; color: #1e293b;">95.000.000 đ</td>
+                                    <td>18/2/2024</td>
+                                    <td><span class="status-active">● Đang hoạt động</span></td>
+                                </tr>
+
+                                <tr
+                                    onclick="openCustomerModal('Hoàng Văn Em', 'KH003', '0945678901', 'hve@email.com', '1', '25.500.000 đ', '10/1/2026', 'Ngừng hoạt động')">
+                                    <td>
+                                        <div class="customer-info-cell">
+                                            <div class="customer-name-id">
+                                                <b>Hoàng Văn Em</b>
+                                                <small>#KH003</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="contact-info">📞 0945678901<br>📧 hve@email.com</td>
+                                    <td style="font-weight: 600;">1</td>
+                                    <td style="font-weight: 700; color: #1e293b;">25.500.000 đ</td>
+                                    <td>10/1/2026</td>
+                                    <td><span class="status-blocked">● Ngừng hoạt động</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="pagination-container">
+                        <div class="pagination-info">Hiển thị <b>1 - 3</b> của <b>50</b> khách hàng</div>
+                        <div class="pagination-buttons">
+                            <button class="page-btn" disabled>Trước</button>
+                            <button class="page-btn active">1</button>
+                            <button class="page-btn">2</button>
+                            <button class="page-btn">Sau</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="customerModal" class="modal-overlay">
+        <div class="modal-content" style="width: 500px;">
+            <div class="modal-header">
+                <h2>Hồ sơ khách hàng</h2>
+                <span class="close-btn" onclick="closeCustomerModal()">&times;</span>
+            </div>
+
+            <div class="modal-body">
+                <div style="margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px dashed #cbd5e1;">
+                    <h3 id="modal-cus-name" style="font-size: 24px; color: #0f172a; margin-top: 0; margin-bottom: 5px;">
+                        Tên khách hàng</h3>
+                    <p id="modal-cus-id" style="color: #64748b; font-size: 15px; margin-bottom: 0;">#KH000</p>
+                </div>
+
+                <div class="info-box" style="display: grid; grid-template-columns: 1fr; gap: 12px;">
+                    <p><b>Điện thoại:</b> <span id="modal-cus-phone">...</span></p>
+                    <p><b>Email:</b> <span id="modal-cus-email">...</span></p>
+                    <p><b>Tổng số đơn:</b> <span id="modal-cus-orders">...</span></p>
+                    <p><b>Tổng chi tiêu:</b> <span id="modal-cus-spent"
+                            style="color: #f97316; font-weight: 800; font-size: 15px;">...</span></p>
+                    <p><b>Ngày gia nhập:</b> <span id="modal-cus-date">...</span></p>
+                    <p><b>Trạng thái:</b> <span id="modal-cus-status">...</span></p>
+                </div>
+            </div>
+
+            <div class="modal-footer" style="justify-content: flex-start; align-items: center;">
+                <div style="display: flex; gap: 12px;">
+                    <button class="btn-call" onclick="alert('Đang kết nối cuộc gọi đến khách hàng...')">📞 Gọi
+                        điện</button>
+                    <button class="btn-message" onclick="alert('Đang mở hộp thoại nhắn tin...')">💬 Nhắn tin</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Đã xóa tham số type ra khỏi hàm Javascript
+        function openCustomerModal(name, id, phone, email, orders, spent, date, status) {
+            // Điền dữ liệu text vào các thẻ span
+            document.getElementById('modal-cus-name').innerText = name;
+            document.getElementById('modal-cus-id').innerText = '#' + id;
+            document.getElementById('modal-cus-phone').innerText = phone;
+            document.getElementById('modal-cus-email').innerText = email;
+            document.getElementById('modal-cus-orders').innerText = orders;
+            document.getElementById('modal-cus-spent').innerText = spent;
+            document.getElementById('modal-cus-date').innerText = date;
+
+            // Hiển thị Trạng thái hoạt động
+            let statusHtml = status === 'Đang hoạt động'
+                ? '<span class="status-active">● Đang hoạt động</span>'
+                : '<span class="status-blocked">● Ngừng hoạt động</span>';
+            document.getElementById('modal-cus-status').innerHTML = statusHtml;
+
+            // Bật Modal
+            document.getElementById('customerModal').style.display = 'flex';
+        }
+
+        function closeCustomerModal() {
+            document.getElementById('customerModal').style.display = 'none';
+        }
+
+        // Bấm ra ngoài khoảng tối để tắt Popup
+        window.onclick = function (event) {
+            var modal = document.getElementById('customerModal');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+    <div id="logoutConfirm" class="modal-overlay">
+        <a href="#"
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; cursor: default;"></a>
+
+        <div class="modal-content" style="width: 400px; text-align: center; z-index: 2; position: relative;">
+            <div class="modal-header">
+                <h2>Xác nhận đăng xuất</h2>
+                <a href="#" class="close-btn" style="text-decoration: none;">&times;</a>
+            </div>
+            <div class="modal-body">
+                <p style="font-size: 16px; color: #475569; margin-bottom: 10px;">Bạn có chắc chắn muốn thoát khỏi hệ
+                    thống không?</p>
+            </div>
+            <div class="modal-footer" style="justify-content: center; gap: 15px;">
+                <a href="#" class="btn-edit"
+                    style="background: #f1f5f9; color: #64748b; text-decoration: none; display: inline-block;">Hủy
+                    bỏ</a>
+
+                <a href="login.html" class="btn-delete"
+                    style="background: #ef4444; color: white; text-decoration: none; display: inline-block;">Đăng
+                    xuất</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

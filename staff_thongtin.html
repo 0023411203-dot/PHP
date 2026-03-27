@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T-HEX - Thông tin cá nhân</title>
+    <link rel="stylesheet" href="staff.css">
+    <style>
+        /* Bố cục chính của trang Thông tin */
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Banner & Profile Header */
+        .profile-header-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
+        }
+
+        .profile-banner {
+            height: 150px;
+            background: linear-gradient(to right, #a2c2e6, #c2d9f0);
+        }
+
+        .profile-main-info {
+            padding: 0 30px 30px 30px;
+            display: flex;
+            align-items: flex-end;
+            margin-top: -60px;
+            gap: 25px;
+            position: relative;
+        }
+
+        .profile-avatar-wrapper {
+            position: relative;
+        }
+
+        .profile-avatar-large {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 5px solid white;
+            object-fit: cover;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .edit-avatar-badge {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            background: #fde047;
+            padding: 6px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 12px;
+            border: 2px solid white;
+        }
+
+        .profile-text-info {
+            flex: 1;
+            padding-bottom: 10px;
+        }
+
+        .profile-text-info h2 {
+            font-size: 24px;
+            color: #1e293b;
+            margin-bottom: 5px;
+        }
+
+        .profile-text-info p {
+            color: #22c55e;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .info-badges {
+            display: flex;
+            gap: 10px;
+        }
+
+        .info-badge {
+            background: #f1f5f9;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 11px;
+            color: #64748b;
+            font-weight: 600;
+        }
+
+        /* Thẻ thống kê nhanh (Grid 4 cột) */
+        .quick-stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .q-stat-card {
+            padding: 15px;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .q-blue {
+            background: #eff6ff;
+            color: #1e40af;
+        }
+
+        .q-green {
+            background: #f0fdf4;
+            color: #166534;
+        }
+
+        .q-purple {
+            background: #faf5ff;
+            color: #6b21a8;
+        }
+
+        .q-orange {
+            background: #fff7ed;
+            color: #9a3412;
+        }
+
+        .q-label {
+            font-size: 11px;
+            opacity: 0.8;
+        }
+
+        .q-value {
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        /* Chia 2 cột nội dung chính */
+        .profile-content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+        }
+
+        .profile-section-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid #e5e7eb;
+            margin-bottom: 20px;
+        }
+
+        .section-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-weight: 700;
+            color: #1e293b;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Liên hệ grid (2 cột như ảnh mẫu) */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .contact-item {
+            background: #f8fafc;
+            padding: 12px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border: 1px solid #f1f5f9;
+        }
+
+        .contact-icon-box {
+            width: 35px;
+            height: 35px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .contact-detail p {
+            font-size: 11px;
+            color: #64748b;
+            margin: 0;
+        }
+
+        .contact-detail b {
+            font-size: 13px;
+            color: #1e293b;
+            display: block;
+        }
+
+        /* Lịch sử công việc */
+        .job-item {
+            display: flex;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px dashed #e5e7eb;
+        }
+
+        .job-item:last-child {
+            border: none;
+        }
+
+        .job-icon {
+            background: #f1f5f9;
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Cột bên phải (Thành tích, Nghỉ phép) */
+        .side-card {
+            margin-bottom: 20px;
+        }
+
+        .achievement-item {
+            display: flex;
+            gap: 12px;
+            padding: 10px;
+            background: #fffbeb;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #fef3c7;
+        }
+
+        /* Thanh tiến độ nghỉ phép */
+        .leave-progress {
+            height: 8px;
+            background: #f1f5f9;
+            border-radius: 10px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #fde047;
+            width: 33.33%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard">
+        <aside class="sidebar">
+            <div class="logo-section">
+                <div class="logo-image"><img src="./anh/logo.png" alt="T-HEX Logo"></div>
+                <div class="logo-text">
+                    <p class="company-name">T-HEX</p>
+                    <p class="company-subtitle">PC-WORLD</p>
+                </div>
+            </div>
+            <nav class="menu">
+                <a href="staff.html" class="menu-item"><img src="./anh/list.png" alt=""><span>Tổng quan</span></a>
+                <a href="staff_qlsp.html" class="menu-item"><img src="./anh/store.png" alt=""><span>Quản lý
+                        Kho</span></a>
+                <a href="staff_qldh.html" class="menu-item"><img src="./anh/delivery.png" alt=""><span>Quản lý đơn
+                        hàng</span></a>
+                <a href="staff_qlkh.html" class="menu-item"><img src="./anh/customer.png" alt=""><span>Quản lý khách
+                        hàng</span></a>
+                <a href="staff_qlhd.html" class="menu-item"><img src="./anh/analytics.png" alt=""><span>Quản lý hóa
+                        đơn</span></a>
+                <button class="menu-item active"><img src="./anh/transaction.png" alt=""><span>Thông tin</span></button>
+            </nav>
+            <div class="logout-section">
+                <a href="#logoutConfirm" class="menu-item" style="text-decoration: none;">
+                    <img src="./anh/logout.png" alt=""><span>ĐĂNG XUẤT</span>
+                </a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="header">
+                <div class="search-container">
+                    <img src="./anh/find.jpg" alt="" class="search-icon">
+                    <input type="text" placeholder="Tìm kiếm..." class="search-input">
+                </div>
+                <div class="user-profile">
+                    <div class="user-info">
+                        <div class="user-details">
+                            <p class="user-name">Xuân Phát</p>
+                            <p class="user-role">Staff</p>
+                        </div>
+                        <img src="./anh/avatar.jpg" alt="User Avatar" class="user-avatar">
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-area">
+                <div class="profile-container">
+                    <div class="profile-header-card">
+                        <div class="profile-banner"></div>
+                        <div class="profile-main-info">
+                            <div class="profile-avatar-wrapper">
+                                <img src="./anh/avatar.jpg" class="profile-avatar-large" alt="">
+                                <span class="edit-avatar-badge">📷</span>
+                            </div>
+                            <div class="profile-text-info">
+                                <h2>Nguyễn Xuân Phát</h2>
+                                <p>● Đang hoạt động</p>
+                                <div class="info-badges">
+                                    <span class="info-badge"># Staff</span>
+                                    <span class="info-badge">Mã NV: NV-2024-001</span>
+                                    <span class="info-badge">Phòng IT</span>
+                                </div>
+                            </div>
+                            <button class="page-btn active" style="padding: 8px 15px; height: auto;">🌐 Tổng
+                                quan</button>
+                        </div>
+
+                        <div style="padding: 0 30px 20px 30px;">
+                            <div class="quick-stats-row">
+                                <div class="q-stat-card q-blue">
+                                    <span class="q-label">Thời gian làm việc</span>
+                                    <span class="q-value">2 năm 8 tháng</span>
+                                </div>
+                                <div class="q-stat-card q-green">
+                                    <span class="q-label">Thành tích</span>
+                                    <span class="q-value">3 giải thưởng</span>
+                                </div>
+                                <div class="q-stat-card q-purple">
+                                    <span class="q-label">Nghỉ phép còn lại</span>
+                                    <span class="q-value">10 ngày</span>
+                                </div>
+                                <div class="q-stat-card q-orange">
+                                    <span class="q-label">Hiệu suất</span>
+                                    <span class="q-value">92%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile-content-grid">
+                        <div class="left-col">
+                            <div class="profile-section-card">
+                                <div class="section-header-row">
+                                    <span class="section-title">✉️ Thông tin liên hệ</span>
+                                    <small style="color:#3b82f6; cursor:pointer; font-weight: 600;">✎ Chỉnh sửa</small>
+                                </div>
+                                <div class="contact-grid">
+                                    <div class="contact-item">
+                                        <div class="contact-icon-box" style="background:#eef2ff; color:#4338ca;">📧
+                                        </div>
+                                        <div class="contact-detail">
+                                            <p>Email công ty</p><b>phat.nguyen@company.com</b>
+                                        </div>
+                                    </div>
+                                    <div class="contact-item">
+                                        <div class="contact-icon-box" style="background:#f0fdf4; color:#15803d;">📞
+                                        </div>
+                                        <div class="contact-detail">
+                                            <p>Số điện thoại</p><b>0901234567</b>
+                                        </div>
+                                    </div>
+                                    <div class="contact-item">
+                                        <div class="contact-icon-box" style="background:#f5f3ff; color:#6d28d9;">📧
+                                        </div>
+                                        <div class="contact-detail">
+                                            <p>Email cá nhân</p><b>phat.personal@gmail.com</b>
+                                        </div>
+                                    </div>
+                                    <div class="contact-item">
+                                        <div class="contact-icon-box" style="background:#fff1f2; color:#be123c;">📍
+                                        </div>
+                                        <div class="contact-detail">
+                                            <p>Địa chỉ</p><b>123 Nguyễn Văn Linh, Quận 7, TP.HCM</b>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="profile-section-card">
+                                <span class="section-title">❤️ Liên hệ khẩn cấp</span>
+                                <div class="contact-grid" style="margin-top: 15px;">
+                                    <div class="contact-item" style="background: #fff7ed; border-color: #ffedd5;">
+                                        <div class="contact-detail">
+                                            <p>Người liên hệ</p><b>Nguyễn Thị Mai</b>
+                                        </div>
+                                    </div>
+                                    <div class="contact-item" style="background: #fff7ed; border-color: #ffedd5;">
+                                        <div class="contact-detail">
+                                            <p>Số điện thoại</p><b>0912345678</b>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="profile-section-card">
+                                <span class="section-title">📅 Lịch sử công việc</span>
+                                <div class="job-item">
+                                    <div class="job-icon">🏢</div>
+                                    <div>
+                                        <b style="font-size:14px;">Quản trị viên hệ thống</b>
+                                        <p style="font-size:12px; color:#64748b;">Công ty TNHH Thương Mại Điện Tử - Từ
+                                            01/2024</p>
+                                    </div>
+                                </div>
+                                <div class="job-item">
+                                    <div class="job-icon">💻</div>
+                                    <div>
+                                        <b style="font-size:14px;">Lập trình viên</b>
+                                        <p style="font-size:12px; color:#64748b;">Công ty Cổ phần Công nghệ ABC -
+                                            06/2022 - 12/2023</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="right-col">
+                            <div class="profile-section-card side-card">
+                                <span class="section-title">🏆 Thành tích gần đây</span>
+                                <div class="achievement-item">
+                                    <span style="font-size:20px;">🥇</span>
+                                    <div><b>Nhân viên xuất sắc tháng 11/2025</b>
+                                        <p style="font-size:11px; color:#92400e;">Ngày: 30/11/2025</p>
+                                    </div>
+                                </div>
+                                <div class="achievement-item">
+                                    <span style="font-size:20px;">⭐</span>
+                                    <div><b>Hoàn thành dự án trước deadline</b>
+                                        <p style="font-size:11px; color:#92400e;">Ngày: 15/10/2025</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="profile-section-card side-card">
+                                <span class="section-title">🕒 Ngày nghỉ phép</span>
+                                <div class="leave-progress">
+                                    <div class="progress-fill"></div>
+                                </div>
+                                <div style="display:flex; justify-content:space-between; font-size:12px;">
+                                    <span>Đã dùng: <b>5</b></span>
+                                    <span>Còn lại: <b>10</b></span>
+                                    <span>Tổng: <b>15</b></span>
+                                </div>
+                            </div>
+
+                            <div class="profile-section-card side-card">
+                                <span class="section-title">⚙️ Cài đặt tài khoản</span>
+                                <div style="display:flex; flex-direction:column; gap:10px; margin-top:10px;">
+                                    <button class="edit-btn-action" style="text-align:left; padding-left:15px;">🔒 Đổi
+                                        mật khẩu</button>
+                                    <button class="edit-btn-action" style="text-align:left; padding-left:15px;">🔔 Thông
+                                        báo</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div id="logoutConfirm" class="modal-overlay">
+        <a href="#"
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; cursor: default;"></a>
+
+        <div class="modal-content" style="width: 400px; text-align: center; z-index: 2; position: relative;">
+            <div class="modal-header">
+                <h2>Xác nhận đăng xuất</h2>
+                <a href="#" class="close-btn" style="text-decoration: none;">&times;</a>
+            </div>
+            <div class="modal-body">
+                <p style="font-size: 16px; color: #475569; margin-bottom: 10px;">Bạn có chắc chắn muốn thoát khỏi hệ
+                    thống không?</p>
+            </div>
+            <div class="modal-footer" style="justify-content: center; gap: 15px;">
+                <a href="#" class="btn-edit"
+                    style="background: #f1f5f9; color: #64748b; text-decoration: none; display: inline-block;">Hủy
+                    bỏ</a>
+
+                <a href="login.html" class="btn-delete"
+                    style="background: #ef4444; color: white; text-decoration: none; display: inline-block;">Đăng
+                    xuất</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

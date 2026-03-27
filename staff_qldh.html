@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T-HEX - Quản lý đơn hàng</title>
+    <link rel="stylesheet" href="staff.css">
+    <style>
+        /* CSS bổ sung riêng cho trang quản lý đơn hàng */
+        .toolbar-qldh {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .toolbar-qldh h1 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1e293b;
+            margin-bottom: 4px;
+        }
+
+        .toolbar-qldh p {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .create-order-btn {
+            background: linear-gradient(135deg, #0047ff 0%, #007bff 100%);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0, 71, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .create-order-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 71, 255, 0.4);
+        }
+
+        /* Nút trạng thái Đơn hàng */
+        .status-pill {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            display: inline-block;
+        }
+
+        .status-confirmed {
+            background: #e0e7ff;
+            color: #4338ca;
+        }
+
+        .status-shipping {
+            background: #f3e8ff;
+            color: #7e22ce;
+        }
+
+        .status-pending {
+            background: #fef3c7;
+            color: #b45309;
+        }
+
+        .status-completed {
+            background: #dcfce7;
+            color: #15803d;
+        }
+
+        .status-canceled {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+
+        /* Nút trạng thái Thanh toán */
+        .payment-status {
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 11px;
+            font-weight: 700;
+            display: inline-block;
+        }
+
+        .paid {
+            background: #dcfce7;
+            color: #15803d;
+        }
+
+        .unpaid {
+            background: #ffedd5;
+            color: #9a3412;
+        }
+
+        /* CSS cho hộp thông tin trong Modal */
+        .info-box {
+            background: #f8fafc;
+            padding: 15px 20px;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .info-box h4 {
+            margin-top: 0;
+            margin-bottom: 12px;
+            color: #0f172a;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 8px;
+        }
+
+        .info-box p {
+            margin-bottom: 6px;
+            font-size: 14px;
+            color: #475569;
+        }
+
+        .info-box b {
+            color: #1e293b;
+        }
+
+        /* Nút nhắn tin và Xác nhận */
+        .btn-message {
+            background: #dbeafe;
+            color: #1d4ed8;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            font-size: 14px;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-message:hover {
+            background: #bfdbfe;
+            transform: translateY(-2px);
+        }
+
+        .btn-confirm {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            font-size: 14px;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3);
+        }
+
+        .btn-confirm:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(16, 185, 129, 0.4);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="dashboard">
+        <aside class="sidebar">
+            <div class="logo-section">
+                <div class="logo-image"><img src="./anh/logo.png" alt="T-HEX Logo"></div>
+                <div class="logo-text">
+                    <p class="company-name">T-HEX</p>
+                    <p class="company-subtitle">PC-WORLD</p>
+                </div>
+            </div>
+
+            <nav class="menu">
+                <a href="staff.html" class="menu-item" style="text-decoration: none; color: inherit;">
+                    <img src="./anh/list.png" alt=""><span>Tổng quan</span>
+                </a>
+                <a href="staff_qlsp.html" class="menu-item" style="text-decoration: none; color: inherit;">
+                    <img src="./anh/store.png" alt=""><span>Quản lý Kho</span>
+                </a>
+                <a href="staff_qldh.html" class="menu-item active">
+                    <img src="./anh/delivery.png" alt=""><span>Quản lý đơn hàng</span>
+                </a>
+                <a href="staff_qlkh.html" class="menu-item" style="text-decoration: none; color: inherit;">
+                    <img src="./anh/customer.png" alt=""><span>Quản lý khách hàng</span>
+                </a>
+                <a href="staff_qlhd.html" class="menu-item" style="text-decoration: none; color: inherit;">
+                    <img src="./anh/analytics.png" alt=""><span>Quản lý hóa đơn</span>
+                </a>
+                <a href="staff_thongtin.html" class="menu-item" style="text-decoration: none; color: inherit;">
+                    <img src="./anh/transaction.png" alt=""><span>Thông tin</span>
+                </a>
+            </nav>
+
+            <div class="logout-section">
+                <a href="#logoutConfirm" class="menu-item" style="text-decoration: none;">
+                    <img src="./anh/logout.png" alt=""><span>ĐĂNG XUẤT</span>
+                </a>
+            </div>
+
+            <main class="main-content">
+                <header class="header">
+                    <div class="search-container">
+                        <img src="./anh/find.jpg" alt="" class="search-icon">
+                        <input type="text" placeholder="Tìm kiếm..." class="search-input">
+                    </div>
+
+                    <div class="header-right-group">
+                        <div class="notification-bell">
+                            <img src="./anh/bel.gif" alt="Notification">
+                            <span class="bell-badge"></span>
+                        </div>
+
+                        <div class="user-info">
+                            <img src="./anh/avatar.jpg" alt="User Avatar" class="user-avatar">
+
+                            <div class="user-details">
+                                <p class="user-name">Xuân Phát</p>
+                                <p class="user-role">Staff</p>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+
+                <div class="content-area">
+                    <div class="toolbar-qldh">
+                        <div>
+                            <h1>Quản lý đơn hàng chờ xử lý</h1>
+                            <p>Duyệt đơn hàng mới từ khách hàng để chuyển thành hóa đơn</p>
+                        </div>
+                    </div>
+
+                    <div class="customer-table-container">
+                        <div class="table-container">
+                            <table class="orders-table table-hoverable">
+                                <thead>
+                                    <tr>
+                                        <th>Mã đơn</th>
+                                        <th>Khách hàng</th>
+                                        <th>Ngày đặt</th>
+                                        <th>Tổng tiền</th>
+                                        <th>Trạng thái đơn</th>
+                                        <th>Thanh toán</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr
+                                        onclick="openOrderModal('DH001', 'Nguyễn Văn An', '0901234567', '15/1/2026', '39.980.000 đ', 'Đã xác nhận', 'Đã thanh toán')">
+                                        <td><b>#DH001</b></td>
+                                        <td><b>Nguyễn Văn An</b><br><small>0901234567</small></td>
+                                        <td>15/1/2026</td>
+                                        <td><b>39.980.000 đ</b><br><small>2 sản phẩm</small></td>
+                                        <td><span class="status-pill status-confirmed">Đã xác nhận</span></td>
+                                        <td><span class="payment-status paid">Đã thanh toán</span></td>
+                                    </tr>
+                                    <tr
+                                        onclick="openOrderModal('DH002', 'Trần Thị Bình', '0912345678', '16/1/2026', '28.990.000 đ', 'Đang giao', 'Đã thanh toán')">
+                                        <td><b>#DH002</b></td>
+                                        <td><b>Trần Thị Bình</b><br><small>0912345678</small></td>
+                                        <td>16/1/2026</td>
+                                        <td><b>28.990.000 đ</b><br><small>1 sản phẩm</small></td>
+                                        <td><span class="status-pill status-shipping">Đang giao</span></td>
+                                        <td><span class="payment-status paid">Đã thanh toán</span></td>
+                                    </tr>
+                                    <tr
+                                        onclick="openOrderModal('DH003', 'Lê Văn Cường', '0923456789', '18/1/2026', '44.980.000 đ', 'Chờ xử lý', 'Chưa thanh toán')">
+                                        <td><b>#DH003</b></td>
+                                        <td><b>Lê Văn Cường</b><br><small>0923456789</small></td>
+                                        <td>18/1/2026</td>
+                                        <td><b>44.980.000 đ</b><br><small>1 sản phẩm</small></td>
+                                        <td><span class="status-pill status-pending">Chờ xử lý</span></td>
+                                        <td><span class="payment-status unpaid">Chưa thanh toán</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="pagination-container">
+                            <div class="pagination-info">Hiển thị <b>1 - 3</b> của <b>150</b> đơn hàng</div>
+                            <div class="pagination-buttons">
+                                <button class="page-btn" disabled>Trước</button>
+                                <button class="page-btn active">1</button>
+                                <button class="page-btn">2</button>
+                                <button class="page-btn">Sau</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+    </div>
+
+    <div id="orderModal" class="modal-overlay">
+        <div class="modal-content" style="width: 750px;">
+            <div class="modal-header">
+                <h2>Chi tiết đơn hàng <span id="modal-order-id" style="color: #3b82f6;">#DH000</span></h2>
+                <span class="close-btn" onclick="closeOrderModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 25px;">
+                    <div class="info-box">
+                        <h4>👤 Thông tin khách hàng</h4>
+                        <p><b>Tên:</b> <span id="modal-customer-name">...</span></p>
+                        <p><b>SĐT:</b> <span id="modal-customer-phone">...</span></p>
+                        <p><b>Địa chỉ:</b> Phường 1, TP. Cao Lãnh, Đồng Tháp</p>
+                    </div>
+                    <div class="info-box">
+                        <h4>📦 Thông tin giao dịch</h4>
+                        <p><b>Ngày đặt:</b> <span id="modal-order-date">...</span></p>
+                        <p><b>Trạng thái:</b> <span id="modal-order-status">...</span></p>
+                        <p><b>Thanh toán:</b> <span id="modal-payment-status">...</span></p>
+                    </div>
+                </div>
+
+                <h4 style="color: #1e293b; margin-bottom: 10px;">Chi tiết sản phẩm</h4>
+                <table class="orders-table" style="margin-bottom: 15px;">
+                    <thead>
+                        <tr>
+                            <th>Sản phẩm</th>
+                            <th style="text-align: center;">Số lượng</th>
+                            <th style="text-align: right;">Đơn giá</th>
+                            <th style="text-align: right;">Thành tiền</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Laptop Dell XPS 13</td>
+                            <td style="text-align: center;">1</td>
+                            <td style="text-align: right;">28.000.000 đ</td>
+                            <td style="text-align: right;"><b>28.000.000 đ</b></td>
+                        </tr>
+                        <tr>
+                            <td>Tai nghe Gaming H2</td>
+                            <td style="text-align: center;">1</td>
+                            <td style="text-align: right;">1.200.000 đ</td>
+                            <td style="text-align: right;"><b>1.200.000 đ</b></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div style="text-align: right; font-size: 18px; border-top: 1px dashed #cbd5e1; padding-top: 15px;">
+                    <span style="color: #64748b;">Tổng hóa đơn:</span>
+                    <strong id="modal-order-total" style="color: #f97316; font-size: 24px; margin-left: 10px;">0
+                        đ</strong>
+                </div>
+
+            </div>
+
+            <div class="modal-footer" style="justify-content: space-between;">
+                <button class="btn-message" onclick="alert('Đang mở hộp thoại nhắn tin...')">💬 Nhắn tin với
+                    khách</button>
+
+                <div style="display: flex; gap: 10px;">
+                    <button class="btn-confirm" onclick="confirmOrder()">✅ Xác nhận đơn hàng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openOrderModal(id, name, phone, date, total, status, payment) {
+            document.getElementById('modal-order-id').innerText = '#' + id;
+            document.getElementById('modal-customer-name').innerText = name;
+            document.getElementById('modal-customer-phone').innerText = phone;
+            document.getElementById('modal-order-date').innerText = date;
+            document.getElementById('modal-order-total').innerText = total;
+
+            let statusClass = '';
+            if (status === 'Đã xác nhận') statusClass = 'status-confirmed';
+            else if (status === 'Đang giao') statusClass = 'status-shipping';
+            else if (status === 'Chờ xử lý') statusClass = 'status-pending';
+
+            document.getElementById('modal-order-status').innerHTML = `<span class="status-pill ${statusClass}">${status}</span>`;
+
+            let paymentClass = payment === 'Đã thanh toán' ? 'paid' : 'unpaid';
+            document.getElementById('modal-payment-status').innerHTML = `<span class="payment-status ${paymentClass}">${payment}</span>`;
+
+            document.getElementById('orderModal').style.display = 'flex';
+        }
+
+        function closeOrderModal() {
+            document.getElementById('orderModal').style.display = 'none';
+        }
+
+        // Hàm xử lý nút Xác nhận
+        function confirmOrder() {
+            alert('Đã duyệt đơn thành công! Dữ liệu đã được chuyển sang Quản lý Hóa đơn.');
+            closeOrderModal();
+            // Ghi chú cho Backend: Tại đây sẽ gọi API AJAX để cập nhật DB, 
+            // đổi trạng thái đơn hàng và insert sang bảng hoa_don.
+        }
+
+        window.onclick = function (event) {
+            var modal = document.getElementById('orderModal');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+    <div id="logoutConfirm" class="modal-overlay">
+        <a href="#"
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; cursor: default;"></a>
+
+        <div class="modal-content" style="width: 400px; text-align: center; z-index: 2; position: relative;">
+            <div class="modal-header">
+                <h2>Xác nhận đăng xuất</h2>
+                <a href="#" class="close-btn" style="text-decoration: none;">&times;</a>
+            </div>
+            <div class="modal-body">
+                <p style="font-size: 16px; color: #475569; margin-bottom: 10px;">Bạn có chắc chắn muốn thoát khỏi hệ
+                    thống không?</p>
+            </div>
+            <div class="modal-footer" style="justify-content: center; gap: 15px;">
+                <a href="#" class="btn-edit"
+                    style="background: #f1f5f9; color: #64748b; text-decoration: none; display: inline-block;">Hủy
+                    bỏ</a>
+
+                <a href="login.html" class="btn-delete"
+                    style="background: #ef4444; color: white; text-decoration: none; display: inline-block;">Đăng
+                    xuất</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

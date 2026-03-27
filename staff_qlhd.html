@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T-HEX - Quản lý hóa đơn</title>
+    <link rel="stylesheet" href="staff.css">
+    <style>
+        /* CSS dành riêng cho trang Quản lý hóa đơn */
+        .stats-billing-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .billing-card {
+            background: white;
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .billing-card:hover:not(.highlight) {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            border-color: #cbd5e1;
+        }
+
+        .billing-card.active-filter {
+            border-color: #3b82f6;
+            background-color: #eff6ff;
+            box-shadow: 0 4px 10px rgba(59, 130, 246, 0.15);
+        }
+
+        .billing-card.highlight {
+            background: #fde047;
+            border: none;
+            box-shadow: 0 4px 12px rgba(253, 224, 71, 0.4);
+            cursor: default;
+        }
+
+        .card-icon {
+            font-size: 20px;
+        }
+
+        .card-label {
+            font-size: 12px;
+            color: #64748b;
+            font-weight: 600;
+        }
+
+        .billing-card.highlight .card-label {
+            color: #854d0e;
+        }
+
+        .card-value {
+            font-size: 20px;
+            font-weight: 800;
+            color: #1e293b;
+        }
+
+        /* Trạng thái hóa đơn */
+        .status-tag {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .st-paid {
+            background: #dcfce7;
+            color: #15803d;
+        }
+
+        .st-unpaid {
+            background: #ffedd5;
+            color: #9a3412;
+        }
+
+        .st-overdue {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+
+        .inv-id {
+            font-weight: 700;
+            color: #1e293b;
+            font-size: 14px;
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .inv-sub {
+            font-size: 12px;
+            color: #94a3b8;
+        }
+
+        /* --- CSS cho hộp thông tin trong Popup (Modal) --- */
+        .info-box {
+            background: #f8fafc;
+            padding: 15px 20px;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .info-box h4 {
+            margin-top: 0;
+            margin-bottom: 12px;
+            color: #0f172a;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 8px;
+        }
+
+        .info-box p {
+            margin-bottom: 6px;
+            font-size: 14px;
+            color: #475569;
+        }
+
+        .info-box b {
+            color: #1e293b;
+        }
+
+        .btn-print {
+            background: #f1f5f9;
+            color: #334155;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            font-size: 14px;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-print:hover {
+            background: #e2e8f0;
+        }
+
+        .btn-remind {
+            background: #ffedd5;
+            color: #9a3412;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            font-size: 14px;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-remind:hover {
+            background: #fed7aa;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard">
+        <aside class="sidebar">
+            <div class="logo-section">
+                <div class="logo-image"><img src="./anh/logo.png" alt="T-HEX Logo"></div>
+                <div class="logo-text">
+                    <p class="company-name">T-HEX</p>
+                    <p class="company-subtitle">PC-WORLD</p>
+                </div>
+            </div>
+            <nav class="menu">
+                <a href="staff.html" class="menu-item" style="text-decoration: none; color: inherit;"><img
+                        src="./anh/list.png" alt=""><span>Tổng quan</span></a>
+                <a href="staff_qlsp.html" class="menu-item" style="text-decoration: none; color: inherit;"><img
+                        src="./anh/store.png" alt=""><span>Quản lý Kho</span></a>
+                <a href="staff_qldh.html" class="menu-item" style="text-decoration: none; color: inherit;"><img
+                        src="./anh/delivery.png" alt=""><span>Quản lý đơn hàng</span></a>
+                <a href="staff_qlkh.html" class="menu-item" style="text-decoration: none; color: inherit;"><img
+                        src="./anh/customer.png" alt=""><span>Quản lý khách hàng</span></a>
+
+                <a href="staff_qlhd.html" class="menu-item active">
+                    <img src="./anh/analytics.png" alt=""><span>Quản lý hóa đơn</span>
+                </a>
+
+                <a href="staff_thongtin.html" class="menu-item" style="text-decoration: none; color: inherit;"><img
+                        src="./anh/transaction.png" alt=""><span>Thông tin</span></a>
+            </nav>
+            <div class="logout-section">
+                <a href="#logoutConfirm" class="menu-item" style="text-decoration: none;">
+                    <img src="./anh/logout.png" alt=""><span>ĐĂNG XUẤT</span>
+                </a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="header">
+                <div class="search-container">
+                    <img src="./anh/find.jpg" alt="" class="search-icon">
+                    <input type="text" placeholder="Tìm kiếm..." class="search-input">
+                </div>
+
+                <div class="header-right-group">
+                    <div class="notification-bell">
+                        <img src="./anh/bel.gif" alt="Notification">
+                        <span class="bell-badge"></span>
+                    </div>
+
+                    <div class="user-info">
+                        <img src="./anh/avatar.jpg" alt="User Avatar" class="user-avatar">
+
+                        <div class="user-details">
+                            <p class="user-name">Xuân Phát</p>
+                            <p class="user-role">Staff</p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-area">
+                <div class="stats-billing-grid">
+                    <div class="billing-card active-filter" onclick="filterInvoice('all', this)">
+                        <span class="card-icon">📄</span>
+                        <span class="card-label">Tổng hóa đơn</span>
+                        <span class="card-value">4</span>
+                    </div>
+                    <div class="billing-card" onclick="filterInvoice('paid', this)">
+                        <span class="card-icon">✅</span>
+                        <span class="card-label">Đã thanh toán</span>
+                        <span class="card-value" style="color: #15803d;">2</span>
+                    </div>
+                    <div class="billing-card" onclick="filterInvoice('unpaid', this)">
+                        <span class="card-icon">🕒</span>
+                        <span class="card-label">Chưa thanh toán</span>
+                        <span class="card-value" style="color: #b45309;">1</span>
+                    </div>
+                    <div class="billing-card" onclick="filterInvoice('overdue', this)">
+                        <span class="card-icon">⚠️</span>
+                        <span class="card-label">Quá hạn</span>
+                        <span class="card-value" style="color: #dc2626;">1</span>
+                    </div>
+                    <div class="billing-card highlight">
+                        <span class="card-icon">💰</span>
+                        <span class="card-label">Doanh thu</span>
+                        <span class="card-value">93.106.500 đ</span>
+                    </div>
+                </div>
+
+                <div class="customer-table-container">
+                    <table class="customer-table table-hoverable">
+                        <thead>
+                            <tr>
+                                <th>Số hóa đơn</th>
+                                <th>Khách hàng</th>
+                                <th>Ngày xuất</th>
+                                <th>Hạn thanh toán</th>
+                                <th>Tổng tiền</th>
+                                <th>Trạng thái</th>
+                            </tr>
+                        </thead>
+                        <tbody id="invoice-tbody">
+
+                            <tr data-status="paid"
+                                onclick="openInvoiceModal('HD-2026-001', 'KH001', 'Nguyễn Xuân Phát', '0901234567', '15/1/2026', '30/1/2026', '43.628.500 đ', 'Đã thanh toán')">
+                                <td><span class="inv-id">HD-2026-001</span><span class="inv-sub">#KH001</span></td>
+                                <td><b style="color: #1e293b; display: block; margin-bottom: 3px;">Nguyễn Xuân
+                                        Phát</b><small style="color: #64748b;">0901234567</small></td>
+                                <td>15/1/2026</td>
+                                <td>30/1/2026</td>
+                                <td><b style="color: #1e293b; display: block; margin-bottom: 3px;">43.628.500
+                                        đ</b><small style="color: #64748b;">2 sản phẩm</small></td>
+                                <td><span class="status-tag st-paid">● Đã thanh toán</span></td>
+                            </tr>
+
+                            <tr data-status="unpaid"
+                                onclick="openInvoiceModal('HD-2026-002', 'KH002', 'Võ Thị Phương', '0956789012', '16/1/2026', '31/1/2026', '28.990.000 đ', 'Chưa thanh toán')">
+                                <td><span class="inv-id">HD-2026-002</span><span class="inv-sub">#KH002</span></td>
+                                <td><b style="color: #1e293b; display: block; margin-bottom: 3px;">Võ Thị
+                                        Phương</b><small style="color: #64748b;">0956789012</small></td>
+                                <td>16/1/2026</td>
+                                <td>31/1/2026</td>
+                                <td><b style="color: #1e293b; display: block; margin-bottom: 3px;">28.990.000
+                                        đ</b><small style="color: #64748b;">1 sản phẩm</small></td>
+                                <td><span class="status-tag st-unpaid">● Chưa thanh toán</span></td>
+                            </tr>
+
+                            <tr data-status="paid"
+                                onclick="openInvoiceModal('HD-2026-003', 'KH003', 'Hoàng Văn Em', '0945678901', '18/1/2026', '1/2/2026', '49.478.000 đ', 'Đã thanh toán')">
+                                <td><span class="inv-id">HD-2026-003</span><span class="inv-sub">#KH003</span></td>
+                                <td><b style="color: #1e293b; display: block; margin-bottom: 3px;">Hoàng Văn
+                                        Em</b><small style="color: #64748b;">0945678901</small></td>
+                                <td>18/1/2026</td>
+                                <td>1/2/2026</td>
+                                <td><b style="color: #1e293b; display: block; margin-bottom: 3px;">49.478.000
+                                        đ</b><small style="color: #64748b;">1 sản phẩm</small></td>
+                                <td><span class="status-tag st-paid">● Đã thanh toán</span></td>
+                            </tr>
+
+                            <tr data-status="overdue"
+                                onclick="openInvoiceModal('HD-2026-004', 'KH004', 'Phạm Thị Dung', '0934567890', '10/1/2026', '25/1/2026', '26.378.000 đ', 'Quá hạn')">
+                                <td><span class="inv-id">HD-2026-004</span><span class="inv-sub">#KH004</span></td>
+                                <td><b style="color: #1e293b; display: block; margin-bottom: 3px;">Phạm Thị
+                                        Dung</b><small style="color: #64748b;">0934567890</small></td>
+                                <td>10/1/2026</td>
+                                <td>25/1/2026</td>
+                                <td><b style="color: #1e293b; display: block; margin-bottom: 3px;">26.378.000
+                                        đ</b><small style="color: #64748b;">2 sản phẩm</small></td>
+                                <td><span class="status-tag st-overdue">● Quá hạn</span></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                    <div class="pagination-container">
+                        <div class="pagination-info">Hiển thị <b>1 - 4</b> của <b>120</b> hóa đơn</div>
+                        <div class="pagination-buttons">
+                            <button class="page-btn" disabled>Trước</button>
+                            <button class="page-btn active">1</button>
+                            <button class="page-btn">2</button>
+                            <button class="page-btn">Sau</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="invoiceModal" class="modal-overlay">
+        <div class="modal-content" style="width: 750px;">
+            <div class="modal-header">
+                <h2>Chi tiết hóa đơn <span id="modal-inv-id" style="color: #3b82f6;">#HD-000</span></h2>
+                <span class="close-btn" onclick="closeInvoiceModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 25px;">
+                    <div class="info-box">
+                        <h4>👤 Thông tin khách hàng</h4>
+                        <p><b>Tên KH:</b> <span id="modal-inv-cus-name">...</span></p>
+                        <p><b>Mã KH:</b> <span id="modal-inv-cus-id">...</span></p>
+                        <p><b>Điện thoại:</b> <span id="modal-inv-cus-phone">...</span></p>
+                    </div>
+                    <div class="info-box">
+                        <h4>📄 Thông tin thanh toán</h4>
+                        <p><b>Ngày xuất:</b> <span id="modal-inv-date">...</span></p>
+                        <p><b>Hạn thanh toán:</b> <span id="modal-inv-due">...</span></p>
+                        <p><b>Trạng thái:</b> <span id="modal-inv-status">...</span></p>
+                    </div>
+                </div>
+
+                <h4 style="color: #1e293b; margin-bottom: 10px;">Chi tiết sản phẩm</h4>
+                <div style="border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; margin-bottom: 15px;">
+                    <table class="orders-table" style="margin: 0; width: 100%;">
+                        <thead>
+                            <tr style="background: #f8fafc;">
+                                <th>Sản phẩm</th>
+                                <th style="text-align: center;">Số lượng</th>
+                                <th style="text-align: right;">Đơn giá</th>
+                                <th style="text-align: right;">Thành tiền</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Card màn hình RTX 3060</td>
+                                <td style="text-align: center;">1</td>
+                                <td style="text-align: right;">8.500.000 đ</td>
+                                <td style="text-align: right;"><b>8.500.000 đ</b></td>
+                            </tr>
+                            <tr>
+                                <td>Mainboard B660M</td>
+                                <td style="text-align: center;">1</td>
+                                <td style="text-align: right;">3.200.000 đ</td>
+                                <td style="text-align: right;"><b>3.200.000 đ</b></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="text-align: right; font-size: 18px; border-top: 1px dashed #cbd5e1; padding-top: 15px;">
+                    <span style="color: #64748b;">Tổng phải thanh toán:</span>
+                    <strong id="modal-inv-total" style="color: #f97316; font-size: 24px; margin-left: 10px;">0
+                        đ</strong>
+                </div>
+
+            </div>
+
+            <div class="modal-footer" style="justify-content: space-between;">
+                <button class="btn-print" onclick="alert('Đang kết nối máy in...')">🖨️ In hóa đơn</button>
+
+                <div style="display: flex; gap: 10px;">
+                    <button class="btn-remind" id="btn-remind-payment"
+                        onclick="alert('Đã gửi thông báo nhắc nợ đến khách hàng!')" style="display: none;">🔔 Nhắc thanh
+                        toán</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 1. Hàm Lọc Hóa Đơn (Filter)
+        function filterInvoice(status, clickedCard) {
+            let cards = document.querySelectorAll('.billing-card:not(.highlight)');
+            cards.forEach(card => card.classList.remove('active-filter'));
+
+            if (clickedCard) clickedCard.classList.add('active-filter');
+
+            let rows = document.querySelectorAll('#invoice-tbody tr');
+            rows.forEach(row => {
+                let rowStatus = row.getAttribute('data-status');
+                if (status === 'all' || rowStatus === status) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+
+        // 2. Hàm mở Popup Chi tiết (ĐÃ SỬA LỖI BIẾN cusPhone)
+        function openInvoiceModal(id, cusId, cusName, cusPhone, date, due, total, status) {
+            document.getElementById('modal-inv-id').innerText = id;
+            document.getElementById('modal-inv-cus-name').innerText = cusName;
+            document.getElementById('modal-inv-cus-id').innerText = '#' + cusId;
+            document.getElementById('modal-inv-cus-phone').innerText = cusPhone; // Đây là chỗ lúc nãy bị lỗi, đã fix
+            document.getElementById('modal-inv-date').innerText = date;
+            document.getElementById('modal-inv-due').innerText = due;
+            document.getElementById('modal-inv-total').innerText = total;
+
+            // Xử lý huy hiệu trạng thái
+            let statusClass = '';
+            if (status === 'Đã thanh toán') statusClass = 'st-paid';
+            else if (status === 'Chưa thanh toán') statusClass = 'st-unpaid';
+            else statusClass = 'st-overdue';
+
+            document.getElementById('modal-inv-status').innerHTML = `<span class="status-tag ${statusClass}">● ${status}</span>`;
+
+            // Xử lý nút "Nhắc thanh toán" (Chỉ hiện nếu chưa trả tiền hoặc quá hạn)
+            let btnRemind = document.getElementById('btn-remind-payment');
+            if (status === 'Chưa thanh toán' || status === 'Quá hạn') {
+                btnRemind.style.display = 'flex';
+            } else {
+                btnRemind.style.display = 'none';
+            }
+
+            document.getElementById('invoiceModal').style.display = 'flex';
+        }
+
+        // 3. Hàm đóng Popup
+        function closeInvoiceModal() {
+            document.getElementById('invoiceModal').style.display = 'none';
+        }
+
+        window.onclick = function (event) {
+            var modal = document.getElementById('invoiceModal');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+    <div id="logoutConfirm" class="modal-overlay">
+        <a href="#"
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; cursor: default;"></a>
+
+        <div class="modal-content" style="width: 400px; text-align: center; z-index: 2; position: relative;">
+            <div class="modal-header">
+                <h2>Xác nhận đăng xuất</h2>
+                <a href="#" class="close-btn" style="text-decoration: none;">&times;</a>
+            </div>
+            <div class="modal-body">
+                <p style="font-size: 16px; color: #475569; margin-bottom: 10px;">Bạn có chắc chắn muốn thoát khỏi hệ
+                    thống không?</p>
+            </div>
+            <div class="modal-footer" style="justify-content: center; gap: 15px;">
+                <a href="#" class="btn-edit"
+                    style="background: #f1f5f9; color: #64748b; text-decoration: none; display: inline-block;">Hủy
+                    bỏ</a>
+
+                <a href="login.html" class="btn-delete"
+                    style="background: #ef4444; color: white; text-decoration: none; display: inline-block;">Đăng
+                    xuất</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

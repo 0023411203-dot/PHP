@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T-HEX - Quản lý Kho</title>
+    <link rel="stylesheet" href="staff.css">
+    <style>
+        .toolbar-qldh {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .toolbar-qldh h1 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1e293b;
+            margin-bottom: 4px;
+        }
+
+        .toolbar-qldh p {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .create-btn {
+            background: linear-gradient(135deg, #0047ff 0%, #007bff 100%);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0, 71, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .create-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 71, 255, 0.4);
+        }
+
+        .product-thumbnail {
+            width: 45px;
+            height: 45px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 1px solid #e2e8f0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="dashboard">
+        <aside class="sidebar">
+            <div class="logo-section">
+                <div class="logo-image"><img src="./anh/logo.png" alt="T-HEX Logo"></div>
+                <div class="logo-text">
+                    <p class="company-name">T-HEX</p>
+                    <p class="company-subtitle">PC-WORLD</p>
+                </div>
+            </div>
+
+            <nav class="menu">
+                <a href="staff.html" class="menu-item" style="text-decoration: none; color: inherit;">
+                    <img src="./anh/list.png" alt=""><span>Tổng quan</span>
+                </a>
+                <a href="staff_qlsp.html" class="menu-item active">
+                    <img src="./anh/store.png" alt=""><span>Quản lý Kho</span>
+                </a>
+                <a href="staff_qldh.html" class="menu-item" style="text-decoration: none; color: inherit;">
+                    <img src="./anh/delivery.png" alt=""><span>Quản lý đơn hàng</span>
+                </a>
+                <a href="staff_qlkh.html" class="menu-item" style="text-decoration: none; color: inherit;">
+                    <img src="./anh/customer.png" alt=""><span>Quản lý khách hàng</span>
+                </a>
+                <a href="staff_qlhd.html" class="menu-item" style="text-decoration: none; color: inherit;">
+                    <img src="./anh/analytics.png" alt=""><span>Quản lý hóa đơn</span>
+                </a>
+                <a href="staff_thongtin.html" class="menu-item" style="text-decoration: none; color: inherit;">
+                    <img src="./anh/transaction.png" alt=""><span>Thông tin</span>
+                </a>
+            </nav>
+
+            <div class="logout-section">
+                <a href="#logoutConfirm" class="menu-item" style="text-decoration: none;">
+                    <img src="./anh/logout.png" alt=""><span>ĐĂNG XUẤT</span>
+                </a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="header">
+                <div class="search-container">
+                    <img src="./anh/find.jpg" alt="" class="search-icon">
+                    <input type="text" placeholder="Tìm kiếm..." class="search-input">
+                </div>
+
+                <div class="header-right-group">
+                    <div class="notification-bell">
+                        <img src="./anh/bel.gif" alt="Notification">
+                        <span class="bell-badge"></span>
+                    </div>
+
+                    <div class="user-info">
+                        <img src="./anh/avatar.jpg" alt="User Avatar" class="user-avatar">
+
+                        <div class="user-details">
+                            <p class="user-name">Xuân Phát</p>
+                            <p class="user-role">Staff</p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-area">
+
+                <div class="toolbar-qldh">
+                    <div>
+                        <h1>Quản lý Kho (Sản phẩm)</h1>
+                        <p>Quản lý danh sách sản phẩm, thương hiệu và tồn kho</p>
+                    </div>
+                    <button class="create-btn">+ Thêm sản phẩm mới</button>
+                </div>
+
+                <div class="customer-table-container">
+                    <div class="table-container">
+                        <table class="orders-table table-hoverable">
+                            <thead>
+                                <tr>
+                                    <th>Hình ảnh</th>
+                                    <th>Tên sản phẩm</th>
+                                    <th>Danh mục</th>
+                                    <th>Thương hiệu</th>
+                                    <th>Giá bán</th>
+                                    <th>Tồn kho</th>
+                                    <th>Trạng thái</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr
+                                    onclick="openProductModal('Bộ PC Gaming i5-12400F', 'PC Gaming', 'Intel', '15.500.000 đ', '153', 'Còn Hàng')">
+                                    <td><img src="./anh/products.png" alt="thumbnail" class="product-thumbnail"></td>
+                                    <td><b>Bộ PC Gaming i5-12400F</b></td>
+                                    <td>PC Gaming</td>
+                                    <td>Intel</td>
+                                    <td style="font-weight: 700; color: #1e293b;">15.500.000 đ</td>
+                                    <td style="font-weight: 600;">153</td>
+                                    <td><span class="status status-completed">Còn Hàng</span></td>
+                                </tr>
+                                <tr
+                                    onclick="openProductModal('Tản Nhiệt CPU Jonsbo', 'Linh kiện', 'Jonsbo', '550.000 đ', '5', 'Còn Hàng')">
+                                    <td><img src="./anh/products.png" alt="thumbnail" class="product-thumbnail"></td>
+                                    <td><b>Tản Nhiệt CPU Jonsbo</b></td>
+                                    <td>Linh kiện</td>
+                                    <td>Jonsbo</td>
+                                    <td style="font-weight: 700; color: #1e293b;">550.000 đ</td>
+                                    <td style="font-weight: 600;">5</td>
+                                    <td><span class="status status-completed">Còn Hàng</span></td>
+                                </tr>
+                                <tr
+                                    onclick="openProductModal('Keycap xuyên led', 'Phụ kiện', 'OEM', '250.000 đ', '0', 'Hết Hàng')">
+                                    <td><img src="./anh/products.png" alt="thumbnail" class="product-thumbnail"></td>
+                                    <td><b>Keycap xuyên led</b></td>
+                                    <td>Phụ kiện</td>
+                                    <td>OEM</td>
+                                    <td style="font-weight: 700; color: #1e293b;">250.000 đ</td>
+                                    <td style="font-weight: 600;">0</td>
+                                    <td><span class="status status-canceled"
+                                            style="background: #fee2e2; color: #dc2626;">Hết Hàng</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="pagination-container">
+                        <div class="pagination-info">Hiển thị <b>1 - 3</b> của <b>120</b> sản phẩm</div>
+                        <div class="pagination-buttons">
+                            <button class="page-btn" disabled>Trước</button>
+                            <button class="page-btn active">1</button>
+                            <button class="page-btn">2</button>
+                            <button class="page-btn">Sau</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <div id="productModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Chi tiết sản phẩm</h2>
+                <span class="close-btn" onclick="closeProductModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="product-detail-grid">
+                    <div class="product-detail-img">
+                        <img src="./anh/products.png" alt="Ảnh sản phẩm">
+                    </div>
+                    <div class="product-detail-info">
+                        <h3 id="modal-sp-name">Tên sản phẩm</h3>
+                        <div class="detail-row"><span class="detail-label">Danh mục:</span> <span
+                                id="modal-sp-cate">...</span></div>
+                        <div class="detail-row"><span class="detail-label">Thương hiệu:</span> <span
+                                id="modal-sp-brand">...</span></div>
+                        <div class="detail-row"><span class="detail-label">Tồn kho:</span> <span id="modal-sp-stock"
+                                style="font-weight: bold;">...</span></div>
+                        <div class="detail-row"><span class="detail-label">Trạng thái:</span> <span
+                                id="modal-sp-status">...</span></div>
+                        <div class="detail-price" id="modal-sp-price">0 đ</div>
+                    </div>
+                </div>
+                <div class="product-desc">
+                    <h4>Mô tả sản phẩm:</h4>
+                    <p>Thông tin mô tả chi tiết của sản phẩm sẽ được hiển thị ở đây. (Nội dung này sau này sẽ được lấy
+                        từ cơ sở dữ liệu).</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-edit">✎ Chỉnh sửa</button>
+                <button class="btn-delete">🗑 Xóa sản phẩm</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openProductModal(name, category, brand, price, stock, status) {
+            document.getElementById('modal-sp-name').innerText = name;
+            document.getElementById('modal-sp-cate').innerText = category;
+            document.getElementById('modal-sp-brand').innerText = brand;
+            document.getElementById('modal-sp-price').innerText = price;
+            document.getElementById('modal-sp-stock').innerText = stock;
+
+            let statusHtml = status === 'Còn Hàng'
+                ? '<span class="status status-completed">Còn Hàng</span>'
+                : '<span class="status status-canceled" style="background: #fee2e2; color: #dc2626;">Hết Hàng</span>';
+            document.getElementById('modal-sp-status').innerHTML = statusHtml;
+
+            document.getElementById('productModal').style.display = 'flex';
+        }
+
+        function closeProductModal() {
+            document.getElementById('productModal').style.display = 'none';
+        }
+
+        // Nhấn ra ngoài khoảng tối để đóng Popup
+        window.onclick = function (event) {
+            var modal = document.getElementById('productModal');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+    <div id="logoutConfirm" class="modal-overlay">
+        <a href="#"
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; cursor: default;"></a>
+
+        <div class="modal-content" style="width: 400px; text-align: center; z-index: 2; position: relative;">
+            <div class="modal-header">
+                <h2>Xác nhận đăng xuất</h2>
+                <a href="#" class="close-btn" style="text-decoration: none;">&times;</a>
+            </div>
+            <div class="modal-body">
+                <p style="font-size: 16px; color: #475569; margin-bottom: 10px;">Bạn có chắc chắn muốn thoát khỏi hệ
+                    thống không?</p>
+            </div>
+            <div class="modal-footer" style="justify-content: center; gap: 15px;">
+                <a href="#" class="btn-edit"
+                    style="background: #f1f5f9; color: #64748b; text-decoration: none; display: inline-block;">Hủy
+                    bỏ</a>
+
+                <a href="login.html" class="btn-delete"
+                    style="background: #ef4444; color: white; text-decoration: none; display: inline-block;">Đăng
+                    xuất</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

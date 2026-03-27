@@ -1,0 +1,267 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Main Container */
+.container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+/* Left Section - Gaming Background */
+.left-section {
+    flex: 1;
+    position: relative;
+    background: url('https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=1200&q=80') center/cover no-repeat;
+    overflow: hidden;
+}
+
+.background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(134.535deg, rgba(78, 78, 78, 0.5) 0%, rgba(78, 78, 78, 0.3) 50%, rgb(15, 23, 42) 100%);
+}
+
+/* Right Section - Login Form */
+.right-section {
+    width: 408px;
+    background: #f9e55b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 408px;
+    background: #fff6d6;
+    border-radius: 35px;
+    padding: 48px 40px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+/* Logo Section */
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 48px;
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 8px;
+}
+
+.brand-name {
+    text-align: center;
+}
+
+.brand-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #000;
+    letter-spacing: 2px;
+}
+
+.brand-subtitle {
+    font-size: 10px;
+    font-weight: 400;
+    color: #666;
+    letter-spacing: 4px;
+}
+
+/* Form Styles */
+.login-form {
+    margin-bottom: 28px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-label {
+    display: block;
+    font-size: 14.703px;
+    font-weight: 700;
+    color: #38bdf8;
+    margin-bottom: 8px;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.input-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+}
+
+.form-input {
+    width: 100%;
+    height: 52px;
+    padding: 10px 16px 10px 46px;
+    border: 2px solid #38bdf8;
+    border-radius: 12px;
+    background: white;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    color: #374151;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.form-input:focus {
+    border-color: #2a8fbf;
+}
+
+.form-input::placeholder {
+    color: #9ca3af;
+}
+
+/* Login Button */
+.btn-login {
+    width: 185px;
+    height: 56px;
+    background: #f59e0b;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+    margin: 20px auto 0;
+    display: block;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn-login:hover {
+    background: #d97706;
+    transform: translateY(-2px);
+}
+
+.btn-login:active {
+    transform: translateY(0);
+}
+
+/* Form Links */
+.form-links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.link {
+    font-size: 14px;
+    font-weight: 700;
+    color: #38bdf8;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.link:hover {
+    color: #2a8fbf;
+    text-decoration: underline;
+}
+
+/* Social Login Buttons */
+.social-login {
+    margin-top: 30px;
+}
+
+.btn-social {
+    width: 100%;
+    height: 52px;
+    background: white;
+    border: 2px solid #fde047;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    color: black;
+    cursor: pointer;
+    margin-bottom: 11px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn-social:hover {
+    background: #fffbeb;
+    transform: translateY(-2px);
+}
+
+.btn-social:active {
+    transform: translateY(0);
+}
+
+.social-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Copyright */
+.copyright {
+    text-align: center;
+    font-size: 13.885px;
+    color: #6b7280;
+    margin-top: 30px;
+    line-height: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .left-section {
+        display: none;
+    }
+
+    .right-section {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .right-section {
+        padding: 10px;
+    }
+
+    .login-card {
+        padding: 30px 20px;
+        border-radius: 20px;
+    }
+
+    .form-links {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .btn-login {
+        width: 100%;
+    }
+}
